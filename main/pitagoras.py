@@ -17,9 +17,9 @@ def hypotenuse(a, b):
 
 # entradas y lógica
 
-choice = input("Incógnita (cateto A [a], cateto B [b], hipotenusa [h]): ")
+choice = input("(Incógnita [cateto A (a), cateto B (b), hipotenusa (h)]): ")
 if choice == "a":
-    inputs = input("Valores establecidos (cateto B, hipotenusa): ")
+    inputs = input("(cateto B, hipotenusa): ")
     inputs_sep = inputs.split(',')
     if len(inputs_sep) == 2:
         b0, h0 = inputs_sep[:2]
@@ -31,7 +31,7 @@ if choice == "a":
         exit(0)
 
 elif choice == "b":
-    inputs = input("Valores establecidos (cateto A, hipotenusa): ")
+    inputs = input("(cateto A, hipotenusa): ")
     inputs_sep = inputs.split(',')
     if len(inputs_sep) == 2:
         a0, h0 = inputs_sep[:2]
@@ -43,7 +43,7 @@ elif choice == "b":
         exit(0)
 
 elif choice == "h":
-    inputs = input("Valores establecidos (cateto A, cateto B): ")
+    inputs = input("(cateto A, cateto B): ")
     inputs_sep = inputs.split(',')
     if len(inputs_sep) == 2:
         a0, b0 = inputs_sep[:2]
