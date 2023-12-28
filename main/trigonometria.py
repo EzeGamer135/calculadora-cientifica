@@ -36,7 +36,7 @@ def ep(a):  # exponente
 
 # entradas y lógica
 
-entradas = input("Entradas (Operación [sqrt, log, sin, cos, tan, abs, round, exp]), (Valor): ")
+entradas = input("(Operación [sqrt, log, sin, cos, tan, abs, round, exp]), (Valor): ")
 entradas0 = entradas.split(',')
 if len(entradas0) == 2:
     choice, a0 = entradas0[:2]
