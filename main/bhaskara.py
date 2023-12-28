@@ -26,7 +26,7 @@ def det(a, b, c):
 
 # entradas y lógica
 
-inputs = input("Ingrese los valores (a, b, c): ")
+inputs = input("(a, b, c): ")
 inputs_sep = inputs.split(',')
 if len(inputs_sep) == 3:
     a0, b0, c0 = inputs_sep[:3]
