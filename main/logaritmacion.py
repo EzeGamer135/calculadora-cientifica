@@ -4,7 +4,7 @@ from math import *
 def logs(x, b):
     return log10(b) / log10(x)
 
-entradas = input("Valores establecidos (Base, Argumento): ")
+entradas = input("(Base, Argumento): ")
 entradas0 = entradas.split(',')
 if len(entradas0) == 2:
     x0, b0 = entradas0[:2]
