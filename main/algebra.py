@@ -13,7 +13,7 @@ def deriv(x, n):  # derivada
 
 # entradas y lógica
 
-entradas = input("Entradas (Operación [intg, deriv], x, potencia): ")
+entradas = input("(Operación [intg, deriv], x, potencia): ")
 entradas0 = entradas.split(',')
 if len(entradas0) == 3:
     choice, x0, n0 = entradas0[:3]
