@@ -32,7 +32,7 @@ def ecu(a, b, c, x):  # 'x' es el número a la derecha de la igualdad
 
 # entradas
 
-entradas = input("Valores establecidos (a, b(x), c, x): ")
+entradas = input("(a, b(x), c, x): ")
 entradas0 = entradas.split(',')
 if len(entradas0) == 4:
     a0, b0, c0, x0 = entradas0[:4]
