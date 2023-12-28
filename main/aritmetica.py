@@ -25,7 +25,7 @@ def av(a, b):  # promedio
 
 # entradas y lógica
 
-entradas = input("Entradas (Operación [add, res, mul, div, av]), (Valor 1), (Valor 2): ")
+entradas = input("(Operación [add, res, mul, div, av]), (Valor 1), (Valor 2): ")
 entradas0 = entradas.split(',')
 if len(entradas0) == 3:
     choice, a0, b0 = entradas0[:3]
