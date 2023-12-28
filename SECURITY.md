@@ -1,0 +1,18 @@
+# Políticas de seguridad
+
+## Versiones soportadas
+
+| Versión | Soportado          |
+| ------- | ------------------ |
+| < 2.0   | :x:                |
+| > 2.0   | :white_check_mark: |
+
+## Reportando una vulnerabilidad
+
+Si has identificado una vulnerabilidad de seguridad, se agradece tu ayuda para informar sobre la misma:
+1. Abre un nuevo _issue_ (problema): Selecciona la pestaña "Issues" en la parte superior del sitio.
+2. Crea un nuevo issue: Resume la vulnerabilidad en el primer párrafo de la descripción, en el segundo párrafo, intenta detallar lo máximo posible.
+3. Clasificar: Asigna la etiqueta "Vulnerabilidad" a el problema para facilitar el acceso a el propietario.
+4. Solucionado la vulnerabilidad, se archivará el problema.
+
+Gracias por el aporte!
