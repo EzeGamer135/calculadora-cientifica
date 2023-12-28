@@ -7,7 +7,7 @@ def monto(vp, ip, n):
 
 # entradas
 
-entradas = input("Valores establecidos (Valor presente, Tasa de interés (%), Períodos): ")
+entradas = input("(Valor presente, Tasa de interés (%), Períodos): ")
 entradas0 = entradas.split(',')
 if len(entradas0) == 3:
     vp0, ip0, n0 = entradas0[:3]
