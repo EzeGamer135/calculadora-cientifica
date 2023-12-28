@@ -36,27 +36,27 @@ def ep(a):  # exponente
 
 # entradas y lógica
 
-entradas = input("Entradas (Operación [sr, lg, sn, co, tn, ab, rnd, ep]), (Valor): ")
+entradas = input("Entradas (Operación [sqrt, log, sin, cos, tan, abs, round, exp]), (Valor): ")
 entradas0 = entradas.split(',')
 if len(entradas0) == 2:
     choice, a0 = entradas0[:2]
     choice = choice.strip()
     a0 = float(a0.strip())
-    if choice == "sr":
+    if choice == "sqrt":
         print(round(sr(a0), 5))
-    elif choice == "lg":
+    elif choice == "log":
         print(round(lg(a0), 5))
-    elif choice == "sn":
+    elif choice == "sin":
         print(round(sn(a0), 5))
-    elif choice == "co":
+    elif choice == "cos":
         print(round(co(a0), 5))
-    elif choice == "tn":
+    elif choice == "tan":
         print(round(tn(a0), 5))
-    elif choice == "ab":
+    elif choice == "abs":
         print(round(ab(a0), 5))
-    elif choice == "rnd":
+    elif choice == "round":
         print(rnd(a0))
-    elif choice == "ep":
+    elif choice == "exp":
         print(round(ep(a0), 5))
     else:
         print("Valor no permitido.")
