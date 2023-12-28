@@ -51,3 +51,5 @@ if tipo_grafica_elegida == 'linea':
     graficar(tipo_grafica_elegida, tipo_eje_x_elegido)
 else:
     graficar(tipo_grafica_elegida, None)
+
+# El archivo será editado para facilitar la manipulación del usuario.
