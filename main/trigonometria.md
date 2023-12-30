@@ -1,3 +1,6 @@
+# Funciones Trigonométricas
+[Raíz cuadrada](https://es.wikipedia.org/wiki/Raíz_cuadrada), [logaritmo](https://es.wikipedia.org/wiki/Logaritmo), [seno](https://es.wikipedia.org/wiki/Seno_(trigonometría)), [coseno](https://es.wikipedia.org/wiki/Coseno), [tangente](https://es.wikipedia.org/wiki/Tangente_(trigonometría)), [absoluto](https://es.wikipedia.org/wiki/Valor_absoluto), [redondeo](https://es.wikipedia.org/wiki/Redondeo), [exponente](https://es.wikipedia.org/wiki/Potenciación)
+```
 from math import *
 
 # funciones
