@@ -1,3 +1,7 @@
+# Teorema de Pitágoras
+## $$h=\sqrt{a^2+b^2}$$ $$a=\sqrt{h^2-b^2}$$ $$b=\sqrt{h^2-a^2}$$
+Sirve para calcular la longitud de un lado en triángulos rectángulos.
+```
 from math import *
 
 # funciones
