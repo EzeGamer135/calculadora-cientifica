@@ -1,3 +1,7 @@
+# Logaritmación
+## $$\log_b{x} = y$$
+La logaritmación es el proceso inverso de la exponenciación, encuentra el exponente necesario para obtener un número dado mediante una base específica.
+```
 from math import *
 
 
