@@ -1,3 +1,7 @@
+# Interés Compuesto
+## $$M = VP \left(1 + \frac{ip}{n}\right)^{n}$$
+Esta fórmula permite calcular el monto final después de un periodo de tiempo, incluyendo tanto el capital inicial como los intereses generados y acumulados.
+```
 # función
 
 
