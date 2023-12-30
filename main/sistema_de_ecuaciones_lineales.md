@@ -1,3 +1,6 @@
+# Sistema de ecuaciones lineales
+![Sistema de ecuaciones lineales](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPV3zbGnABP6IkJglHE7tyW6WQWDuW9riTL9K0q92r9m1BoNlfjV5aFR6YozqN2hkfzA&usqp=CAU)
+```
 import numpy as np
 
 
