@@ -1,6 +1,6 @@
 # Calculadora Científica
 > [!TIP]
-> Los archivos base se encuentran en la carpeta [calculadora-cientifica/main](https://github.com/EzeGamer135/calculadora-cientifica-multiplataforma/tree/main/main)
+> Los archivos base se encuentran en la carpeta [/main/](https://github.com/EzeGamer135/calculadora-cientifica-multiplataforma/tree/main/main)
 >
 > Se aceptan Solicitudes de revisión.
 
