@@ -1,3 +1,7 @@
+# Fórmula curadrática ([Bhaskara](https://es.wikipedia.org/wiki/Ecuación_de_segundo_grado))
+## $$ax^2+bx+c=0\iff a\neq 0$$
+## $$x=\frac{-b±\sqrt{b^2-4ac}}{2a}$$
+```
 from math import sqrt
 
 # funciones
