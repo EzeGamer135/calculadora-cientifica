@@ -1,3 +1,6 @@
+# Álgebra básica
+## $$\int x(x)^n=\frac{x^{n+1}}{n+1}$$ $$y'=xn^{x-1}$$
+```
 # funciones
 
 
