@@ -1,3 +1,6 @@
+# Ecuación de primer Grado
+## $$a(b)c=x$$
+```
 # función
 
 def ecu(a, b, c, x):  # 'x' es el número a la derecha de la igualdad
