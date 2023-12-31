@@ -12,20 +12,20 @@ import pandas as pd
 
 
 def graficar(tipo_grafica, tipo_eje_x):
-    lista = []    # editar categorías
-    vals = []    # editar valores respectivamente a sus categorías
+    lista = []    # editar categorías (separar por comas)
+    vals = []    # editar valores respectivamente a sus categorías (separar por comas)
     
     if tipo_grafica == 'linea':
-        if tipo_eje_x == 'fechas':
-            x = pd.date_range('20230101', periods=10)    # edita la centidad de días en la sección 'periods=10' y la fecha de inicio del gráfico en '20230101' en formato AAAAMMDD
+        if tipo_eje_x == 'fecha':
+            x = pd.date_range('20230101', periods=10)    # edita la cantidad de períodos (días) en la sección 'periods' y la fecha de partida en '20230101' en formato AAAAMMDD
         else:
             x = list(range(10))
-        y = [3, 7, 2, 5, 8, 4, 6, 1, 9, 10]    # edita los valores del gráfico (la cantidad de valores coincidir con el valor insertado en 'periods=10')
+        y = [3, 7, 2, 5, 8, 4, 6, 1, 9, 10]    # edita los valores del gráfico (la cantidad de valores coincidir con el valor insertado en 'periods' y en 'range()')
 
         plt.figure(figsize=(13, 6))
         plt.plot(x, y)
         plt.title('Gráfica')    # editar título del gráfico
-        plt.xlabel('Fecha' if tipo_eje_x == 'fechas' else 'Iteraciones')
+        plt.xlabel('Fecha' if tipo_eje_x == 'fecha' else 'Iteraciones')
         plt.ylabel('Valores')    # editar etiqueta del eje Y
         plt.grid(True)    # 'true' para activar cuadrícula, 'false' para desactivarla
         plt.show()
