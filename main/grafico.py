@@ -3,8 +3,11 @@ import pandas as pd
 
 
 def graficar(tipo_grafica, tipo_eje_x):
+    # editar categorías
     lista = []
+    # editar valores respectivamente de sus categorías
     vals = []
+    
     if tipo_grafica == 'linea':
         if tipo_eje_x == 'fechas':
             x = pd.date_range('20230101', periods=10)
@@ -51,5 +54,3 @@ if tipo_grafica_elegida == 'linea':
     graficar(tipo_grafica_elegida, tipo_eje_x_elegido)
 else:
     graficar(tipo_grafica_elegida, None)
-
-# El archivo será editado para facilitar la manipulación del usuario.
