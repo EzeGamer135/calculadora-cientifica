@@ -1,4 +1,4 @@
-# Pitágoras
+# Ley del Coseno
 ## $$a = \sqrt{b^2 + c^2 - 2bc \cdot \cos(A)}$$
 La Ley de Cosenos se usa para encontrar la longitud de un lado de un triángulo cuando se conocen los otros dos lados y el ángulo entre ellos. Esta ley es útil en trigonometría y resuelve triángulos no necesariamente rectángulos.
 ```
