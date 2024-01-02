@@ -1,8 +1,8 @@
 # Calculadora Científica
 > [!TIP]
-> Los archivos base se encuentran en la carpeta [/main](https://github.com/EzeGamer135/calculadora-cientifica-multiplataforma/tree/main/main)
-> 
-> Los archivos del sitio web se encuentran en la carpeta raíz.
+> Los archivos base del código se encuentran en la carpeta [/main](https://github.com/EzeGamer135/calculadora-cientifica-multiplataforma/tree/main/main)
+>
+> Sitio web alojado en https://ezegamer135.github.io/calculadora-cientifica/. Los archivos se encuentran en la carpeta raíz.
 > 
 > Se aceptan [Solicitudes de revisión](https://github.com/EzeGamer135/calculadora-cientifica/pulls).
 
