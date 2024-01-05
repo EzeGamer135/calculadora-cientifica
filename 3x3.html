@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta charset="UTF-8">
     <title>Calculadora Científica</title>
   </head>
   <style>
+    #solution {
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
     body {
       font-family: "Microsoft JhengHei UI Light", sans-serif;
     }
@@ -35,5 +41,32 @@
       $$
     </h1>
     <p style="color:white;">En esencia, las ecuaciones lineales de 3x3 son utilizadas para modelar y resolver una variedad de problemas del mundo real donde hay tres variables interrelacionadas y restricciones que se pueden expresar en términos de ecuaciones lineales. Estos sistemas permiten encontrar soluciones que satisfagan simultáneamente todas las ecuaciones, lo que ayuda a comprender relaciones entre diferentes variables en contextos complejos.</p>
+    <!-- matraca -->
+    <div id="solution"></div>
+    <script>
+        function solveEquations() {
+            var coefficients = [];
+            var equations = 3;
+            for (var i = 0; i < equations; i++) {
+                var equation_coeffs = prompt("Ingrese los coeficientes de la ecuación " + (i + 1) + " separados por espacios:");
+                coefficients.push(equation_coeffs.split(' ').map(Number));
+            }
+            var results = [];
+            for (var i = 0; i < equations; i++) {
+                var result = parseFloat(prompt("Ingrese el resultado de la ecuación " + (i + 1) + ":"));
+                results.push(result);
+            }
+            var solution = numeric.solve(coefficients, results);
+            var solutionText = "La solución para las ecuaciones introducidas es: ";
+            var variables = ['x', 'y', 'z'];
+            for (var i = 0; i < solution.length; i++) {
+                solutionText += variables[i] + ' = ' + solution[i].toFixed(4) + '; ';
+            }
+            document.getElementById("solution").innerHTML = "<p>" + solutionText + "</p>";
+        }
+
+        solveEquations();
+    </script>
+    <!-- fin de la matraca -->
   </body>
 </html>
