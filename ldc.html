@@ -1,23 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculadora de la Ley del Coseno. Calcula los lados y ángulos de un triángulo con esta fórmula trigonométrica.">
+    <title>Ley del Coseno - Calculadora Científica</title>
+
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <meta charset="UTF-8">
-    <title>Calculadora Científica</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="css/style.css">
-  </head>
-  <style>
-    body {
-      font-family: "Microsoft JhengHei UI Light", sans-serif;
-    }
-  </style>
-  <body style="background-color:#303030">
-    <h3 style="color:white; text-align:left;"><a href="index.html" style="color:white;">Volver</a></h3><h1 style="color:white; text-align:center;">Ley del Coseno</h1>
-    <hr/>
-    <h2 style="color:white;">Fórmula general</h2>
-    <h1 style="color:white; text-align:center">$$α=\sqrt{b^2+c^2-2bc×cos(A)}$$</h1>
-    <p style="color:white;">La Ley del Coseno es un principio fundamental en trigonometría que describe la relación entre los lados y ángulos de un triángulo cualquiera, no solo limitado a triángulos rectángulos. Esta ley es una generalización del teorema de Pitágoras y se utiliza para encontrar longitudes de lados o ángulos en triángulos que no son necesariamente rectángulos.</p>
-  </body>
+
+    <style>
+        body {
+            background-color: #303030;
+            color: white;
+            font-family: "Microsoft JhengHei UI Light", sans-serif;
+            text-align: center;
+        }
+        main {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #303030;
+            text-align: center;
+        }
+        section {
+            margin-top: 30px;
+        }
+        h1 {
+            font-size: 30px;
+        }
+        #solution {
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            background-color: #444;
+        }
+        .input-field {
+            width: 80%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .reference-list {
+            color: white;
+            font-size: 14px;
+            margin-top: 30px;
+            background-color: #444;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h3 style="text-align: left;"><a href="index.html">← Volver</a></h3>
+        <h1>Ley del Coseno</h1>
+    </header>
+
+    <main>
+        <hr>
+
+        <section>
+            <h2>Fórmula general</h2>
+            <h1>
+                $$ \alpha = \sqrt{b^2 + c^2 - 2bc \cdot \cos(A)} $$
+            </h1>
+            <p>La Ley del Coseno establece una relación entre los lados y los ángulos de un triángulo cualquiera, no solo en triángulos rectángulos. Se usa para determinar longitudes de lados o ángulos en triángulos oblicuángulos (que no son rectángulos).</p>
+        </section>
+        <section class="reference-list">
+            <h3>Lista de Referencia de Variables</h3>
+            <ul>
+                <li><strong>b</strong>: Lado b del triángulo.</li>
+                <li><strong>c</strong>: Lado c del triángulo.</li>
+                <li><strong>A</strong>: Ángulo entre los lados b y c (en grados).</li>
+                <li><strong>α</strong>: El valor que queremos calcular, el lado opuesto al ángulo A.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+      <p><i>Regresa al <a href="index.html">inicio</a> para explorar más herramientas matemáticas.</i></p>
+    </footer>
+</body>
 </html>

@@ -1,21 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explicación sobre las ecuaciones de primer grado, su forma general y cómo resolverlas.">
+    <title>Ecuación de Primer Grado - Calculadora Científica</title>
+    
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <meta charset="UTF-8">
-    <title>Calculadora Científica</title>
-  </head>
-  <style>
-    body {
-      font-family: "Microsoft JhengHei UI Light", sans-serif;
-    }
-  </style>
-  <body style="background-color:#303030">
-    <h3 style="color:white; text-align:left;"><a href="index.html" style="color:white;">Volver</a></h3><h1 style="color:white; text-align:center;">Ecuación de 1<sup>er</sup> grado</h1>
-    <hr/>
-    <h2 style="color:white;">Incógnita x</h2>
-    <h1 style="color:white; text-align:center">$$y=mx+b$$</h1>
-    <p style="color:white;">Las ecuaciones de primer grado son ecuaciones algebraicas en las que la incógnita (variable) tiene un exponente de 1 y no hay términos de grado superior.</p>
-  </body>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            background-color: #303030;
+            color: white;
+            font-family: "Microsoft JhengHei UI Light", sans-serif;
+            text-align: center;
+        }
+        main {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #303030;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h3 style="text-align: left;"><a href="index.html">← Volver</a></h3>
+        <h1>Ecuación de Primer Grado</h1>
+    </header>
+
+    <main>
+        <hr>
+
+        <section>
+            <h2>Ecuación General</h2>
+            <h1>$$y = mx + b$$</h1>
+            <p>Las ecuaciones de primer grado son ecuaciones algebraicas en las que la incógnita (variable) tiene un exponente de 1, es decir, no hay potencias de la variable más altas que 1.</p>
+            <p>Esta es la forma más simple de una ecuación lineal, donde \( m \) es la pendiente de la recta y \( b \) es la intersección con el eje \( y \). Se trata de una relación directa entre dos variables que se puede representar gráficamente como una línea recta.</p>
+        </section>
+
+        <section>
+            <h2>Interpretación de los términos</h2>
+            <p>En la ecuación \( y = mx + b \):</p>
+            <ul>
+                <li><strong>m</strong>: pendiente de la recta, que representa el cambio de \( y \) por cada unidad de \( x \).</li>
+                <li><strong>b</strong>: intercepto en el eje \( y \), que es el valor de \( y \) cuando \( x = 0 \).</li>
+                <li><strong>x</strong>: variable independiente.</li>
+                <li><strong>y</strong>: variable dependiente que cambia en función de \( x \).</li>
+            </ul>
+        </section>
+
+        <hr>
+    </main>
+
+    <footer>
+        <p><i>Regresa al <a href="index.html">inicio</a> para explorar más herramientas matemáticas.</i></p>
+    </footer>
+
+</body>
 </html>

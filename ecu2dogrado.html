@@ -1,23 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explicación sobre las ecuaciones de segundo grado y cómo resolverlas mediante la fórmula cuadrática.">
+    <title>Ecuaciones de Segundo Grado - Calculadora Científica</title>
+    
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <meta charset="UTF-8">
-    <title>Calculadora Científica</title>
-  </head>
-  <style>
-    body {
-      font-family: "Microsoft JhengHei UI Light", sans-serif;
-    }
-  </style>
-  <body style="background-color:#303030">
-    <h3 style="color:white; text-align:left;"><a href="index.html" style="color:white;">Volver</a></h3><h1 style="color:white; text-align:center;">Ecuaciones de 2<sup>do</sup> grado</h1>
-    <hr/>
-    <h2 style="color:white;">Fórmula general</h2>
-    <h1 style="color:white;">$$ax^2+bx+c=0$$</h1>
-    <h2 style="color:white;">Soluciones (raíces)</h2>
-    <h1 style="color:white; text-align:center">$$x=\frac{-b±\sqrt{b^2-4ac}}{2a}$$</h1>
-    <p style="color:white;">Las ecuaciones de segundo grado son ecuaciones algebraicas que incluyen términos con exponente 2 en la incógnita (variable) y no tienen términos de grado superior. La fórmula cuadrática es una herramienta específica utilizada para resolver estas ecuaciones y encontrar las raíces (soluciones) de la ecuación.</p>
-  </body>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            background-color: #303030;
+            color: white;
+            font-family: "Microsoft JhengHei UI Light", sans-serif;
+            text-align: center;
+        }
+        main {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #303030;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h3 style="text-align: left;"><a href="index.html">← Volver</a></h3>
+        <h1>Ecuaciones de Segundo Grado</h1>
+    </header>
+
+    <main>
+        <hr>
+
+        <section>
+            <h2>Fórmula General</h2>
+            <h1>$$ax^2 + bx + c = 0$$</h1>
+            <p>Las ecuaciones de segundo grado son ecuaciones algebraicas en las que la incógnita (variable) aparece elevada al exponente 2. Tienen la forma general \( ax^2 + bx + c = 0 \), donde \( a \), \( b \), y \( c \) son constantes y \( a \neq 0 \). Estas ecuaciones pueden tener dos soluciones reales o complejas dependiendo del valor del discriminante \( b^2 - 4ac \).</p>
+        </section>
+
+        <section>
+            <h2>Soluciones (Raíces)</h2>
+            <h1>$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$</h1>
+            <p>La fórmula cuadrática es la herramienta estándar para encontrar las soluciones (raíces) de una ecuación de segundo grado. Dependiendo del valor de \( b^2 - 4ac \), se pueden obtener dos soluciones reales, una solución real doble o dos soluciones complejas.</p>
+            <p>El discriminante \( b^2 - 4ac \) nos indica:</p>
+            <ul>
+                <li>Si \( b^2 - 4ac > 0 \), existen dos soluciones reales y distintas.</li>
+                <li>Si \( b^2 - 4ac = 0 \), existe una solución real doble (también conocida como raíz doble).</li>
+                <li>Si \( b^2 - 4ac < 0 \), las soluciones son complejas (no reales).</li>
+            </ul>
+        </section>
+
+        <hr>
+    </main>
+
+    <footer>
+        <p><i>Regresa al <a href="index.html">inicio</a> para explorar más herramientas matemáticas.</i></p>
+    </footer>
+
+</body>
 </html>

@@ -1,72 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Solución de sistemas de ecuaciones lineales de 3x3 mediante matrices.">
+    <title>Sistemas de Ecuaciones Lineales - Calculadora Científica</title>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <meta charset="UTF-8">
-    <title>Calculadora Científica</title>
-  </head>
-  <style>
-    #solution {
-      color: white;
-      padding: 10px;
-      border-radius: 5px;
-    }
-    body {
-      font-family: "Microsoft JhengHei UI Light", sans-serif;
-    }
-  </style>
-  <body style="background-color:#303030">
-    <h3 style="color:white; text-align:left;"><a href="index.html" style="color:white;">Volver</a></h3><h1 style="color:white; text-align:center;">Sistema de Ecuaciones Lineales</h1>
-    <hr/>
-    <h2 style="color:white;">Sistemas Lineales</h2>
-    <h1 style="color:white; text-align:center">
-      $$
-        \begin{cases}
-        a_{1_1}b_{1_2}c_{1_3}=x_{1_4}\\
-        a_{2_1}b_{2_2}c_{2_3}=x_{2_4}\Leftrightarrow \\
-        a_{3_1}b_{3_2}c_{3_3}=x_{3_4}\\
-        \end{cases}
-        \begin{cases}
-        a_{4_1}b_{4_2}c_{4_3}=x_{4_4}\\
-        a_{5_1}b_{5_2}c_{5_3}=x_{5_4}\Leftrightarrow \\
-        a_{6_1}b_{6_2}c_{6_3}=x_{6_4}\\
-        \end{cases}
-        \begin{cases}
-        a_{7_1}b_{7_2}c_{7_3}=x_{7_4}\\
-        a_{8_1}b_{8_2}c_{8_3}=x_{8_4}\\
-        a_{9_1}b_{9_2}c_{9_3}=x_{9_4}\\
-        \end{cases}
-      $$
-    </h1>
-    <p style="color:white;">En esencia, las ecuaciones lineales de 3x3 son utilizadas para modelar y resolver una variedad de problemas del mundo real donde hay tres variables interrelacionadas y restricciones que se pueden expresar en términos de ecuaciones lineales. Estos sistemas permiten encontrar soluciones que satisfagan simultáneamente todas las ecuaciones, lo que ayuda a comprender relaciones entre diferentes variables en contextos complejos.</p>
-    <!-- matraca -->
-    <div id="solution"></div>
-    <script>
-        function solveEquations() {
-            var coefficients = [];
-            var equations = 3;
-            for (var i = 0; i < equations; i++) {
-                var equation_coeffs = prompt("Ingrese los coeficientes de la ecuación " + (i + 1) + " separados por espacios:");
-                coefficients.push(equation_coeffs.split(' ').map(Number));
-            }
-            var results = [];
-            for (var i = 0; i < equations; i++) {
-                var result = parseFloat(prompt("Ingrese el resultado de la ecuación " + (i + 1) + ":"));
-                results.push(result);
-            }
-            var solution = numeric.solve(coefficients, results);
-            var solutionText = "Las soluciones para las ecuaciones introducidas son: ";
-            var variables = ['x', 'y', 'z'];
-            for (var i = 0; i < solution.length; i++) {
-                solutionText += variables[i] + ' = ' + solution[i].toFixed(4) + '; ';
-            }
-            document.getElementById("solution").innerHTML = "<p>" + solutionText + "</p>";
-        }
 
-        solveEquations();
-    </script>
-    <!-- fin de la matraca -->
-  </body>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            background-color: #303030;
+            color: white;
+            font-family: "Microsoft JhengHei UI Light", sans-serif;
+            text-align: center;
+        }
+        main {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #303030;
+            text-align: center;
+        }
+        #solution {
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            background-color: #444444;
+        }
+        .form-input {
+            margin: 10px;
+            padding: 10px;
+            background-color: #444444;
+            border-radius: 5px;
+            width: calc(100% - 22px);
+            color: white;
+        }
+        .form-label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .form-container {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #2c2c2c;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h3 style="text-align: left;"><a href="index.html">← Volver</a></h3>
+        <h1>Sistema de Ecuaciones Lineales</h1>
+    </header>
+
+    <main>
+        <hr>
+
+        <section>
+            <h2>Representación esquemática estándar</h2>
+            <h1>
+                $$ 
+                \begin{cases}
+                    a_{1_1}x + a_{1_2}y + a_{1_3}z = x_{1} \\
+                    a_{2_1}x + a_{2_2}y + a_{2_3}z = x_{2} \\
+                    a_{3_1}x + a_{3_2}y + a_{3_3}z = x_{3}
+                \end{cases}
+                $$
+            </h1>
+            <p>Los sistemas de ecuaciones lineales de 3x3 se utilizan para modelar relaciones entre tres variables interdependientes, como en problemas de física, economía, ingeniería, y muchas otras ciencias. Resolver un sistema de ecuaciones lineales significa encontrar los valores de \(x\), \(y\), y \(z\) que satisfacen simultáneamente todas las ecuaciones del sistema.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p><i>Regresa al <a href="index.html">inicio</a> para explorar más herramientas matemáticas.</i></p>
+    </footer>
+
+</body>
 </html>

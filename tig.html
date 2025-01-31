@@ -1,21 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculadora para calcular la tasa de interés global, basada en la fórmula general que utiliza la tasa de interés y el número de periodos.">
+    <title>Tasa de Interés Global - Calculadora Científica</title>
+
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <meta charset="UTF-8">
-    <title>Calculadora Científica</title>
-  </head>
-  <style>
-    body {
-      font-family: "Microsoft JhengHei UI Light", sans-serif;
-    }
-  </style>
-  <body style="background-color:#303030">
-    <h3 style="color:white; text-align:left;"><a href="index.html" style="color:white;">Volver</a></h3><h1 style="color:white; text-align:center;">Tasa de Interés Global</h1>
-    <hr/>
-    <h2 style="color:white;">Fórmula general</h2>
-    <h1 style="color:white; text-align:center">$$g=(n+1)\left(\frac{i}{2}\right)$$</h1>
-    <p style="color:white;">En términos generales, la tasa de interés global podría referirse a una tasa promedio ponderada que representa el costo promedio de financiamiento para un país, región o incluso para el mundo en un determinado período de tiempo.</p>
-  </body>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            background-color: #303030;
+            color: white;
+            font-family: "Microsoft JhengHei UI Light", sans-serif;
+            text-align: center;
+        }
+        main {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #303030;
+            text-align: center;
+        }
+        section {
+            margin-top: 30px;
+        }
+        h1 {
+            font-size: 30px;
+        }
+        #solution {
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #444444;
+            margin-top: 20px;
+        }
+        .reference-list {
+            color: white;
+            font-size: 14px;
+            margin-top: 30px;
+            background-color: #444;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h3 style="text-align: left;"><a href="index.html">← Volver</a></h3>
+        <h1>Tasa de Interés Global</h1>
+    </header>
+
+    <main>
+        <hr>
+
+        <section>
+            <h2>Fórmula general</h2>
+            <h1>
+                $$ g = (n + 1)\left(\frac{i}{2}\right) $$
+            </h1>
+            <p>Esta fórmula calcula la tasa de interés global utilizando la tasa de interés nominal (i) y el número de periodos (n).</p>
+        </section>
+        <section class="reference-list">
+            <h2>Lista de Referencia de Variables</h2>
+            <ul>
+                <li><strong>n</strong>: Número de periodos o períodos de tiempo (por ejemplo, meses, años, etc.).</li>
+                <li><strong>i</strong>: Tasa de interés nominal expresada como porcentaje.</li>
+                <li><strong>g</strong>: Tasa de interés global calculada a partir de la fórmula.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p><i>Explora más herramientas matemáticas en el <a href="index.html">inicio</a>.</i></p>
+    </footer>
+</body>
 </html>

@@ -1,27 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculadora para el Teorema de Pitágoras. Resuelve la incógnita de un triángulo rectángulo.">
+    <title>Teorema de Pitágoras - Calculadora Científica</title>
+
     <script src="https://polyfill.io/v3/polyfill.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <meta charset="UTF-8">
-    <title>Calculadora Científica</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="css/style.css">
-  </head>
-  <style>
-    body {
-      font-family: "Microsoft JhengHei UI Light", sans-serif;
-    }
-  </style>
-  <body style="background-color:#303030">
-    <h3 style="color:white; text-align:left;"><a href="index.html" style="color:white;">Volver</a></h3><h1 style="color:white; text-align:center;">Teorema de Pitágoras</h1>
-    <hr/>
-    <h2 style="color:white;">Incógnita hipotenusa</h2>
-    <h1 style="color:white; text-align:center">$$h=\sqrt{a^2+b^2}$$</h1>
-    <h2 style="color:white;">Incógnita cateto a</h2>
-    <h1 style="color:white; text-align:center">$$a=\sqrt{h^2-b^2}$$</h1>
-    <h2 style="color:white;">Incógnita cateto b</h2>
-    <h1 style="color:white; text-align:center">$$b=\sqrt{h^2-a^2}$$</h1>
-    <p style="color:white;">El teorema de Pitágoras es un principio fundamental en geometría que establece la relación entre los lados de un triángulo rectángulo. Este teorema establece que en un triángulo rectángulo, el cuadrado de la longitud de la hipotenusa (el lado más largo, opuesto al ángulo recto) es igual a la suma de los cuadrados de las longitudes de los otros dos lados, llamados catetos.</p>
-  </body>
+
+    <style>
+        body {
+            background-color: #303030;
+            color: white;
+            font-family: "Microsoft JhengHei UI Light", sans-serif;
+            text-align: center;
+        }
+        main {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #303030;
+            text-align: center;
+        }
+        section {
+            margin-top: 30px;
+        }
+        h1 {
+            font-size: 30px;
+        }
+        input, button {
+            margin-top: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #ff9800;
+        }
+        .reference-list {
+            color: white;
+            font-size: 14px;
+            margin-top: 30px;
+            background-color: #444;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h3 style="text-align: left;"><a href="index.html">← Volver</a></h3>
+        <h1>Teorema de Pitágoras</h1>
+    </header>
+
+    <main>
+        <hr>
+
+        <section>
+            <h2>Incógnita Hipotenusa</h2>
+            <h1>
+                $$ h = \sqrt{a^2 + b^2} $$
+            </h1>
+            <p>Si conocemos los catetos \(a\) y \(b\), podemos hallar la hipotenusa \(h\) con esta fórmula.</p>
+        </section>
+
+        <section>
+            <h2>Incógnita Cateto \(a\)</h2>
+            <h1>
+                $$ a = \sqrt{h^2 - b^2} $$
+            </h1>
+            <p>Si conocemos la hipotenusa \(h\) y el cateto \(b\), podemos calcular el cateto \(a\) usando esta fórmula.</p>
+        </section>
+
+        <section>
+            <h2>Incógnita Cateto \(b\)</h2>
+            <h1>
+                $$ b = \sqrt{h^2 - a^2} $$
+            </h1>
+            <p>Si conocemos la hipotenusa \(h\) y el cateto \(a\), podemos calcular el cateto \(b\) con esta fórmula.</p>
+        </section>
+
+        <section class="reference-list">
+            <h2>Lista de Referencia de Variables</h2>
+            <ul style="text-align:left; margin: 0 auto; width: 70%;">
+                <li><strong>h</strong> - Hipotenusa: El lado opuesto al ángulo recto en un triángulo rectángulo.</li>
+                <li><strong>a</strong> - Cateto \(a\): Un lado adyacente al ángulo recto.</li>
+                <li><strong>b</strong> - Cateto \(b\): El otro lado adyacente al ángulo recto.</li>
+            </ul>
+        </section>
+
+        <section>
+            <p id="result"></p>
+        </section>
+    </main>
+
+    <footer>
+      <p><i>Regresa al <a href="index.html">inicio</a> para explorar más herramientas matemáticas.</i></p>
+    </footer>
+
+</body>
 </html>

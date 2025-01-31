@@ -1,53 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head> <!-- Esta sección contiene la 'metadata' del sitio web. -->
+<html lang="es">
+<head>
     <meta charset="UTF-8">
-    <meta name="description" content="Esta página contiene calculadoras para funciones matemáticas.">
-    <title>Calculadora Científica</title> <!-- Título del sitio -->
+    <meta name="description" content="Calculadora científica en línea con herramientas para álgebra, trigonometría y matemática financiera.">
+    <title>Calculadora Científica</title>
     <style>
-    body {
-      font-family: "Microsoft JhengHei UI Light", sans-serif; <!-- Fuente de letra -->
-    }
+        body {
+            background-color: #303030;
+            color: white;
+            font-family: "Microsoft JhengHei UI Light", sans-serif;
+            text-align: center;
+        }
+        a {
+            color: white;
+        }
+        main {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #303030;
+            text-align: center;
+        }
     </style>
-  </head>
-  <body style="background-color:#303030;"> <!-- Color del fondo de la página -->
-    <main> <!-- Sección principal del sitio -->
-      <h1 style="color:white; text-align:center;">Calculadora Científica</h1>
-      <p style="color:white; text-align:center;">Navega entre las <b>secciones</b> para acceder a los <b>artículos</b>. Cada sección tiene una corta descripción y un botón para redirigirte hacia una página explicativa sobre dicha función matemática.</p> <!-- Descripción del sitio web -->
-      <hr/>
-      <section>
-        <h2 style="color:white;">Sección: Álgebra</h2> <!-- Título de la sección -->
-        <h3><a href="log.html" style="color:white;">Logaritmación</a></h3> <!-- Botón de la categoría -->
-        <p style="color:white;">Proceso matemático inverso de la potenciación.</p> <!-- Descripción de la categoría -->
-        <h3><a href="derivadas.html" style="color:white;">Derivadas</a></h3> <!-- Botón de la categoría -->
-        <p style="color:white;">Ecuación general de la <b>derivación</b>.</p> <!-- Descripción de la categoría -->
-        <h3><a href="integrales.html" style="color:white;">Integrales</a></h3> <!-- Botón de la categoría -->
-        <p style="color:white;">Ecuación básica de la <b>Integración</b>.</p> <!-- Descripción de la categoría -->
-        <br/>
-        <h2 style="color:white;">Sección: Ecuaciones</h2> <!-- Título de la sección -->
-        <h3><a href="ecu1ergrado.html" style="color:white;">Ecuaciones de primer grado</a></h3> <!-- Botón de la categoría -->
-        <p style="color:white;">Ecuaciones que poseen al menos una incógnita de exponente <b>1</b>.</p> <!-- Descripción de la categoría -->
-        <h3><a href="ecu2dogrado.html" style="color:white;">Ecuaciones de segundo grado</a></h3> <!-- Botón de la categoría -->
-        <p style="color:white;">Ecuaciones que poseen al menos una incógnita de exponente <b>2</b>.</p> <!-- Descripción de la categoría -->
-        <h3><a href="3x3.html" style="color:white;">Sistema de Ecuaciones Lineales</a></h3> <!-- Botón de la categoría -->
-        <p style="color:white;">Utilizado para resolver las incógnitas <b>x, y, z</b> en base a 3 ecuaciones apiladas.</p> <!-- Descripción de la categoría -->
-        <br/>
-        <h2 style="color:white;">Sección: Trigonometría</h2> <!-- Título de la sección -->
-        <h3><a href="pitagoras.html" style="color:white;">Teorema de Pitágoras</a></h3> <!-- Botón de la categoría -->
-        <p style="color:white;">Ecuación general para resolver triángulos <b>rectángulos</b>.</p> <!-- Descripción de la categoría -->
-        <h3><a href="ldc.html" style="color:white;">Ley del Coseno</a></h3> <!-- Botón de la categoría -->
-        <p style="color:white;">Ecuación general para resolver triángulos <b>no rectángulos</b>.</p> <!-- Descripción de la categoría -->
-        <br/>
-        <h2 style="color:white;">Sección: Matemática <b>Financiera</b></h2> <!-- Título de la sección -->
-        <h3><a href="tig.html" style="color:white;">Tasa de Interés Global</a></h3> <!-- Botón de la categoría -->
-        <p style="color:white;">Indicador que refleja el <b>costo</b> del dinero a nivel mundial.</p> <!-- Descripción de la categoría -->
-        <h3><a href="int_comp.html" style="color:white;">Interés Compuesto</a></h3> <!-- Botón de la categoría -->
-        <p style="color:white;">Permite calcular el <b>monto</b> final después de un periodo de tiempo.</p> <!-- Descripción de la categoría -->
-        <hr/>
-      </section>
+</head>
+<body>
+
+    <header>
+        <h1>Calculadora Científica</h1>
+        <p>Accede a herramientas matemáticas interactivas y mejora tu comprensión de conceptos clave en álgebra, trigonometría y matemática financiera.</p>
+    </header>
+
+    <main>
+        <hr>
+
+        <section>
+            <h2>Álgebra</h2>
+            <h3><a href="log.html">Logaritmación</a></h3>
+            <p>Proceso matemático inverso de la potenciación, utilizado para resolver ecuaciones exponenciales.</p>
+
+            <h3><a href="derivadas.html">Derivadas</a></h3>
+            <p>Herramienta fundamental del cálculo diferencial que mide la tasa de cambio de una función respecto a una variable.</p>
+
+            <h3><a href="integrales.html">Integrales</a></h3>
+            <p>Operación matemática que permite calcular áreas bajo curvas, volúmenes y acumulación de cantidades a lo largo de un intervalo.</p>
+
+            <h3><a href="ecu1ergrado.html">Ecuaciones de Primer Grado</a></h3>
+            <p>Ecuaciones lineales con una incógnita de exponente <b>1</b>, cuya solución se obtiene despejando la variable.</p>
+
+            <h3><a href="ecu2dogrado.html">Ecuaciones de Segundo Grado</a></h3>
+            <p>Ecuaciones cuadráticas que incluyen una incógnita elevada al exponente <b>2</b>, resolubles mediante factorización, completación de cuadrados o fórmula general.</p>
+
+            <h3><a href="3x3.html">Sistemas de Ecuaciones Lineales</a></h3>
+            <p>Conjunto de ecuaciones con múltiples incógnitas cuya solución es el punto de intersección entre ellas, resolubles por sustitución, igualación o método de Gauss.</p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Trigonometría</h2>
+            <h3><a href="pitagoras.html">Teorema de Pitágoras</a></h3>
+            <p>Relación fundamental en triángulos rectángulos que establece que la suma de los cuadrados de los catetos es igual al cuadrado de la hipotenusa.</p>
+
+            <h3><a href="ldc.html">Ley del Coseno</a></h3>
+            <p>Extensión del Teorema de Pitágoras aplicable a triángulos no rectángulos, útil para calcular lados y ángulos desconocidos.</p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Matemática Financiera</h2>
+            <h3><a href="tig.html">Tasa de Interés Global</a></h3>
+            <p>Indicador que mide el costo del dinero a nivel mundial, influenciado por políticas económicas y mercados financieros.</p>
+
+            <h3><a href="int_comp.html">Interés Compuesto</a></h3>
+            <p>Método de capitalización en el que los intereses generados en cada período se suman al capital inicial, aumentando el crecimiento del monto final.</p>
+        </section>
+
+        <hr>
     </main>
-  </body>
-  <footer style="background-color:#303030;">  <!-- Esta sección contiene avisos para el usuario -->
-    <p style="color:white; text-align:center;"><i>Sigue los avances de la calculadora en el <a style="color:white;" href="https://www.github.com/EzeGamer135/calculadora-cientifica">Repositorio de GitHub</a></i>.</p>
-  </footer>
+
+    <footer>
+        <p><i>Consulta las actualizaciones y mejoras de la calculadora en el <a href="https://www.github.com/EzeGamer135/calculadora-cientifica">Repositorio de GitHub</a></i>.</p>
+    </footer>
+
+</body>
 </html>

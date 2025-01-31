@@ -1,25 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explicación detallada sobre la integración definida e indefinida, con fórmulas generales y aplicaciones en cálculo integral.">
+    <title>Integración - Calculadora Científica</title>
+    
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <meta charset="UTF-8">
-    <title>Calculadora Científica</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="css/style.css">
-  </head>
-  <style>
-    body {
-      font-family: "Microsoft JhengHei UI Light", sans-serif;
-    }
-  </style>
-  <body style="background-color:#303030">
-    <h3 style="color:white; text-align:left;"><a href="index.html" style="color:white;">Volver</a></h3><h1 style="color:white; text-align:center;">Integración</h1>
-    <hr/>
-    <h2 style="color:white;">Definidas</h2>
-    <h1 style="color:white; text-align:center">$$\int_a^b x=f(x)dx$$</h1>
-    <h2 style="color:white;">Indefinidas</h2>
-    <h1 style="color:white; text-align:center">$$\int x=\frac{x^{n+1}}{n+1}+C$$</h1>
-    <p style="color:white;">Una integral es un concepto matemático que se usa para encontrar el área bajo una curva o la acumulación de cantidades que cambian continuamente. Se descompone en infinitesimales segmentos, sumándolos para determinar una cantidad total, lo que permite resolver problemas relacionados con áreas, volúmenes y cantidades variables en diferentes contextos matemáticos y científicos.</p>
-  </body>
+
+    <style>
+        body {
+            background-color: #303030;
+            color: white;
+            font-family: "Microsoft JhengHei UI Light", sans-serif;
+            text-align: center;
+        }
+        main {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: #303030;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h3 style="text-align: left;"><a href="index.html">← Volver</a></h3>
+        <h1>Integración</h1>
+    </header>
+
+    <main>
+        <hr>
+
+        <section>
+            <h2>Integración Definida</h2>
+            <h1>$$\int_a^b f(x)dx$$</h1>
+            <p>La integral definida se utiliza para calcular el área bajo una curva \( f(x) \) entre los límites \( a \) y \( b \). Esta operación es fundamental en el cálculo de áreas, volúmenes y muchas otras aplicaciones físicas, económicas y científicas.</p>
+            <p>El valor de la integral definida se obtiene a través de un proceso de sumas infinitas de los valores de la función \( f(x) \) en el intervalo \([a, b]\), lo que permite encontrar el área total entre la curva y el eje \( x \).</p>
+        </section>
+
+        <section>
+            <h2>Integración Indefinida</h2>
+            <h1>$$\int x^n = \frac{x^{n+1}}{n+1} + C$$</h1>
+            <p>La integral indefinida tiene como objetivo encontrar la función original a partir de su derivada, en un proceso conocido como antiderivación. El resultado de una integral indefinida es una familia de funciones, que se distingue por una constante de integración \( C \), ya que la derivada de una constante es cero.</p>
+            <p>Este tipo de integración es clave para resolver problemas de movimiento, acumulación y otros fenómenos que involucran funciones variables en el tiempo o el espacio.</p>
+        </section>
+
+        <hr>
+    </main>
+
+    <footer>
+        <p><i>Regresa al <a href="index.html">inicio</a> para explorar más herramientas matemáticas.</i></p>
+    </footer>
+
+</body>
 </html>
