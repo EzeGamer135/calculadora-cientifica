@@ -1,6 +1,6 @@
 # Calculadora Científica
 > [!TIP]
-> Los archivos base del código se encuentran en la carpeta [/docs](https://github.com/EzeGamer135/calculadora-cientifica-multiplataforma/tree/main/docs)
+> Los archivos base del código se encuentran en la carpeta [/docs](https://github.com/EzeGamer135/calculadora-cientifica-multiplataforma/tree/main/docs).
 > 
 > Se aceptan [Solicitudes de revisión](https://github.com/EzeGamer135/calculadora-cientifica/pulls).
 
