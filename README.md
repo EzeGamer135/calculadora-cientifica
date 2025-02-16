@@ -6,7 +6,7 @@
 
 > [!IMPORTANT]
 > - [x] [**Rediseñar sitio web**](https://github.com/EzeGamer135/calculadora-cientifica-avanzada/issues/3) _#3_
-> - [ ] [**Programar GUI Interactivo**](https://github.com/EzeGamer135/calculadora-cientifica-avanzada/issues/4) _#4_
+> - [ ] [**Programar GUI Interactivo (1/10)**](https://github.com/EzeGamer135/calculadora-cientifica-avanzada/issues/4) _#4_
 
 > [!CAUTION]
 > El repositorio se encuentra bajo la [Licencia Apache 2.0](https://github.com/EzeGamer135/calculadora-cientifica?tab=Apache-2.0-1-ov-file#readme).
