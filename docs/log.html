@@ -87,9 +87,6 @@
     
         try {
             katex.render(latexExpr, document.getElementById('resultado'));
-        } catch (error) {
-            console.error("Error en KaTeX:", error);
-            document.getElementById('resultado').innerHTML = "⚠️ Error al renderizar.";
         }
     }
     
