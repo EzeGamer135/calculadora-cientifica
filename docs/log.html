@@ -55,9 +55,47 @@
             <p>$$b^y = x$$</p>
             <p>Esta función es útil en diversos campos, incluyendo matemáticas, informática y economía, permitiendo resolver ecuaciones exponenciales y analizar crecimiento exponencial.</p>
         </section>
-
         <hr>
     </main>
+    <ul>
+        <input type="number" id="numero" placeholder="Número x" step="any">
+        <input type="number" id="base" placeholder="Base b" step="any">
+    </ul>
+    
+    <div id="resultado"></div>
+    
+    <script>
+    function calcularLogaritmo() {
+        let x = parseFloat(document.getElementById('numero').value);
+        let b = parseFloat(document.getElementById('base').value);
+    
+        if (isNaN(x) || isNaN(b) || x <= 0 || b <= 0 || b === 1) {
+            document.getElementById('resultado').innerHTML = "Valores inválidos: x > 0, b > 0 y b ≠ 1.";
+            return;
+        }
+    
+        // Cálculo del logaritmo por cambio de base
+        let resultado = Math.log(x) / Math.log(b);
+    
+        let resultadoRedondeado = resultado.toFixed(6);
+    
+        let latexExpr = `
+        \\log_{${b}}(${x}) = \\frac{\\ln(${x})}{\\ln(${b})} = ${resultadoRedondeado}
+        `;
+    
+        console.log("LaTeX generado:", latexExpr);
+    
+        try {
+            katex.render(latexExpr, document.getElementById('resultado'));
+        } catch (error) {
+            console.error("Error en KaTeX:", error);
+            document.getElementById('resultado').innerHTML = "⚠️ Error al renderizar.";
+        }
+    }
+    
+    setInterval(calcularLogaritmo, 30);
+    </script>
+    
 
     <footer>
         <p><i>Regresa al <a href="index.html">inicio</a> para explorar más herramientas matemáticas.</i></p>

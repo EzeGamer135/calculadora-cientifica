@@ -57,13 +57,21 @@
 
         <section>
             <h2>Interpretación de los términos</h2>
-            <p>En la ecuación \(f(x)=\sum_{k=0}^{n}a_{k}x^{k}\):</p>
+            <p>En la ecuación \(f(x)=\sum_{n}^{k=0}a_{k}x^{k}\):</p>
             <ul>
                 <li><strong>\(\sum\)</strong>: toma todos los términos generados por la expresión \(a_{k}x^{k}\) mientras \(k\) recorre su rango y sumarlos.</li>
-                <li><strong>b</strong>: intercepto en el eje \( y \), que es el valor de \( y \) cuando \( x = 0 \).</li>
-                <li><strong>x</strong>: variable independiente.</li>
-                <li><strong>y</strong>: variable dependiente que cambia en función de \( x \).</li>
+                <li><strong>\(k\)</strong>: Es el índice de iteración. Un contador que va tomando valores enteros desde 0 hasta \(n\). Controla el exponente de \(x\) y qué coeficiente se usa en cada paso.</li>
+                <li><strong>\(0\let k\let n\)</strong>: Define el rango de la suma.</li>
+                <ul>
+                    <li>Cuando \(k=0\): aparece el término independiente \(a_{0}\).</li>
+                    <li>Cuando \(k=1\): aparece el término lineal \(a_{1}x\).</li>
+                    <li>Y así sucesivamente hasta \(k=n\), que produce el coeficiente principal \(a_{k}x^{k}\).</li>
+                </ul>
+                <li><strong>\(a_{k}\)</strong>: Es el coeficiente asociado a la potencia \(x^{k}\). Determina cuánto “pesa” cada término en el comportamiento total del polinomio.</li>
+                <li><strong>\(x^{k}\)</strong>: Es la variable elevada a la potencia \(k\). Controla cómo crece o decrece el término según el valor de \(x\).</li>
             </ul>
+            Desarrollando, la ecuación polinómica se ve así:
+            <p>$$f(x) = a_{n}x^{n}+\dotsc+a_{1}x+a_{0}$$</p>
         </section>
 
         <hr>

@@ -87,6 +87,52 @@
             </ul>
         </section>
     </main>
+    <ul>
+        <input type="number" id="capital" placeholder="Capital C" step="any">
+        <input type="number" id="tasa" placeholder="Tasa ip (%)" step="any">
+        <input type="number" id="veces" placeholder="n (capitalizaciones/año)" step="any">
+        <input type="number" id="tiempo" placeholder="Tiempo t (años)" step="any">
+    </ul>
+    
+    <div id="resultado"></div>
+    
+    <script>
+    function calcularInteresCompuesto() {
+        let C = parseFloat(document.getElementById('capital').value);
+        let ip = parseFloat(document.getElementById('tasa').value);
+        let n = parseFloat(document.getElementById('veces').value);
+        let t = parseFloat(document.getElementById('tiempo').value);
+    
+        if (isNaN(C) || isNaN(ip) || isNaN(n) || isNaN(t)) {
+            document.getElementById('resultado').innerHTML = "Ingrese valores válidos.";
+            return;
+        }
+    
+        // Convertir porcentaje a decimal
+        let tasaDecimal = ip / 100;
+    
+        // Fórmula interés compuesto
+        let M = C * Math.pow(1 + (tasaDecimal / n), n * t);
+    
+        // Redondeo elegante
+        let Mredondeado = M.toFixed(2);
+    
+        let latexExpr = `
+        M = ${C} \\left(1 + \\frac{${tasaDecimal}}{${n}} \\right)^{${n} \\cdot ${t}} = ${Mredondeado}
+        `;
+    
+        console.log("LaTeX generado:", latexExpr);
+    
+        try {
+            katex.render(latexExpr, document.getElementById('resultado'));
+        } catch (error) {
+            console.error("Error en KaTeX:", error);
+            document.getElementById('resultado').innerHTML = "⚠️ Error al renderizar.";
+        }
+    }
+    
+    setInterval(calcularInteresCompuesto, 30);
+    </script>
 
     <footer>
         <p><i>Explora más herramientas matemáticas en el <a href="index.html">inicio</a>.</i></p>

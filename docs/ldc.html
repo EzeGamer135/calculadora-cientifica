@@ -92,6 +92,54 @@
             </ul>
         </section>
     </main>
+    <ul>
+        <input type="number" id="ladoA" placeholder="Lado a" step="any">
+        <input type="number" id="ladoB" placeholder="Lado b" step="any">
+        <input type="number" id="anguloC" placeholder="Ángulo C (°)" step="any">
+    </ul>
+    
+    <div id="resultado"></div>
+    
+    <script>
+    function calcularLeyCoseno() {
+        let a = parseFloat(document.getElementById('ladoA').value);
+        let b = parseFloat(document.getElementById('ladoB').value);
+        let C = parseFloat(document.getElementById('anguloC').value);
+    
+        if (isNaN(a) || isNaN(b) || isNaN(C)) {
+            document.getElementById('resultado').innerHTML = "Ingrese valores válidos.";
+            return;
+        }
+    
+        if (a <= 0 || b <= 0) {
+            document.getElementById('resultado').innerHTML = "Los lados deben ser positivos.";
+            return;
+        }
+    
+        // Convertir grados a radianes
+        let rad = C * Math.PI / 180;
+    
+        // Ley del coseno
+        let c = Math.sqrt(a*a + b*b - 2*a*b*Math.cos(rad));
+        let cRedondeado = c.toFixed(6);
+    
+        let latexExpr = `
+        c = \\sqrt{${a}^2 + ${b}^2 - 2(${a})(${b})\\cos(${C}^\\circ)} = ${cRedondeado}
+        `;
+    
+        console.log("LaTeX generado:", latexExpr);
+    
+        try {
+            katex.render(latexExpr, document.getElementById('resultado'));
+        } catch (error) {
+            console.error("Error en KaTeX:", error);
+            document.getElementById('resultado').innerHTML = "⚠️ Error al renderizar.";
+        }
+    }
+    
+    setInterval(calcularLeyCoseno, 30);
+    </script>
+    
 
     <footer>
       <p><i>Regresa al <a href="index.html">inicio</a> para explorar más herramientas matemáticas.</i></p>

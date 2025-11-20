@@ -89,6 +89,68 @@
             <p>Los sistemas de ecuaciones lineales de 3x3 se utilizan para modelar relaciones entre tres variables interdependientes, como en problemas de física, economía, ingeniería, y muchas otras ciencias. Resolver un sistema de ecuaciones lineales significa encontrar los valores de \(x\), \(y\), y \(z\) que satisfacen simultáneamente todas las ecuaciones del sistema.</p>
         </section>
     </main>
+    <ul>
+        <label for="coef"></label>
+        <input type="number" id="coef" placeholder="Término m" step="any">
+    
+        <label for="exp"></label>
+        <input type="number" id="exp" placeholder="Término n" step="any">
+    </ul>
+    
+    <div id="resultado"></div>
+    
+    <script>
+    function calcularIntegral() {
+        let coef = parseFloat(document.getElementById('coef').value);
+        let exp = parseFloat(document.getElementById('exp').value);
+    
+        if (isNaN(coef) || isNaN(exp)) {
+            document.getElementById('resultado').innerHTML = "Ingrese valores válidos.";
+            return;
+        }
+    
+        let integral;
+    
+        // 📐 Caso especial: n = -1 → ln|x|
+        if (exp === -1) {
+            if (coef === 0) {
+                integral = "0";
+            } else if (coef === 1) {
+                integral = "\\ln|x| + C";
+            } else {
+                integral = `${coef}\\ln|x| + C`;
+            }
+        } else {
+            let nuevoExp = exp + 1;
+            let nuevoCoef = coef / nuevoExp;
+    
+            if (nuevoCoef === 0) {
+                integral = "0";
+            } else if (nuevoExp === 0) {
+                integral = `${nuevoCoef} + C`;
+            } else if (nuevoExp === 1) {
+                integral = `${nuevoCoef} x + C`;
+            } else {
+                integral = `${nuevoCoef} x^{${nuevoExp}} + C`;
+            }
+        }
+    
+        // 🖊 Expresión completa en LaTeX
+        let latexExpr = `\\int ${coef} x^{${exp}} \\, dx = ${integral}`;
+    
+        console.log("LaTeX generado:", latexExpr);
+    
+        try {
+            katex.render(latexExpr, document.getElementById('resultado'));
+        } catch (error) {
+            console.error("Error en KaTeX:", error);
+            document.getElementById('resultado').innerHTML = "⚠️ Error al renderizar.";
+        }
+    }
+    
+    setInterval(calcularIntegral, 30);
+    </script>
+    
 
     <footer>
         <p><i>Regresa al <a href="index.html">inicio</a> para explorar más herramientas matemáticas.</i></p>

@@ -109,7 +109,44 @@
             <p id="result"></p>
         </section>
     </main>
-
+    <ul>
+        <input type="number" id="catetoA" placeholder="Cateto a" step="any">
+        <input type="number" id="catetoB" placeholder="Cateto b" step="any">
+    </ul>
+    
+    <div id="resultado"></div>
+    
+    <script>
+    function calcularPitagoras() {
+        let a = parseFloat(document.getElementById('catetoA').value);
+        let b = parseFloat(document.getElementById('catetoB').value);
+    
+        if (isNaN(a) || isNaN(b) || a <= 0 || b <= 0) {
+            document.getElementById('resultado').innerHTML = "Ingrese catetos válidos y positivos.";
+            return;
+        }
+    
+        // Teorema de Pitágoras
+        let c = Math.sqrt(a*a + b*b);
+        let cRedondeado = c.toFixed(6);
+    
+        let latexExpr = `
+        c = \\sqrt{${a}^2 + ${b}^2} = ${cRedondeado}
+        `;
+    
+        console.log("LaTeX generado:", latexExpr);
+    
+        try {
+            katex.render(latexExpr, document.getElementById('resultado'));
+        } catch (error) {
+            console.error("Error en KaTeX:", error);
+            document.getElementById('resultado').innerHTML = "⚠️ Error al renderizar.";
+        }
+    }
+    
+    setInterval(calcularPitagoras, 30);
+    </script>
+    
     <footer>
       <p><i>Regresa al <a href="index.html">inicio</a> para explorar más herramientas matemáticas.</i></p>
     </footer>

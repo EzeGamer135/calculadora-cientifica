@@ -62,6 +62,140 @@
             <p>Este tipo de integración es clave para resolver problemas de movimiento, acumulación y otros fenómenos que involucran funciones variables en el tiempo o el espacio.</p>
         </section>
 
+        <section>
+            <h2>Aplicaciones de la Integración</h2>
+            <p>La integración tiene numerosas aplicaciones en diversas áreas, tales como:</p>
+            <ul>
+                <li>Cálculo de áreas bajo curvas y entre funciones.</li>
+                <li>Determinación de volúmenes de sólidos de revolución.</li>
+                <li>Modelado de fenómenos físicos como el movimiento y la acumulación de cantidades.</li>
+                <li>Resolución de problemas en economía, biología e ingeniería.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Tablas de integrales</h2>
+            <p>Existen tablas de integrales que recopilan las formas más comunes de funciones y sus respectivas integrales, facilitando el proceso de integración para funciones complejas.</p>
+            <table>
+                <caption>Tabla de integrales indefinidas esenciales</caption>
+                <thead>
+                  <tr>
+                    <th>Integral</th>
+                    <th>Resultado (antiderivada)</th>
+                    <th>Notas</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>∫ xⁿ dx</code></td>
+                    <td><code> xⁿ⁺¹ / (n+1) + C</code></td>
+                    <td class="small">n ≠ −1</td>
+                  </tr>
+                  <tr>
+                    <td><code>∫ x⁻¹ dx</code></td>
+                    <td><code> ln|x| + C</code></td>
+                    <td class="small">caso n = −1</td>
+                  </tr>
+                  <tr>
+                    <td><code>∫ e^{ax} dx</code></td>
+                    <td><code> (1/a) e^{ax} + C</code></td>
+                    <td class="small">a ≠ 0</td>
+                  </tr>
+                  <tr>
+                    <td><code>∫ a^{x} dx</code></td>
+                    <td><code> a^{x} / ln(a) + C</code></td>
+                    <td class="small">a > 0, a ≠ 1</td>
+                  </tr>
+                  <tr>
+                    <td><code>∫ sin x dx</code></td>
+                    <td><code> −cos x + C</code></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><code>∫ cos x dx</code></td>
+                    <td><code> sin x + C</code></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><code>∫ sec² x dx</code></td>
+                    <td><code> tan x + C</code></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><code>∫ csc² x dx</code></td>
+                    <td><code> −cot x + C</code></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><code>∫ sec x tan x dx</code></td>
+                    <td><code> sec x + C</code></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><code>∫ csc x cot x dx</code></td>
+                    <td><code> −csc x + C</code></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><code>∫ ln x dx</code></td>
+                    <td><code> x ln x − x + C</code></td>
+                    <td class="small">x>0 (forma más común por partes)</td>
+                  </tr>
+                  <tr>
+                    <td><code>∫ 1/(x² + a²) dx</code></td>
+                    <td><code> (1/a) arctan(x/a) + C</code></td>
+                    <td class="small">a > 0</td>
+                  </tr>
+                  <tr>
+                    <td><code>∫ 1/(x² − a²) dx</code></td>
+                    <td><code> (1/2a) ln| (x−a)/(x+a) | + C</code></td>
+                    <td class="small">|x| ≠ a</td>
+                  </tr>
+                  <tr>
+                    <td><code>∫ 1/√(a² − x²) dx</code></td>
+                    <td><code> arcsin(x/a) + C</code></td>
+                    <td class="small">|x| < a, a>0</td>
+                  </tr>
+                  <tr>
+                    <td><code>∫ arcsin x dx</code></td>
+                    <td><code> x·arcsin x + √(1−x²) + C</code></td>
+                    <td class="small">derivada por partes</td>
+                  </tr>
+                  <tr>
+                    <td><code>∫ arctan x dx</code></td>
+                    <td><code> x·arctan x − ½ ln(1+x²) + C</code></td>
+                    <td class="small">derivada por partes</td>
+                  </tr>
+                  <tr>
+                    <td><code>∫ sinh x dx</code></td>
+                    <td><code> cosh x + C</code></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><code>∫ cosh x dx</code></td>
+                    <td><code> sinh x + C</code></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><code>∫ 1/(x√(x²−a²)) dx</code></td>
+                    <td><code> (1/a) sec^{-1}(|x|/a) + C</code></td>
+                    <td class="small">variante; usar sustituciones trig/hiperbol.</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="3" class="small">
+                      <strong>Fórmulas útiles:</strong>
+                      <ul>
+                        <li><code>∫ u dv = u v − ∫ v du</code> (Integración por partes).</li>
+                        <li><code>∫ f(g(x)) g'(x) dx = ∫ f(u) du</code> con <code>u = g(x)</code> (Sustitución).</li>
+                        <li>Siempre añade <code>+ C</code> para la constante de integración.</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>            
+        </section>
         <hr>
     </main>
 
