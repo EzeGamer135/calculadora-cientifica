@@ -6,9 +6,11 @@
     <meta name="description" content="Calculadora para el Teorema de Pitágoras. Resuelve la incógnita de un triángulo rectángulo.">
     <title>Teorema de Pitágoras - Calculadora Científica</title>
 
-    <script src="https://polyfill.io/v3/polyfill.js?features=es6"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.0.0/math.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
 
     <style>
@@ -36,21 +38,32 @@
             background-color: #303030;
             text-align: center;
         }
-        section {
-            margin-top: 30px;
-        }
-        h1 {
-            font-size: 30px;
-        }
-        input, button {
-            margin-top: 10px;
-            padding: 8px;
+        input {
+            width: 250px;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
             font-size: 16px;
+            outline: none;
+            background-color: #ffffff;
+            text-align: center;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
         }
-        #result {
+
+        input::placeholder {
+            color: gray;
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        input:focus {
+            background-color: #e0e0e0;
+        }
+
+        #resultado {
             margin-top: 20px;
-            font-size: 18px;
-            color: #ff9800;
+            font-size: 20px;
+            font-weight: bold;
         }
         .reference-list {
             color: white;

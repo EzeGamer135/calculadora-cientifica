@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Solución de sistemas de ecuaciones lineales de 3x3 mediante matrices.">
-    <title>Sistemas de Ecuaciones Lineales - Calculadora Científica</title>
+    <title>Sistema de Ecuaciones Lineales - Calculadora Científica</title>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.0.0/math.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
 
     <style>
@@ -37,31 +37,40 @@
             background-color: #303030;
             text-align: center;
         }
-        #solution {
-            color: white;
+        input {
+            width: 250px;
             padding: 10px;
-            border-radius: 5px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+            background-color: #ffffff;
+            text-align: center;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        input::placeholder {
+            color: gray;
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        input:focus {
+            background-color: #e0e0e0;
+        }
+
+        #resultado {
             margin-top: 20px;
-            background-color: #444444;
-        }
-        .form-input {
-            margin: 10px;
-            padding: 10px;
-            background-color: #444444;
-            border-radius: 5px;
-            width: calc(100% - 22px);
-            color: white;
-        }
-        .form-label {
-            display: block;
-            margin-top: 10px;
+            font-size: 20px;
             font-weight: bold;
         }
-        .form-container {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #2c2c2c;
-            border-radius: 10px;
+        .reference-list {
+            color: white;
+            font-size: 14px;
+            margin-top: 30px;
+            background-color: #444;
+            padding: 10px;
+            border-radius: 5px;
         }
     </style>
 </head>

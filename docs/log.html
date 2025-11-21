@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explicación detallada de la logaritmación, con fórmula general y su aplicación en matemáticas.">
-    <title>Logaritmación - Calculadora Científica</title>
+    <title>Logaritmos - Calculadora Científica</title>
     
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.0.0/math.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
 
     <style>
@@ -36,6 +37,41 @@
             background-color: #303030;
             text-align: center;
         }
+        input {
+            width: 250px;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+            background-color: #ffffff;
+            text-align: center;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        input::placeholder {
+            color: gray;
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        input:focus {
+            background-color: #e0e0e0;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .reference-list {
+            color: white;
+            font-size: 14px;
+            margin-top: 30px;
+            background-color: #444;
+            padding: 10px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -57,42 +93,93 @@
         </section>
         <hr>
     </main>
+    
     <ul>
-        <input type="number" id="numero" placeholder="Número x" step="any">
+        <input type="number" id="num" placeholder="Logaritmando x" step="any">
         <input type="number" id="base" placeholder="Base b" step="any">
     </ul>
     
     <div id="resultado"></div>
     
+    <div id="resultado"></div>
+
     <script>
-    function calcularLogaritmo() {
-        let x = parseFloat(document.getElementById('numero').value);
-        let b = parseFloat(document.getElementById('base').value);
-    
-        if (isNaN(x) || isNaN(b) || x <= 0 || b <= 0 || b === 1) {
-            document.getElementById('resultado').innerHTML = "Valores inválidos: x > 0, b > 0 y b ≠ 1.";
-            return;
+        function calcularLogaritmo() {
+            const resultadoDiv = document.getElementById('resultado');
+
+            // Leer crudo para poder aceptar "1,5" y limpiarlo
+            let rawX = document.getElementById('num').value || "";
+            let rawB = document.getElementById('base').value || "";
+
+            // Normalizar: quitar espacios y cambiar comas por puntos
+            rawX = rawX.trim().replace(',', '.');
+            rawB = rawB.trim().replace(',', '.');
+
+            // Intentar parsear
+            const x = parseFloat(rawX);
+            const b = parseFloat(rawB);
+
+            // Comprobaciones y mensajes más precisos
+            if (!isFinite(x) && !isFinite(b)) {
+                resultadoDiv.textContent = "Ingrese valores numéricos para x y b.";
+                return;
+            }
+            if (!isFinite(x)) {
+                resultadoDiv.textContent = "Ingrese un número válido para x (x > 0).";
+                return;
+            }
+            if (!isFinite(b)) {
+                resultadoDiv.textContent = "Ingrese una base válida para b (b > 0 y b ≠ 1).";
+                return;
+            }
+            if (x <= 0) {
+                resultadoDiv.textContent = "x debe ser > 0.";
+                return;
+            }
+            if (b <= 0 || b === 1) {
+                resultadoDiv.textContent = "b debe ser > 0 y diferente de 1.";
+                return;
+            }
+
+            // Cálculo robusto: caso base 10 optimizado, caso base e (natural), o cambio de base.
+            let valor;
+            if (b === 10) {
+                // Math.log10 existe en la mayoría de navegadores modernos
+                valor = Math.log10 ? Math.log10(x) : Math.log(x) / Math.log(10);
+            } else if (b === Math.E) {
+                valor = Math.log(x); // log natural
+            } else {
+                valor = Math.log(x) / Math.log(b);
+            }
+
+            const valorStr = valor.toFixed(8).replace(/\.?0+$/,""); // limpieza de ceros finales
+
+            const latexExpr = `\\log_{${b}}(${x}) = ${valorStr}`;
+
+            // Render con KaTeX si está disponible; si no, fallback a texto.
+            try {
+                if (typeof katex !== "undefined" && katex.render) {
+                    katex.render(latexExpr, resultadoDiv, { throwOnError: false });
+                } else {
+                    resultadoDiv.textContent = latexExpr;
+                }
+            } catch (err) {
+                console.error("Error al renderizar KaTeX:", err);
+                resultadoDiv.textContent = `Resultado: ${valorStr}`;
+            }
         }
-    
-        // Cálculo del logaritmo por cambio de base
-        let resultado = Math.log(x) / Math.log(b);
-    
-        let resultadoRedondeado = resultado.toFixed(6);
-    
-        let latexExpr = `
-        \\log_{${b}}(${x}) = \\frac{\\ln(${x})}{\\ln(${b})} = ${resultadoRedondeado}
-        `;
-    
-        console.log("LaTeX generado:", latexExpr);
-    
-        try {
-            katex.render(latexExpr, document.getElementById('resultado'));
+
+        // Listeners más sanos
+        const elNum = document.getElementById('num');
+        const elBase = document.getElementById('base');
+
+        if (elNum && elBase) {
+            elNum.addEventListener('input', calcularLogaritmo);
+            elBase.addEventListener('input', calcularLogaritmo);
+        } else {
+            console.warn("No se encontraron inputs #num o #base en el DOM.");
         }
-    }
-    
-    setInterval(calcularLogaritmo, 30);
     </script>
-    
 
     <footer>
         <p><i>Regresa al <a href="index.html">inicio</a> para explorar más herramientas matemáticas.</i></p>

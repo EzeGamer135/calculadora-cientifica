@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explicación detallada sobre la derivación y su fórmula general, con aplicaciones en cálculo diferencial.">
-    <title>Derivación - Calculadora Científica</title>
+    <title>Derivadas - Calculadora Científica</title>
     
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -65,6 +64,14 @@
             font-size: 20px;
             font-weight: bold;
         }
+        .reference-list {
+            color: white;
+            font-size: 14px;
+            margin-top: 30px;
+            background-color: #444;
+            padding: 10px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -78,76 +85,79 @@
         <hr>
 
         <section>
-            <h2>Fórmula General</h2>
-            <h1>$$y' = (m \times n) x^{n-1}$$</h1>
-            <p>La derivada de una función \( mx^n \) representa su tasa de cambio instantáneo en relación con la variable independiente \( x \). En términos simples, mide cómo varía la función para pequeños cambios en \( x \).</p>
+            <h2>Definición</h2>
+            <h1>$$f'(x) = \lim_{h\to0}\frac{f(x+h)-f(x)}{h},x\ne h$$</h1>
+            <p>La derivada de una función \( f(x) \) representa su tasa de cambio instantáneo en relación con la variable independiente \( x \). En términos simples, mide cómo varía la función para pequeños cambios en \( x \).</p>
             <p>La derivada permite obtener información sobre la pendiente de la curva de la función en un punto específico, lo cual es útil en áreas como el análisis de optimización, el estudio del movimiento y la economía.</p>
             <p>A continuación, una clasificación y enumeración de las derivadas.</p>
             <ul>
                 <li>Derivada primera</li>
                 <ul>
                     <li>Cuando intersecta el eje x, indica un máximo o mínimo relativo de la función.</li>
-                    <li>Cuando es positiva, la función es creciente: \(\Delta x\gg0\)</li>
+                    <li>Cuando es positiva, la función es creciente: \(\frac{\Delta y}{\Delta x}\gt0\)</li>
+                    <li>Cuando es negativa, la función es decreciente: \(\frac{\Delta y}{\Delta x}\lt0\)</li>
                 </ul>
                 <li>Derivada segunda</li>
+                <ul>
+                    <li>Cuando es positiva, la función es cóncava hacia arriba.</li>
+                    <li>Cuando es negativa, la función es cóncava hacia abajo.</li>
+                    <li>Cuando intersecta el eje x, la función cambia de concavidad (punto de inflexión).</li>
+                </ul>
+                <li>Cuando no es derivable, hay un punto singular: se debe resolver o clasificar con cálculo de límites.</li>
+                <ul>
+                    <li>Punto angular: cambio brusco de pendiente.</li>
+                    <li>Punto cúspide: pendiente infinita (vertical).</li>
+                    <li>Punto de discontinuidad: salto en la función.</li>
+                </ul>
             </ul>
         </section>
 
         <hr>
     </main>
     <ul>
-        <label for="coef"></label>
         <input type="number" id="coef" placeholder="Término m" step="any">
-        
-        <label for="exp"></label>
         <input type="number" id="exp" placeholder="Término n" step="any">
     </ul>
     
     <div id="resultado"></div>
 
     <script>
-    function calcularDerivada() {
-        let coef = parseFloat(document.getElementById('coef').value);
-        let exp = parseFloat(document.getElementById('exp').value);
+        function calcularDerivada() {
+            let coef = parseFloat(document.getElementById('coef').value);
+            let exp = parseFloat(document.getElementById('exp').value);
 
-        if (isNaN(coef) || isNaN(exp)) {
-            document.getElementById('resultado').innerHTML = "Ingrese valores válidos.";
-            return;
+            if (isNaN(coef) || isNaN(exp)) {
+                document.getElementById('resultado').innerHTML = "Ingrese valores válidos.";
+                return;
+            }
+
+            let coefDerivada = coef * exp;
+            let expDerivada = exp - 1;
+
+            let derivada = "";
+
+            if (coefDerivada === 0) {
+                derivada = "0";
+            } else if (expDerivada === 0) {
+                derivada = `${coefDerivada}`;
+            } else if (expDerivada === 1) {
+                derivada = `${coefDerivada}x`;
+            } else {
+                derivada = `${coefDerivada}x^{${expDerivada}}`;
+            }
+
+            let latexExpr = `\\frac{d}{dx}(${coef}x^{${exp}}) = ${derivada}`;
+
+            try {
+                katex.render(latexExpr, document.getElementById('resultado'), {
+                    throwOnError: false
+                });
+            } catch {
+                document.getElementById('resultado').innerHTML = "⚠️ Error al renderizar.";
+            }
         }
-
-        // 🔥 Cálculo de la derivada
-        let coefDerivada = coef * exp;  // coef * exp
-        let expDerivada = exp - 1;      // exp - 1
-
-        // 📝 Crear la expresión derivada correctamente
-        let derivada;
-        if (coefDerivada === 0) {
-            derivada = "0"; // Si el coeficiente se hace 0, la derivada es 0
-        } else if (expDerivada === 0) {
-            derivada = `${coefDerivada}`; // Solo el coeficiente
-        } else if (expDerivada === 1) {
-            derivada = `${coefDerivada} x`; // No muestra exponente 1
-        } else if (expDerivada < 0) {
-            derivada = `\\frac{1}{${coefDerivada} x^{${expDerivada}}}`; // Conservamos los signos originales
-        } else {
-            derivada = `${coefDerivada} x^{${expDerivada}}`; // Caso normal
-        }
-
-        // 🔥 Formatear la expresión en LaTeX
-        let latexExpr = `\\frac{d}{dx} ${coef} x^{${exp}} = ${derivada}`;
-
-        // 🔍 Ver qué LaTeX estamos generando
-        console.log("Expresión LaTeX generada:", latexExpr);
-
-        // 🖋 Renderizar con KaTeX
-        try {
-            katex.render(latexExpr, document.getElementById('resultado'));
-        } catch (error) {
-            console.error("Error en KaTeX:", error);
-            document.getElementById('resultado').innerHTML = "⚠️ Error al renderizar.";
-        }
-    }
-    setInterval(calcularDerivada, 30);
+        document.getElementById('coef').addEventListener('input', calcularDerivada);
+        document.getElementById('exp').addEventListener('input', calcularDerivada);
     </script>
 
     <footer>
