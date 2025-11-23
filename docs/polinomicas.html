@@ -86,7 +86,38 @@
             <p>Sea una sucesión de números \( l_1={1,3,7,8} \) que deben corresponderle a otra \( l_2={-2,0,5,11} \) y necesitamos una expresión que englobe todo el sistema: Usaremos una interpolación de Lagrange para una ecuación polinómica.</p>
             <p>Escrito de manera matemáticamente reducida, quedaría:</p>
             <p class="math-block">$$ f(x)=\sum_{i=1}^ny_i\prod_{\substack{j=1 \\ j \neq i}}^{n} \frac{x - x_j}{x_i - x_j} $$</p>
-            <p>Por tanto, necesitamos que la función pase por \( (1,-2),(3,0),(7,5),(8,11) \). Calculamos el polinomio base:</p>
+            <p>Por tanto, necesitamos que la función pase por \( (1,-2),(3,0),(7,5),(8,11) \). Calculamos el polinomio base. Planteamos las correspondencias y el cálculo.</p>
+            <table style="background-color: #494949;">
+                <thead>
+                    <tr>
+                        <th>\( L_i \)</th>
+                        <th>\( x_i \)</th>
+                        <th>\( y_i \)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\( 1 \)</td>
+                        <td>\( 1 \)</td>
+                        <td>\( -2 \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( 2 \)</td>
+                        <td>\( 3 \)</td>
+                        <td>\( 0 \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( 3 \)</td>
+                        <td>\( 7 \)</td>
+                        <td>\( 5 \)</td>
+                    </tr>
+                    <tr>
+                        <td>\( 4 \)</td>
+                        <td>\( 8 \)</td>
+                        <td>\( 11 \)</td>
+                    </tr>
+                </tbody>
+            </table>
             <p class="math-block">$$ \begin{array} \\
                 L_1(x)=\frac{(x-3)(x-7)(x-8)}{(1-3)(1-7)(1-8)}=\frac{(x-3)(x-7)(x-8)}{-84} \\
                 L_2(x)=\frac{(x-1)(x-7)(x-8)}{(3-1)(3-7)(3-8)}=\frac{(x-1)(x-7)(x-8)}{40} \\
