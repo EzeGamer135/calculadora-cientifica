@@ -10,155 +10,192 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.0.0/math.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 
-    <style>
-        body {
-            background-color: #303030;
-            color: white;
-            font-family: "Microsoft JhengHei UI Light", sans-serif;
-            text-align: center;
-        }
-        main {
-            max-width: 800px;
-            margin: auto;
-            text-align: left;
-        }
-        a {
-            color: white;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            margin-top: 20px;
-            padding: 10px 0;
-            background-color: #303030;
-            text-align: center;
-        }
-        input {
-            width: 250px;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            outline: none;
-            background-color: #ffffff;
-            text-align: center;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        input::placeholder {
-            color: gray;
-            font-style: italic;
-            opacity: 0.7;
-        }
-
-        input:focus {
-            background-color: #e0e0e0;
-        }
-
-        #resultado {
-            margin-top: 20px;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .reference-list {
-            color: white;
-            font-size: 14px;
-            margin-top: 30px;
-            background-color: #444;
-            padding: 10px;
-            border-radius: 5px;
-        }
-    </style>
 </head>
 <body>
 
     <header>
         <h3 style="text-align: left;"><a href="index.html">← Volver</a></h3>
-        <h1>Derivación</h1>
+        <h1>Derivadas</h1>
     </header>
 
     <main>
         <hr>
-
-        <section>
+        <section class="section">
             <h2>Definición</h2>
-            <h1>$$f'(x) = \lim_{h\to0}\frac{f(x+h)-f(x)}{h},x\ne h$$</h1>
-            <p>La derivada de una función \( f(x) \) representa su tasa de cambio instantáneo en relación con la variable independiente \( x \). En términos simples, mide cómo varía la función para pequeños cambios en \( x \).</p>
-            <p>La derivada permite obtener información sobre la pendiente de la curva de la función en un punto específico, lo cual es útil en áreas como el análisis de optimización, el estudio del movimiento y la economía.</p>
-            <p>A continuación, una clasificación y enumeración de las derivadas.</p>
+            <h1 class="math-block">$$ f'(x) = \lim_{h\to0}\frac{f(x+h)-f(x)}{h} $$</h1>
+            <p>La derivada de una función \( f(x) \) representa su tasa de cambio instantáneo en relación con la variable independiente \( x \). En términos simples, mide cómo varía la función para pequeños cambios en \( x \). La derivada permite obtener información sobre la pendiente de la curva de la función en un punto específico, lo cual es útil en áreas como el análisis de optimización, el estudio del movimiento y la economía.</p>
+        </section>
+
+        <section class="section">
+            <table>
+                <thead>
+                  <tr>
+                    <th>Comportamiento</th>
+                    <th>Derivada primera \( f'(x) \) o \( \frac{df}{dx} \)</th>
+                    <th>Derivada segunda \( f''(x) \) o \( \frac{d^2f}{dx^2} \)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Positiva</td>
+                    <td>La función tiene tangente positiva en \( x \).</td>
+                    <td>La función tiene concavidad positiva en \( x \).</td>
+                  </tr>
+                  <tr>
+                    <td>Negativa</td>
+                    <td>La función tiene tangente negativa en \( x \).</td>
+                    <td>La función tiene concavidad negativa en \( x \).</td>
+                  </tr>
+                  <tr>
+                    <td>Cero</td>
+                    <td>La función indica un extremo relativo en \( x \).
+                        <ul>
+                            <li><strong>De positivo a negativo: </strong> Máximo relativo.</li>
+                            <li><strong>De negativo a positivo: </strong> Mínimo relativo.</li>
+                        </ul>
+                    </td>
+                    <td>La función indica un punto de inflexión en \( x \).
+                        <ul>
+                            <li><strong>De positivo a negativo: </strong> La función tiene tangente negativa en \( x \).</li>
+                            <li><strong>De negativo a positivo: </strong> La función tiene tangente positiva en \( x \).</li>
+                        </ul>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+            <p>Cuando no es derivable, hay un punto singular: se debe clasificar y resolver con cálculo de límites:</p>
             <ul>
-                <li>Derivada primera</li>
-                <ul>
-                    <li>Cuando intersecta el eje x, indica un máximo o mínimo relativo de la función.</li>
-                    <li>Cuando es positiva, la función es creciente: \(\frac{\Delta y}{\Delta x}\gt0\)</li>
-                    <li>Cuando es negativa, la función es decreciente: \(\frac{\Delta y}{\Delta x}\lt0\)</li>
-                </ul>
-                <li>Derivada segunda</li>
-                <ul>
-                    <li>Cuando es positiva, la función es cóncava hacia arriba.</li>
-                    <li>Cuando es negativa, la función es cóncava hacia abajo.</li>
-                    <li>Cuando intersecta el eje x, la función cambia de concavidad (punto de inflexión).</li>
-                </ul>
-                <li>Cuando no es derivable, hay un punto singular: se debe resolver o clasificar con cálculo de límites.</li>
-                <ul>
-                    <li>Punto angular: cambio brusco de pendiente.</li>
-                    <li>Punto cúspide: pendiente infinita (vertical).</li>
-                    <li>Punto de discontinuidad: salto en la función.</li>
-                </ul>
+                <li><strong>Punto angular: </strong>cambio brusco de pendiente.</li>
+                <li><strong>Punto de discontinuidad: </strong>salto en la función.</li>
             </ul>
         </section>
 
+        <section class="aplicaciones">
+            <h2>Aplicaciones</h2>
+            <p>La derivación tiene numerosas aplicaciones en diversas áreas, tales como:</p>
+            <ul>
+                <li>Permiten cuantificar cómo varía una magnitud respecto de otra en un punto específico, fundamental para modelar fenómenos dinámicos.</li>
+                <li>Se emplean para localizar extremos locales y globales, clave en problemas de optimización en física, ingeniería, economía y ciencias aplicadas.</li>
+                <li>Facilitan la caracterización del comportamiento global de funciones, identificando intervalos de crecimiento, decrecimiento, concavidad y puntos de inflexión.</li>
+                <li>A partir de la derivación sucesiva se obtienen velocidad y aceleración desde la posición, base del análisis cinemático clásico.</li>
+            </ul>
+        </section>
+
+        <section class="aplicaciones">
+            <h2>Ejemplo práctico</h2>
+            <p>Con un GPS conectado a un Arduino, se grafica el desplazamiento en función del tiempo y la programación del microcontrolador calcula una regresión lo más ajustada posible. En el monitor, se muestra la función correspondiente a la regresión: \( \frac{5}{4}x^2 \). Queremos saber la aceleración en cada momento del trayecto, entonces, derivamos \( y \) :</p>
+            <p class="math-block">$$ v=\frac{dx}{dt}=2\cdot\frac{5}{4}x^{2-1}=\frac{5}{2}x $$</p>
+            <p>Por lo tanto, la velocidad aumentó 2.5 veces cada segundo durante todo el trayecto. Volvemos a derivar para obtener su aceleración:</p>
+            <p class="math-block">$$ \boxed{a=\frac{dv}{dt}=\frac{5}{2}} $$</p>
+            <p>De este resultado podemos sacar algunas conclusiones:</p>
+            <section class="aplicaciones" style="background-color: #494949;">
+                <ol>
+                    <li>La aceleración se puede escribir como: \( \frac{d^2x}{dt^2} \) y le corresponde al coeficiente de la velocidad, siempre y cuando la posición sea de grado 2.</li>
+                    <li>La posición representa una parábola (\( \frac{5}{4}x^2\,m \)), mientras que la velocidad es una recta (\( \frac{5}{2}x\frac{m}{s} \)) y la aceleración es constante (\( \frac{5}{2}\frac{m}{s^2} \)).</li>
+                </ol>
+            </section>
+                
+        </section>
+
+        <section class="aplicaciones">
+            <h2>Notación</h2>
+            <ul>
+                <li>\( \frac{d^ny}{dx^n} \) : n-ésima derivada de \( y \) con diferencial \( x \).</li>
+                <li>\( dx \) : variable en la que se está derivando.</li>
+                <li>\( dy \) : nomenclatura de la función dependiente.</li>
+            </ul>
+        </section>
+        <section class="section">
+          <h2>Tablas</h2>
+          <table>
+            <caption>Derivadas</caption>
+            <thead>
+              <tr>
+                <th>Simples</th>
+                <th>Resultado</th>
+                <th>Compuestas</th>
+                <th>Resultado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>\( k \)</td>
+                <td>\( 0 \)</td>
+                <td>\( k\times\mu \)</td>
+                <td>\( k\times\mu' \)</td>
+              </tr>
+              <tr>
+                <td>\( x \)</td>
+                <td>\( 1 \)</td>
+                <td>\( n\times\mu^{n-1}\times\mu' \)</td>
+                <td>\( \mu^n \)</td>
+              </tr>
+              <tr>
+                <td>\( k\times x \)</td>
+                <td>\( k \)</td>
+                <td>\( \frac{1}{\mu} \)</td>
+                <td>\( -\frac{1}{\mu^2}\times\mu' \)</td>
+              </tr>
+              <tr>
+                <td>\( x^n \)</td>
+                <td>\( n\times x^{n-1} \)</td>
+                <td>\( \frac{1}{\mu^n} \)</td>
+                <td>\( -\frac{n}{\mu^{n+1}}\times\mu' \)</td>
+              </tr>
+              <tr>
+                <td>\( \frac{1}{x} \)</td>
+                <td>\( -\frac{1}{x^2} \)</td>
+                <td>\( \sqrt{\mu} \)</td>
+                <td>\( \frac{1}{2\sqrt{\mu}}\times\mu' \)</td>
+              </tr>
+              <tr>
+                <td>\( \frac{1}{x^n} \)</td>
+                <td>\( -\frac{n}{x^{n+1}} \)</td>
+                <td>\( \sqrt[3]{\mu} \)</td>
+                <td>\( \frac{1}{3\sqrt[3]{\mu^2}}\times\mu' \)</td>
+              </tr>
+              <tr>
+                <td>\( \sqrt{x} \)</td>
+                <td>\( \frac{1}{2\sqrt{x}} \)</td>
+                <td>\( e^{\mu} \)</td>
+                <td>\( e^{\mu}\times\mu' \)</td>
+              </tr>
+              <tr>
+                <td>\( \sqrt[3]{x} \)</td>
+                <td>\( \frac{1}{3\sqrt[3]{x^2}} \)</td>
+                <td>\( a^{\mu} \)</td>
+                <td>\( a^{\mu}\times\ln{a}\times\mu' \)</td>
+              </tr>
+              <tr>
+                <td>\( e^x \)</td>
+                <td>\( e^x \)</td>
+              </tr>
+              <tr>
+                <td>\( a^x \)</td>
+                <td>\( a^x\times\ln{a} \)</td>
+              </tr>
+              <tr>
+                <td>\( \ln{x} \)</td>
+                <td>\( \frac{1}{x} \)</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr coldspan="3" class="small">
+                <strong>Reglas de Derivación:</strong>
+                <ul>
+                  <li>Suma: \( (f(x) + g(x))'=f'(x) + g'(x) \)</li>
+                  <li>Producto: \( (f(x) g(x))'=f'(x) g(x) + f(x) g'(x) \)</li>
+                  <li>Cociente: \( \left(\frac{f(x)}{g(x)}\right)'=\frac{f'(x) g(x) - f(x) g'(x)}{[g(x)]^2} \)</li>
+                </ul>
+              </tr>
+            </tfoot>
+          </table>
+          <p>Ecuación de la recta tangente al gráfico en un punto de abscisa \( a \): \( y=f'(a)(x-a)+f(a) \)</p>
+        </section>
         <hr>
     </main>
-    <ul>
-        <input type="number" id="coef" placeholder="Término m" step="any">
-        <input type="number" id="exp" placeholder="Término n" step="any">
-    </ul>
-    
-    <div id="resultado"></div>
-
-    <script>
-        function calcularDerivada() {
-            let coef = parseFloat(document.getElementById('coef').value);
-            let exp = parseFloat(document.getElementById('exp').value);
-
-            if (isNaN(coef) || isNaN(exp)) {
-                document.getElementById('resultado').innerHTML = "Ingrese valores válidos.";
-                return;
-            }
-
-            let coefDerivada = coef * exp;
-            let expDerivada = exp - 1;
-
-            let derivada = "";
-
-            if (coefDerivada === 0) {
-                derivada = "0";
-            } else if (expDerivada === 0) {
-                derivada = `${coefDerivada}`;
-            } else if (expDerivada === 1) {
-                derivada = `${coefDerivada}x`;
-            } else {
-                derivada = `${coefDerivada}x^{${expDerivada}}`;
-            }
-
-            let latexExpr = `\\frac{d}{dx}(${coef}x^{${exp}}) = ${derivada}`;
-
-            try {
-                katex.render(latexExpr, document.getElementById('resultado'), {
-                    throwOnError: false
-                });
-            } catch {
-                document.getElementById('resultado').innerHTML = "⚠️ Error al renderizar.";
-            }
-        }
-        document.getElementById('coef').addEventListener('input', calcularDerivada);
-        document.getElementById('exp').addEventListener('input', calcularDerivada);
-    </script>
 
     <footer>
         <p><i>Regresa al <a href="index.html">inicio</a> para explorar más herramientas matemáticas.</i></p>

@@ -11,69 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.0.0/math.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 
-    <style>
-        body {
-            background-color: #303030;
-            color: white;
-            font-family: "Microsoft JhengHei UI Light", sans-serif;
-            text-align: center;
-        }
-        main {
-            max-width: 800px;
-            margin: auto;
-            text-align: left;
-        }
-        a {
-            color: white;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            margin-top: 20px;
-            padding: 10px 0;
-            background-color: #303030;
-            text-align: center;
-        }
-        input {
-            width: 250px;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            outline: none;
-            background-color: #ffffff;
-            text-align: center;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        input::placeholder {
-            color: gray;
-            font-style: italic;
-            opacity: 0.7;
-        }
-
-        input:focus {
-            background-color: #e0e0e0;
-        }
-
-        #resultado {
-            margin-top: 20px;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .reference-list {
-            color: white;
-            font-size: 14px;
-            margin-top: 30px;
-            background-color: #444;
-            padding: 10px;
-            border-radius: 5px;
-        }
-    </style>
 </head>
 <body>
 
@@ -86,71 +25,44 @@
         <hr>
 
         <section>
-            <h2>Fórmula general</h2>
-            <h1>
-                $$ \alpha = \sqrt{b^2 + c^2 - 2bc \cdot \cos(A)} $$
+            <h2>Definición</h2>
+            <h1 class="math-block">
+                $$ \alpha = \sqrt{b^2 + c^2 - 2bc \cdot \cos{\angle{A}}} $$
             </h1>
             <p>La Ley del Coseno establece una relación entre los lados y los ángulos de un triángulo cualquiera, no solo en triángulos rectángulos. Se usa para determinar longitudes de lados o ángulos en triángulos oblicuángulos (que no son rectángulos).</p>
         </section>
-        <section class="reference-list">
-            <h3>Lista de Referencia de Variables</h3>
+
+        <section class="aplicaciones">
+            <h2>Aplicaciones</h2>
+            <p>La Ley del Coseno tiene numerosas aplicaciones en diversas áreas, tales como:</p>
             <ul>
-                <li><strong>b</strong>: Lado b del triángulo.</li>
-                <li><strong>c</strong>: Lado c del triángulo.</li>
-                <li><strong>A</strong>: Ángulo entre los lados b y c (en grados).</li>
-                <li><strong>α</strong>: El valor que queremos calcular, el lado opuesto al ángulo A.</li>
+                <li>Sistemas de Posicionamiento Global (GPS).</li>
+                <li>Cartografía avanzada.</li>
+                <li>Geometría molecular.</li>
+                <li>Navegación astronómica.</li>
+            </ul>
+        </section>
+
+        <section class="aplicaciones">
+            <h2>Ejemplo práctico</h2>
+            <p>Se desconoce la distancia entre un par de antenas parabólicas. Un satélite GPS mide el ángulo entre ellos usando su sistema de control de reacción al trazar un arco entre ellos a \( 0.15 \frac{rad}{s} \) durante 2 segundos: \( A=\frac{3}{20}\frac{rad}{s}\cdot2\,s=0.3\,rad\approx17.1887°\). A su vez, su antena direccional dispara un ping de señal hacia las antenas. La primera en llegar tarda \( 3.2\times10^{-3}\,s \), mientras que la segunda tarda \( 3.4\times10^{-3}\,s \). Multiplicando por \( 3\times10^{5}\,\frac{km}{s} \), nos da \( 9.6\times10^{2}\,km \) (960 km) y \( 1.02\times10^{3}\,km \) (1020 km).</p>
+            <p>Sabemos las distancias del satélite a cada antena y el ángulo adyacente a ambas. Podemos usar la Ley del Coseno:</p>
+            <p class="math-block">$$ \boxed{\alpha=\sqrt{960^2+1020^2-2(960\cdot1020)\cdot\cos(17.1887°)}\approx303\,km} $$</p>
+            <p>Por lo tanto, la separación entre ellos es de 303 km en línea recta, que equivalen a un 0,75% de circunferencia total terrestre, más que suficiente para que el satélite esté dentro de la bóveda celeste de cada antena, haciendo posible este experimento.</p>
+        </section>
+
+        <section class="aplicaciones">
+            <h2>Notación</h2>
+            <ul>
+                <li>\( b \) : Lado \( b \) del triángulo.</li>
+                <li>\( c \) : Lado \( c \) del triángulo.</li>
+                <li>\( A \) : Ángulo entre los lados \( b \) y \( c \) (en grados).</li>
+                <li>\( \alpha \) : Lado opuesto a \( \angle{A} \).</li>
+                <li>\( \cos \) : Coseno.</li>
             </ul>
         </section>
     </main>
-    <ul>
-        <input type="number" id="ladoA" placeholder="Lado a" step="any">
-        <input type="number" id="ladoB" placeholder="Lado b" step="any">
-        <input type="number" id="anguloC" placeholder="Ángulo C (°)" step="any">
-    </ul>
     
-    <div id="resultado"></div>
-    
-    <script>
-    function calcularLeyCoseno() {
-        let a = parseFloat(document.getElementById('ladoA').value);
-        let b = parseFloat(document.getElementById('ladoB').value);
-        let C = parseFloat(document.getElementById('anguloC').value);
-    
-        if (isNaN(a) || isNaN(b) || isNaN(C)) {
-            document.getElementById('resultado').innerHTML = "Ingrese valores válidos.";
-            return;
-        }
-    
-        if (a <= 0 || b <= 0) {
-            document.getElementById('resultado').innerHTML = "Los lados deben ser positivos.";
-            return;
-        }
-    
-        // Convertir grados a radianes
-        let rad = C * Math.PI / 180;
-    
-        // Ley del coseno
-        let c = Math.sqrt(a*a + b*b - 2*a*b*Math.cos(rad));
-        let cRedondeado = c.toFixed(6);
-    
-        let latexExpr = `
-        c = \\sqrt{${a}^2 + ${b}^2 - 2(${a})(${b})\\cos(${C}^\\circ)} = ${cRedondeado}
-        `;
-    
-        console.log("LaTeX generado:", latexExpr);
-    
-        try {
-            katex.render(latexExpr, document.getElementById('resultado'));
-        } catch (error) {
-            console.error("Error en KaTeX:", error);
-            document.getElementById('resultado').innerHTML = "⚠️ Error al renderizar.";
-        }
-    }
-    
-    setInterval(calcularLeyCoseno, 30);
-    </script>
-    
-
     <footer>
       <p><i>Regresa al <a href="index.html">inicio</a> para explorar más herramientas matemáticas.</i></p>
     </footer>

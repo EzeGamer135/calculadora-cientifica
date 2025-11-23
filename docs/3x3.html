@@ -10,69 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.0.0/math.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 
-    <style>
-        body {
-            background-color: #303030;
-            color: white;
-            font-family: "Microsoft JhengHei UI Light", sans-serif;
-            text-align: center;
-        }
-        main {
-            max-width: 800px;
-            margin: auto;
-            text-align: left;
-        }
-        a {
-            color: white;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            margin-top: 20px;
-            padding: 10px 0;
-            background-color: #303030;
-            text-align: center;
-        }
-        input {
-            width: 250px;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            outline: none;
-            background-color: #ffffff;
-            text-align: center;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        input::placeholder {
-            color: gray;
-            font-style: italic;
-            opacity: 0.7;
-        }
-
-        input:focus {
-            background-color: #e0e0e0;
-        }
-
-        #resultado {
-            margin-top: 20px;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .reference-list {
-            color: white;
-            font-size: 14px;
-            margin-top: 30px;
-            background-color: #444;
-            padding: 10px;
-            border-radius: 5px;
-        }
-    </style>
 </head>
 <body>
 
@@ -85,81 +24,95 @@
         <hr>
 
         <section>
-            <h2>Representación esquemática estándar</h2>
-            <h1>
-                $$ 
-                \begin{cases}
-                    a_{1}x + b_{1}y + c_{1}z = d_{1} \\
-                    a_{2}x + b_{2}y + c_{2}z = d_{2} \\
-                    a_{3}x + b_{3}y + c_{3}z = d_{3}
-                \end{cases}
+            <h2>Definición</h2>
+            <h1 class="math-block">
+                $$
+                \left[
+                \begin{array}{cccc|c}
+                a_{11} & a_{12} & \cdots & a_{1n} & b_1\\[4pt]
+                a_{21} & a_{22} & \cdots & a_{2n} & b_2\\[4pt]
+                \vdots & \vdots & \ddots & \vdots & \vdots\\[4pt]
+                a_{m1} & a_{m2} & \cdots & a_{mn} & b_m
+                \end{array}
+                \right]
                 $$
             </h1>
-            <p>Los sistemas de ecuaciones lineales de 3x3 se utilizan para modelar relaciones entre tres variables interdependientes, como en problemas de física, economía, ingeniería, y muchas otras ciencias. Resolver un sistema de ecuaciones lineales significa encontrar los valores de \(x\), \(y\), y \(z\) que satisfacen simultáneamente todas las ecuaciones del sistema.</p>
+            <p>Los sistemas de ecuaciones lineales se utilizan para modelar relaciones entre una o varias variables interdependientes, como en problemas de física, economía, ingeniería, y muchas otras ciencias. Resolver un sistema de ecuaciones lineales significa encontrar los valores de \(x\) que satisfacen simultáneamente todas las ecuaciones del sistema.</p>
         </section>
+
+        <section>
+            <h2>Resolución por Sustitución</h2>
+            <p>El método de sustitución se fundamenta en la equivalencia lógica entre ecuaciones del sistema y en la transitividad de la igualdad, permitiendo reemplazar una incógnita por una expresión algebraicamente equivalente sin alterar el conjunto solución. Su aplicabilidad práctica disminuye conforme aumenta la dimensión del sistema debido al crecimiento combinatorio de las operaciones.</p>
+        </section>
+        <section class="aplicaciones">
+            <h2>Aplicaciones</h2>
+            <p>Los sistemas de ecuaciones lineales tienen numerosas aplicaciones en diversas áreas, tales como:</p>
+            <ul>
+                <li>Análisis de circuitos eléctricos (leyes de Kirchhoff).</li>
+                <li>Resolución de redes hidráulicas y térmicas.</li>
+                <li>Transformaciones lineales: rotación, escalado, proyección.</li>
+                <li>Ajuste de modelos predictivos y regresiones múltiples interdependientes.</li>
+            </ul>
+        </section>
+
+        <section class="aplicaciones">
+            <h2>Ejemplo práctico</h2>
+            <p>Supongamos un circuito de dos mallas con tres resistencias:</p>
+            <ul>
+                <li>Fuente de voltaje: \(V=12\,V\)</li>
+                <li>Resistencias:</li>
+                <section class="aplicaciones" style="background-color: #494949;">
+                    <ul>
+                        <li>\( R_1=4\,\Omega\)</li>
+                        <li>\( R_2=6\,\Omega\)</li>
+                        <li>\( R_3=2\,\Omega\) compartida entre ambas mallas</li>
+                    </ul>
+                </section>
+                    
+                <li>Corrientes:</li>
+                <section class="aplicaciones" style="background-color: #494949;">
+                    <ul>
+                        <li>\( I_1\) en la malla izquierda</li>
+                        <li>\( I_2\) en la malla derecha</li>
+                    </ul>
+                </section> 
+            </ul>
+            <p>Aplicando las leyes de Kirchhoff, obtenemos el siguiente sistema de ecuaciones:</p>
+            <p class="math-block">$$
+            \begin{cases}
+            4I_1 + 2(I_1 - I_2) = 12 \\
+            6I_2 + 2(I_2 - I_1) = 0
+            \end{cases}
+            $$</p>
+            <p>Reescribiendo el sistema en forma de matriz aumentada:</p>
+            <p class="math-block">$$
+            \left[
+            \begin{array}{cc|c}
+            6 & -2 & 12 \\
+            -2 & 8 & 0
+            \end{array}
+            \right]
+            $$</p>
+            <p>Dividimos entre dos para simplificar:</p>
+            <p class="math-block">$$
+                \left[
+                \begin{array}{cc|c}
+                3 & -1 & 6 \\
+                -1 & 4 & 0
+                \end{array}
+                \right]
+                $$
+            </p>
+            <p>De la segunda (\( I_1=4I_2 \)) sutituimos en la primera:</p>
+            <p class="math-block">$$ 3(4I_2)-I_2=6 $$</p>
+            <p>Reduciendo y despejando, obtenemos:</p>
+            <p class="math-block">$$ \boxed{I_2\approx0.545\,A} $$</p>
+            <p>y:</p>
+            <p class="math-block">$$ \boxed{I_1\approx2.182\,A} $$</p>
+            <p>Entonces, sabemos cuánta corriente circula en cada malla y que la diferencia de corrientes equivale a la corriente resultante que circula por \( R_3 \).</p>
+        </section>
+        <hr>
     </main>
-    <ul>
-        <label for="coef"></label>
-        <input type="number" id="coef" placeholder="Término m" step="any">
-    
-        <label for="exp"></label>
-        <input type="number" id="exp" placeholder="Término n" step="any">
-    </ul>
-    
-    <div id="resultado"></div>
-    
-    <script>
-    function calcularIntegral() {
-        let coef = parseFloat(document.getElementById('coef').value);
-        let exp = parseFloat(document.getElementById('exp').value);
-    
-        if (isNaN(coef) || isNaN(exp)) {
-            document.getElementById('resultado').innerHTML = "Ingrese valores válidos.";
-            return;
-        }
-    
-        let integral;
-    
-        // 📐 Caso especial: n = -1 → ln|x|
-        if (exp === -1) {
-            if (coef === 0) {
-                integral = "0";
-            } else if (coef === 1) {
-                integral = "\\ln|x| + C";
-            } else {
-                integral = `${coef}\\ln|x| + C`;
-            }
-        } else {
-            let nuevoExp = exp + 1;
-            let nuevoCoef = coef / nuevoExp;
-    
-            if (nuevoCoef === 0) {
-                integral = "0";
-            } else if (nuevoExp === 0) {
-                integral = `${nuevoCoef} + C`;
-            } else if (nuevoExp === 1) {
-                integral = `${nuevoCoef} x + C`;
-            } else {
-                integral = `${nuevoCoef} x^{${nuevoExp}} + C`;
-            }
-        }
-    
-        // 🖊 Expresión completa en LaTeX
-        let latexExpr = `\\int ${coef} x^{${exp}} \\, dx = ${integral}`;
-    
-        console.log("LaTeX generado:", latexExpr);
-    
-        try {
-            katex.render(latexExpr, document.getElementById('resultado'));
-        } catch (error) {
-            console.error("Error en KaTeX:", error);
-            document.getElementById('resultado').innerHTML = "⚠️ Error al renderizar.";
-        }
-    }
-    
-    setInterval(calcularIntegral, 30);
-    </script>
-    
 
     <footer>
         <p><i>Regresa al <a href="index.html">inicio</a> para explorar más herramientas matemáticas.</i></p>

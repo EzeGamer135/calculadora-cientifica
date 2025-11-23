@@ -3,237 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explicación detallada sobre la integración definida e indefinida, con fórmulas generales y aplicaciones en cálculo integral.">
     <title>Integración - Calculadora Científica</title>
-    
+
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.0.0/math.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        body {
-            background-color: #303030;
-            color: white;
-            font-family: "Microsoft JhengHei UI Light", sans-serif;
-            text-align: center;
-        }
-        main {
-            max-width: 800px;
-            margin: auto;
-            text-align: left;
-        }
-        a {
-            color: white;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            margin-top: 20px;
-            padding: 10px 0;
-            background-color: #303030;
-            text-align: center;
-        }
-        input {
-            width: 250px;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            outline: none;
-            background-color: #ffffff;
-            text-align: center;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        input::placeholder {
-            color: gray;
-            font-style: italic;
-            opacity: 0.7;
-        }
-
-        input:focus {
-            background-color: #e0e0e0;
-        }
-
-        #resultado {
-            margin-top: 20px;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .reference-list {
-            color: white;
-            font-size: 14px;
-            margin-top: 30px;
-            background-color: #444;
-            padding: 10px;
-            border-radius: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <h3 style="text-align: left;"><a href="index.html">← Volver</a></h3>
-        <h1>Integración</h1>
+        <h1>Integrales</h1>
     </header>
 
     <main>
+      <hr>
+      <section class="section">
+          <h2>Integral Indefinida</h2>
+          <h1 class="math-block">$$ \int f'(x) dx=f(x)$$</h1>
+          <p>La integral indefinida tiene como objetivo encontrar la función original a partir de su derivada, en un proceso conocido como antiderivación. El resultado de una integral indefinida es una familia de funciones, que se distingue por una constante de integración \( C \), ya que la derivada de una constante es cero. Este tipo de integración es clave para resolver problemas de movimiento, acumulación y otros fenómenos que involucran funciones variables en el tiempo o el espacio.</p>
+      </section>
+      
+      <section class="section">
+        <h2>Integral Definida</h2>
+        <h1 class="math-block">$$ \int_a^b f(x) dx =f(b)-f(a)$$</h1>
+        <p>La integral definida se utiliza para calcular el área bajo una curva \( f(x) \) entre los límites \( a \) y \( b \). Esta operación es fundamental en el cálculo de áreas, volúmenes y muchas otras aplicaciones físicas, económicas y científicas. El valor de la integral definida se obtiene a través de un proceso de sumas infinitas de los valores de la función \( f(x) \) en el intervalo \([a, b]\), lo que permite encontrar el área total entre la curva y el eje \( x \).</p>
+        <ul>
+          <li><strong>Área total: </strong>Las integrales siempre deben ser positivas. Para eso, se estudian los ceros de \( f(x) \) y se aplica el valor absoluto de cada intervalo perteneciente a la integración.</li>
+          <ul>
+            <li><strong>Ejemplo:</strong></li>
+            <p class="math-block">$$ f:f(x)=7x^2+3x-9$$</p>
+            <p class="math-block">$$ \int_{-4}^2 f(x)=\frac{7}{3}x^3+\frac{3}{2}x^2-9x $$</p>
+            <p class="math-block">$$ \text{Sg}(f(x))=\begin{cases}
+              f(x)\gt0\quad \text{si}\quad x\lt-3,\quad x\gt\frac{3}{2} \\
+              f(x)\lt0\quad \text{si}\quad -3\lt x\lt\frac{3}{2}
+              \end{cases}$$</p>
+            <p>En este caso, el resultado sería:</p>
+            <p class="math-block">$$ \int_{-4}^{-3}f(x)-\int_{-3}^\frac{3}{2}f(x)+\int_\frac{3}{2}^2f(x)$$</p>
+          </ul>
+          <li><strong>Área absoluta: </strong>El cálculo se vuelve único. Las áreas negativas restan a las positivas, dando resultados de cualquier signo o inclusive igual a cero.</li>
+          <ul>
+            <li><strong>Ejemplo: </strong>Usando el ejemplo del área total, el resultado se plantea como:</li>
+            <p class="math-block">$$ \int_{-3}^{\frac{3}{2}}f(x) $$</p>
+          </ul>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Propiedades</h2>
+        <table>
+          <caption>Propiedades básicas de la integral definida</caption>
+          <thead>
+            <tr>
+              <th>Propiedad</th>
+              <th>Expresión</th>
+              <th>Interpretación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Linealidad</td>
+              <td>\( \int(af(x)+bg(x))dx = a\int f(x)dx + b\int g(x)dx \)</td>
+              <td>La integral respeta combinaciones lineales.</td>
+            </tr>
+            <tr>
+              <td>Inversión de límites</td>
+              <td>\( \int_a^b f(x) dx = -\int_b^a f(x) dx \)</td>
+              <td>Cambiar los límites invierte el signo.</td>
+            </tr>
+            <tr>
+              <td>Intervalo nulo</td>
+              <td>\( \int_a^a f(x) dx = 0 \)</td>
+              <td>No existe área si no hay intervalo.</td>
+            </tr>
+          <tr>
+          <td>Aditividad</td>
+          <td>\( \int_a^c f(x) dx = \int_a^b f(x) dx + \int_b^c f(x) dx \)</td>
+          <td>El área se divide por tramos.</td>
+          </tr>
+          </tbody>
+          </table>
+      </section>
+
+      <section class="aplicaciones">
+          <h2>Aplicaciones</h2>
+          <p>La integración tiene numerosas aplicaciones en diversas áreas, tales como:</p>
+          <ul>
+              <li>Cálculo de áreas bajo curvas y entre funciones.</li>
+              <li>Determinación de volúmenes de sólidos de revolución.</li>
+              <li>Modelado de fenómenos físicos como el movimiento y la acumulación de cantidades.</li>
+              <li>Resolución de problemas en economía, biología e ingeniería.</li>
+          </ul>
+      </section>
+
+      <section class="aplicaciones">
+        <h2>Ejemplo práctico</h2>
+        <p>En física clásica, la integral definida se utiliza para calcular el trabajo realizado por una fuerza variable:</p>
+        <p class="math-block">$$ W = \int_a^b F(x)\,dx $$</p>
+        <p>Esto permite determinar con precisión la energía transferida en sistemas no uniformes, como resortes o campos gravitatorios variables. Podemos pensar en un caso de trabajo realizado por un satélite al aumentar su órbita dentro del campo gravitatorio de la Tierra si consideramos la mecánica orbital y la fuerza gravitatoria neta en función de la distancia al baricentro del sistema Tierra-Luna.</p>
+        <p>Sin más dilación, intentémoslo: Si el satélite pasa de un semieje mayor \( a_i \) a \( a_f \) (con \( a_f\gt a_i \) para subir la órbita), el trabajo que debe realizar un agente externo (por ejemplo un impulso de propulsor) es igual al aumento de la energía total:</p>
+        <p class="math-block">$$ W_{\text{ext}}=\Delta E=E_f-E_i=-\frac{\mu m}{2a_f}+\frac{\mu m}{2a_i}=\mu m\left(\frac{1}{2a_i}-\frac{1}{2a_f}\right) $$</p>
+        <p>Observe que si \( a_f\gt a_i \) entonces \( W_{\text{ext}}\gt0 \): falta energía. Si uno intenta escribirlo como integral de la fuerza (por claridad matemática), tenemos en cuenta que la fuerza gravitatoria es central y conservativa. Para un desplazamiento radial desde \( r_1 \) a \( r_2 \) la integral de la fuerza gravitatoria es</p>
+        <p class="math-block">$$ W_{\text{grav}}=\int_{r_1}^{r_2}\vec{F}_g\,d\vec{r}=\int_{r_1}^{r_2}\left(-\frac{\mu m}{r^2}\right)\,dr=\mu m\left(\frac{1}{r_2}-\frac{1}{r_1}\right) $$</p>
+        <p>Si realmente se quiere evaluar el trabajo respecto al baricentro del sistema Tierra-Luna en lugar del centro de la Tierra, el potencial deja de ser simplemente \( -\frac{\mu}{r} \). Tendremos que usar el potencial combinado de ambos cuerpos:</p>
+        <p class="math-block">$$ \Phi(\textbf{r})=-G\left(\frac{M_{\oplus}}{|\textbf{r}-\textbf{r}_{\oplus}|}+\frac{M_{☾}}{|\textbf{r}-\textbf{r}_{☾}|}\right). $$</p>
+        <p>Sin embargo, ya habíamos llegado a un resultado genérico más arriba, considerando \(\mu=GM \):</p>
+        <p class="math-block">$$ \boxed{\mu m\left(\frac{1}{2a_i}-\frac{1}{2a_f}\right)} $$</p>
         <hr>
-
-        <section>
-            <h2>Integración Definida</h2>
-            <h1>$$\int_a^b f(x)dx$$</h1>
-            <p>La integral definida se utiliza para calcular el área bajo una curva \( f(x) \) entre los límites \( a \) y \( b \). Esta operación es fundamental en el cálculo de áreas, volúmenes y muchas otras aplicaciones físicas, económicas y científicas.</p>
-            <p>El valor de la integral definida se obtiene a través de un proceso de sumas infinitas de los valores de la función \( f(x) \) en el intervalo \([a, b]\), lo que permite encontrar el área total entre la curva y el eje \( x \).</p>
-        </section>
-
-        <section>
-            <h2>Integración Indefinida</h2>
-            <h1>$$\int x^n = \frac{x^{n+1}}{n+1} + C$$</h1>
-            <p>La integral indefinida tiene como objetivo encontrar la función original a partir de su derivada, en un proceso conocido como antiderivación. El resultado de una integral indefinida es una familia de funciones, que se distingue por una constante de integración \( C \), ya que la derivada de una constante es cero.</p>
-            <p>Este tipo de integración es clave para resolver problemas de movimiento, acumulación y otros fenómenos que involucran funciones variables en el tiempo o el espacio.</p>
-        </section>
-
-        <section>
-            <h2>Aplicaciones de la Integración</h2>
-            <p>La integración tiene numerosas aplicaciones en diversas áreas, tales como:</p>
+        <p>En economía, la integral puede usarse para calcular varianzas de capital neto, por ejemplo, en una caja de ahorros:</p>
+        <p class="math-block">$$ C_T=\int_a^b nx\,dx $$</p>
+        <p>Donde:</p>
+        <section class="aplicaciones" style="background-color: #494949;">
+          <ul>
+            <li>\( C_P \) : Capital total luego de \( b-a \) es el intervalo de tiempo, por ejemplo, en días.</li>
+            <li>Los límites de integración, en este caso, representan:</li>
             <ul>
-                <li>Cálculo de áreas bajo curvas y entre funciones.</li>
-                <li>Determinación de volúmenes de sólidos de revolución.</li>
-                <li>Modelado de fenómenos físicos como el movimiento y la acumulación de cantidades.</li>
-                <li>Resolución de problemas en economía, biología e ingeniería.</li>
+              <li>\( a \) : Período inferior de la caja de ahorro, por ejemplo, día 0: \( a=0 \).</li>
+              <li>\( b \) : Período superior de la caja de ahorro, por ejemplo, día 250: \( b=250 \).</li>
             </ul>
+            <li>\( n \) : Cantidad de capital invertida por unidad de tiempo. Por ejemplo: 1 dólar por día.</li>
+          </ul>
         </section>
+        <p>La integral quedaría como:</p>
+        <p class="math-block">$$ \boxed{C_P=\int_0^{250} x\,dx=\left[\frac{1}{2}x^2\right]_0^{250}=\left(\frac{1}{2}250^2\right)-\left(\frac{1}{2}0^2\right)=31250} $$</p>
+        <p>Es decir, depositando 1 dólar más que el día anterior durante 250 días, se habrían ahorrado 31250 dólares dentro de un plazo de 8 meses y 1 semana aproximadamente.</p>
+      </section>
 
-        <section>
-            <h2>Tablas de integrales</h2>
-            <p>Existen tablas de integrales que recopilan las formas más comunes de funciones y sus respectivas integrales, facilitando el proceso de integración para funciones complejas.</p>
-            <table>
-                <caption>Tabla de integrales indefinidas esenciales</caption>
-                <thead>
-                  <tr>
-                    <th>Integral</th>
-                    <th>Resultado (antiderivada)</th>
-                    <th>Notas</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><code>∫ xⁿ dx</code></td>
-                    <td><code> xⁿ⁺¹ / (n+1) + C</code></td>
-                    <td class="small">n ≠ −1</td>
-                  </tr>
-                  <tr>
-                    <td><code>∫ x⁻¹ dx</code></td>
-                    <td><code> ln|x| + C</code></td>
-                    <td class="small">caso n = −1</td>
-                  </tr>
-                  <tr>
-                    <td><code>∫ e^{ax} dx</code></td>
-                    <td><code> (1/a) e^{ax} + C</code></td>
-                    <td class="small">a ≠ 0</td>
-                  </tr>
-                  <tr>
-                    <td><code>∫ a^{x} dx</code></td>
-                    <td><code> a^{x} / ln(a) + C</code></td>
-                    <td class="small">a > 0, a ≠ 1</td>
-                  </tr>
-                  <tr>
-                    <td><code>∫ sin x dx</code></td>
-                    <td><code> −cos x + C</code></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><code>∫ cos x dx</code></td>
-                    <td><code> sin x + C</code></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><code>∫ sec² x dx</code></td>
-                    <td><code> tan x + C</code></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><code>∫ csc² x dx</code></td>
-                    <td><code> −cot x + C</code></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><code>∫ sec x tan x dx</code></td>
-                    <td><code> sec x + C</code></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><code>∫ csc x cot x dx</code></td>
-                    <td><code> −csc x + C</code></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><code>∫ ln x dx</code></td>
-                    <td><code> x ln x − x + C</code></td>
-                    <td class="small">x>0 (forma más común por partes)</td>
-                  </tr>
-                  <tr>
-                    <td><code>∫ 1/(x² + a²) dx</code></td>
-                    <td><code> (1/a) arctan(x/a) + C</code></td>
-                    <td class="small">a > 0</td>
-                  </tr>
-                  <tr>
-                    <td><code>∫ 1/(x² − a²) dx</code></td>
-                    <td><code> (1/2a) ln| (x−a)/(x+a) | + C</code></td>
-                    <td class="small">|x| ≠ a</td>
-                  </tr>
-                  <tr>
-                    <td><code>∫ 1/√(a² − x²) dx</code></td>
-                    <td><code> arcsin(x/a) + C</code></td>
-                    <td class="small">|x| < a, a>0</td>
-                  </tr>
-                  <tr>
-                    <td><code>∫ arcsin x dx</code></td>
-                    <td><code> x·arcsin x + √(1−x²) + C</code></td>
-                    <td class="small">derivada por partes</td>
-                  </tr>
-                  <tr>
-                    <td><code>∫ arctan x dx</code></td>
-                    <td><code> x·arctan x − ½ ln(1+x²) + C</code></td>
-                    <td class="small">derivada por partes</td>
-                  </tr>
-                  <tr>
-                    <td><code>∫ sinh x dx</code></td>
-                    <td><code> cosh x + C</code></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><code>∫ cosh x dx</code></td>
-                    <td><code> sinh x + C</code></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><code>∫ 1/(x√(x²−a²)) dx</code></td>
-                    <td><code> (1/a) sec^{-1}(|x|/a) + C</code></td>
-                    <td class="small">variante; usar sustituciones trig/hiperbol.</td>
-                  </tr>
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <td colspan="3" class="small">
-                      <strong>Fórmulas útiles:</strong>
-                      <ul>
-                        <li><code>∫ u dv = u v − ∫ v du</code> (Integración por partes).</li>
-                        <li><code>∫ f(g(x)) g'(x) dx = ∫ f(u) du</code> con <code>u = g(x)</code> (Sustitución).</li>
-                        <li>Siempre añade <code>+ C</code> para la constante de integración.</li>
-                      </ul>
-                    </td>
-                  </tr>
-                </tfoot>
-              </table>            
-        </section>
-        <hr>
+      <section class="aplicaciones">
+        <h2>Notación</h2>
+        <ul>
+          <li>\( \int \) : Símbolo de integral.</li>
+          <li>\( a \) : Límite inferior.</li>
+          <li>\( b \) : Límite superior.</li>
+          <li>\( dx \) : Diferencial de \( x \) (La variable en la que se está integrando, todo el resto es considerado una constante y se puede sacar de la integral).</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Tablas</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Derivada</th>
+              <th>Integral</th>
+              <th>Notas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\( \int x^{n} dx \)</td>
+              <td>\( \frac{x^{n+1}}{(n+1)} + C \)</td>
+              <td class="small">\( n \neq -1 \)</td>
+            </tr>
+            <tr>
+              <td>\( \int x^{-1} dx \)</td>
+              <td>\( \ln(|x|) + C \)</td>
+              <td class="small">caso \( n = -1 \)</td>
+            </tr>
+            <tr>
+              <td>\( \int e^{ax} dx \)</td>
+              <td>\( \frac{1}{a} e^{ax} + C \)</td>
+              <td class="small">\( a \neq 0 \)</td>
+            </tr>
+            <tr>
+              <td>\( \int a^{x} dx \)</td>
+              <td>\( \frac{a^{x}}{\ln(a)} + C \)</td>
+              <td class="small">\( a \gt 0, a \neq 1 \)</td>
+            </tr>
+            <tr>
+              <td>\( \int\sin(x) dx \)</td>
+              <td>\( -\cos(x) + C \)</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>\( \int\sin^2(x) dx \)</td>
+              <td>\( \frac{x}{2}-\frac{\sin(2x)}{4} + C \)</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>\( \int\cos(x) dx \)</td>
+              <td>\( \sin(x) + C \)</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>\( \int\sec^{2}(x) dx \)</td>
+              <td>\( \tan(x) + C\)</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>\( \int\csc^{2}(x) dx \)</td>
+              <td>\( -\cot(x) + C \)</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>\( \int\sec(x)\tan(x) dx \)</td>
+              <td>\( \sec(x) + C \)</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>\( \int\csc(x)\cot(x) dx \)</td>
+              <td>\( -\csc(x) + C \)</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>\( \int\ln(x) dx \)</td>
+              <td>\( x\ln(x) - x + C \)</td>
+              <td class="small">\( x \gt 0 \) (forma más común por partes)</td>
+            </tr>
+            <tr>
+              <td>\( \int\frac{1}{x^{2} + a^{2}} dx \)</td>
+              <td>\( \frac{1}{a}\arctan(\frac{x}{a}) + C \)</td>
+              <td class="small">\( a \gt 0 \)</td>
+            </tr>
+            <tr>
+              <td>\( \int\frac{1}{x^{2} - a^{2}} dx \)</td>
+              <td>\( \frac{1}{2a}\ln|{x-a}{x+a}| + C \)</td>
+              <td class="small">\( |x| \neq a \)</td>
+            </tr>
+            <tr>
+              <td>\( \int\frac{1}{\sqrt{a^{2} - x^{2}}} dx \)</td>
+              <td>\( \arcsin(\frac{x}{a}) + C \)</td>
+              <td class="small">\( |x| \le a, a \gt 0 \)</td>
+            </tr>
+            <tr>
+              <td>\( \int\arcsin(x) dx \)</td>
+              <td>\( x\arcsin(x) + \sqrt{1-x^{2}} + C\)</td>
+              <td class="small">derivada por partes</td>
+            </tr>
+            <tr>
+              <td>\( \int\arctan(x) dx \)</td>
+              <td>\( x\arctan(x) - \frac{\ln(1+x^{2})}{2} + C \)</td>
+              <td class="small">derivada por partes</td>
+            </tr>
+            <tr>
+              <td>\( \int\sinh(x) dx \)</td>
+              <td>\( \cosh(x) + C \)</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>\( \int\cosh(x) dx \)</td>
+              <td>\( \sinh(x) + C \)</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>\( \int\frac{1}{x\sqrt{x^{2}-a^{2}}} dx \)</td>
+              <td>\( \frac{1}{a}\sec^{-1}(\frac{|x|}{a}) + C \)</td>
+              <td class="small">variante; usar sustituciones trig/hiperbol.</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3" class="small">
+                <strong>Fórmulas útiles:</strong>
+                <ul>
+                  <li>\( \int u dv = u v - \int v du\) (Integración por partes).</li>
+                  <li>\( \int f(g(x)) g'(x) dx = \int f(u) du\) con \(u = g(x)\) (Sustitución).</li>
+                  <li>Siempre considera \(+C\) para la constante de integración.</li>
+                </ul>
+              </td>
+            </tr>
+          </tfoot>
+        </table>           
+      </section>
     </main>
 
     <footer>

@@ -10,176 +10,188 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.0.0/math.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 
-    <style>
-        body {
-            background-color: #303030;
-            color: white;
-            font-family: "Microsoft JhengHei UI Light", sans-serif;
-            text-align: center;
-        }
-        main {
-            max-width: 800px;
-            margin: auto;
-            text-align: left;
-        }
-        a {
-            color: white;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            margin-top: 20px;
-            padding: 10px 0;
-            background-color: #303030;
-            text-align: center;
-        }
-        input {
-            width: 250px;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            outline: none;
-            background-color: #ffffff;
-            text-align: center;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        input::placeholder {
-            color: gray;
-            font-style: italic;
-            opacity: 0.7;
-        }
-
-        input:focus {
-            background-color: #e0e0e0;
-        }
-
-        #resultado {
-            margin-top: 20px;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .reference-list {
-            color: white;
-            font-size: 14px;
-            margin-top: 30px;
-            background-color: #444;
-            padding: 10px;
-            border-radius: 5px;
-        }
-    </style>
 </head>
 <body>
 
     <header>
         <h3 style="text-align: left;"><a href="index.html">← Volver</a></h3>
-        <h1>Logaritmación</h1>
+        <h1>Logaritmos</h1>
     </header>
 
     <main>
         <hr>
+        <section class="section">
+            <h2>Definición</h2>
+            <h1 class="math-block">$$ \begin{array}\\ \log_b x = y \Longleftrightarrow b^y = x \\ 0\lt b\neq1,x\gt0 \end{array}$$</h1>
+            <p>El logaritmo de un número \( x\) en una base \( b \) es el exponente \( y \) al que se debe elevar la base para obtener dicho número. Esta función es útil en diversos campos, incluyendo matemáticas, informática y economía, permitiendo resolver ecuaciones exponenciales y analizar crecimiento exponencial.</p>
+        </section>
 
-        <section>
-            <h2>Fórmula General</h2>
-            <h1>$$\log_b x = y$$</h1>
-            <p>El logaritmo de un número <b>x</b> en una base <b>b</b> es el exponente <b>y</b> al que se debe elevar la base para obtener dicho número:</p>
-            <p>$$b^y = x$$</p>
-            <p>Esta función es útil en diversos campos, incluyendo matemáticas, informática y economía, permitiendo resolver ecuaciones exponenciales y analizar crecimiento exponencial.</p>
+        <section class="section">
+            <h2>Propiedades</h2>
+            <table>
+                <thead>
+                  <tr>
+                    <th>Propiedad</th>
+                    <th>Expresión</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Exponente</td>
+                    <td>\( x^{\log_b{a}}=a^{\log_b{x}} \)</td>
+                  </tr>
+                  <tr>
+                    <td>Misma base y argumento</td>
+                    <td>\( \log_b{b}=1 \)</td>
+                  </tr>
+                  <tr>
+                    <td>Potencia del argumento</td>
+                    <td>\( \log_b{a^n}=n\log_b{a} \)</td>
+                  </tr>
+                  <tr>
+                    <td>Argumento uno</td>
+                    <td>\( \log_b{1}=0 \)</td>
+                  </tr>
+
+                  <tr>
+                    <td>Raíz del argumento</td>
+                    <td>\( \log_b{\sqrt[n]{a}}=\frac{1}{n}\log_b{a} \)</td>
+                  </tr>
+                  <tr>
+                    <td>Producto</td>
+                    <td>\( \log_b{xy}=\log_b{x}+\log_b{y} \)</td>
+                  </tr>
+                  <tr>
+                    <td>Potencia idéntica de base y argumento</td>
+                    <td>\( \log_{b^n}{a^n}=\log_b{a} \)</td>
+                  </tr>
+                  <tr>
+                    <td>Cociente</td>
+                    <td>\( \log_b{\frac{x}{y}}=\log_b{x}-\log_b{y} \)</td>
+                  </tr>
+                  <tr>
+                    <td>Cambio de base por argumento</td>
+                    <td>\( \log_b{a}=\frac{1}{\log_a{b}} \)</td>
+                  </tr>
+                  <tr>
+                    <td>Cambio de base</td>
+                    <td>\( \log_b{a}=\frac{\log_c{a}}{\log_c{b}} \)</td>
+                  </tr>
+                  <tr>
+                    <td>Potencia de un logaritmo</td>
+                    <td>\( (\log_b{a})^n=\log_b^n{a} \)</td>
+                  </tr>
+                  <tr>
+                    <td>Cadena</td>
+                    <td>\( \log_b{a}\cdot\log_a{c}\cdot\log_c{d}=\log_b{d} \)</td>
+                  </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="aplicaciones">
+            <h2>Aplicaciones</h2>
+            <p>La logaritmación tiene numerosas aplicaciones en diversas áreas, tales como:</p>
+            <ul>
+                <li>Cálculo de acidez y basicidad mediante logaritmos de la concentración de iones hidrógeno.</li>
+                <li>Medición de la energía liberada por un terremoto crece logarítmicamente gracias a la Escala Richter.</li>
+                <li>Regulación de intensidad del sonido en decibeles (acústica) y potencia de señales eléctricas.</li>
+                <li>Los logaritmos permiten despejar tiempo, tasa o capital en fórmulas financieras.</li>
+            </ul>
+        </section>
+
+        <section class="aplicaciones">
+          <h2>Ejemplo práctico</h2>
+          <p>Tienes una muestra radiactiva. Mides su actividad y obtienes estos datos experimentales:</p>
+          <table style="background-color: #494949;">
+            <thead>
+                <tr>
+                    <th>Tiempo (s)</th>
+                    <th>Actividad (becquerels)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>\( 0 \)</td>
+                    <td>\( 1000 \)</td>
+                </tr>
+                <tr>
+                    <td>\( 10 \)</td>
+                    <td>\( 740 \)</td>
+                </tr>
+                <tr>
+                    <td>\( 20 \)</td>
+                    <td>\( 548 \)</td>
+                </tr>
+                <tr>
+                    <td>\( 30 \)</td>
+                    <td>\( 406 \)</td>
+                </tr>
+            </tbody>
+            
+          </table>
+          <p>La ley física que describe este caso es:</p>
+          <p class="math-block">$$ A(t)=A_0e^{-\lambda t} $$</p>
+          <section class="aplicaciones" style="background-color: #494949;">
+            <ul>
+              <li>\( A_0 \) : actividad inicial.</li>
+              <li>\( \lambda \) : constante de desintegración.</li>
+            </ul>
+          </section>
+          <p>Aplicamos logaritmo natural (\( \log_e=\ln \)) en ambos lados:</p>
+          <p class="math-block">$$ \ln{A(t)}=\ln{A_0-\lambda t} $$</p>
+          <p>Calculando los logaritmos para cada valor de \( t \), obtenemos:</p>
+          <table style="background-color: #494949;">
+            <thead>
+                <tr>
+                    <th>\( t(s) \)</th>
+                    <th>\( A(t) \)</th>
+                    <th>\( \ln{A} \)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>\( 0 \)</td>
+                    <td>\( 1000 \)</td>
+                    <td>\( 6.91 \)</td>
+                </tr>
+                <tr>
+                    <td>\( 10 \)</td>
+                    <td>\( 740 \)</td>
+                    <td>\( 6.61 \)</td>
+                </tr>
+                <tr>
+                    <td>\( 20 \)</td>
+                    <td>\( 548 \)</td>
+                    <td>\( 6.31 \)</td>
+                </tr>
+                <tr>
+                    <td>\( 30 \)</td>
+                    <td>\( 406 \)</td>
+                    <td>\( 6.01 \)</td>
+                </tr>
+            </tbody>
+          </table>
+          <p>Si graficamos \( \ln{A}(t) \) obtenemos una pendiente:</p>
+          <p class="math-block">$$ m=\frac{6.01-6.91}{30-0}=-\frac{0.9}{30}=-0.03 $$</p>
+          <p>Por lo tanto, hemos extraído una constante física real a partir de datos experimentales gracias al logaritmo: \( \lambda=0.03\,s^{-1} \) .</p>
+          <p>Además, podemos hallar la vida media:</p>
+          <p class="math-block">$$ \boxed{\frac{t}{2}=\frac{\ln{2}}{\lambda}=\frac{0.693}{0.03}\approx23.1\,s} $$</p>
+        </section>
+  
+        <section class="aplicaciones">
+          <h2>Notación</h2>
+          <ul>
+            <li>\( \log \) : Símbolo de logaritmo.</li>
+            <li>\( b \) : Base.</li>
+            <li>\( x \) : Logaritmando.</li>
+            <li>\( y \) : Logaritmo.</li>
+          </ul>
         </section>
         <hr>
     </main>
-    
-    <ul>
-        <input type="number" id="num" placeholder="Logaritmando x" step="any">
-        <input type="number" id="base" placeholder="Base b" step="any">
-    </ul>
-    
-    <div id="resultado"></div>
-    
-    <div id="resultado"></div>
-
-    <script>
-        function calcularLogaritmo() {
-            const resultadoDiv = document.getElementById('resultado');
-
-            // Leer crudo para poder aceptar "1,5" y limpiarlo
-            let rawX = document.getElementById('num').value || "";
-            let rawB = document.getElementById('base').value || "";
-
-            // Normalizar: quitar espacios y cambiar comas por puntos
-            rawX = rawX.trim().replace(',', '.');
-            rawB = rawB.trim().replace(',', '.');
-
-            // Intentar parsear
-            const x = parseFloat(rawX);
-            const b = parseFloat(rawB);
-
-            // Comprobaciones y mensajes más precisos
-            if (!isFinite(x) && !isFinite(b)) {
-                resultadoDiv.textContent = "Ingrese valores numéricos para x y b.";
-                return;
-            }
-            if (!isFinite(x)) {
-                resultadoDiv.textContent = "Ingrese un número válido para x (x > 0).";
-                return;
-            }
-            if (!isFinite(b)) {
-                resultadoDiv.textContent = "Ingrese una base válida para b (b > 0 y b ≠ 1).";
-                return;
-            }
-            if (x <= 0) {
-                resultadoDiv.textContent = "x debe ser > 0.";
-                return;
-            }
-            if (b <= 0 || b === 1) {
-                resultadoDiv.textContent = "b debe ser > 0 y diferente de 1.";
-                return;
-            }
-
-            // Cálculo robusto: caso base 10 optimizado, caso base e (natural), o cambio de base.
-            let valor;
-            if (b === 10) {
-                // Math.log10 existe en la mayoría de navegadores modernos
-                valor = Math.log10 ? Math.log10(x) : Math.log(x) / Math.log(10);
-            } else if (b === Math.E) {
-                valor = Math.log(x); // log natural
-            } else {
-                valor = Math.log(x) / Math.log(b);
-            }
-
-            const valorStr = valor.toFixed(8).replace(/\.?0+$/,""); // limpieza de ceros finales
-
-            const latexExpr = `\\log_{${b}}(${x}) = ${valorStr}`;
-
-            // Render con KaTeX si está disponible; si no, fallback a texto.
-            try {
-                if (typeof katex !== "undefined" && katex.render) {
-                    katex.render(latexExpr, resultadoDiv, { throwOnError: false });
-                } else {
-                    resultadoDiv.textContent = latexExpr;
-                }
-            } catch (err) {
-                console.error("Error al renderizar KaTeX:", err);
-                resultadoDiv.textContent = `Resultado: ${valorStr}`;
-            }
-        }
-
-        // Listeners más sanos
-        const elNum = document.getElementById('num');
-        const elBase = document.getElementById('base');
-
-        if (elNum && elBase) {
-            elNum.addEventListener('input', calcularLogaritmo);
-            elBase.addEventListener('input', calcularLogaritmo);
-        } else {
-            console.warn("No se encontraron inputs #num o #base en el DOM.");
-        }
-    </script>
 
     <footer>
         <p><i>Regresa al <a href="index.html">inicio</a> para explorar más herramientas matemáticas.</i></p>

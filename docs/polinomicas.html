@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explicación sobre las ecuaciones polinómicas, su forma general y cómo resolverlas.">
     <title>Ecuación Polinómica - Calculadora Científica</title>
     
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -11,69 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.0.0/math.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        body {
-            background-color: #303030;
-            color: white;
-            font-family: "Microsoft JhengHei UI Light", sans-serif;
-            text-align: center;
-        }
-        main {
-            max-width: 800px;
-            margin: auto;
-            text-align: left;
-        }
-        a {
-            color: white;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            margin-top: 20px;
-            padding: 10px 0;
-            background-color: #303030;
-            text-align: center;
-        }
-        input {
-            width: 250px;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            outline: none;
-            background-color: #ffffff;
-            text-align: center;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        input::placeholder {
-            color: gray;
-            font-style: italic;
-            opacity: 0.7;
-        }
-
-        input:focus {
-            background-color: #e0e0e0;
-        }
-
-        #resultado {
-            margin-top: 20px;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .reference-list {
-            color: white;
-            font-size: 14px;
-            margin-top: 30px;
-            background-color: #444;
-            padding: 10px;
-            border-radius: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -86,34 +23,102 @@
         <hr>
 
         <section>
-            <h2>Ecuación General</h2>
-            <h1>$$f(x)=\sum_{k=0}^{n}a_{k}x^{k}$$</h1>
-            <p>Las ecuaciones de primer grado son ecuaciones algebraicas en las que la incógnita (variable) tiene un exponente de 1, es decir, no hay potencias de la variable más altas que 1.</p>
-            <p>Esta es la forma más simple de una ecuación lineal, donde \( m \) es la pendiente de la recta y \( b \) es la intersección con el eje \( y \). Se trata de una relación directa entre dos variables que se puede representar gráficamente como una línea recta.</p>
+            <h2>Definición</h2>
+            <h1 class="math-block">$$f(x)=\sum_{n}^{k=0}a_{k}x^{k}$$</h1>
+            <p>Una ecuación polinómica es toda igualdad de la forma \( f(x)=0 \) donde \( f(x) \) es un polinomio definido como \( f(x) = a_{n}x^{n}+a_{n-1}x^{n-1}+\dots+a_{1}x+a_{0} \) con \( a_k\in\mathbb{R} \) .</p>
         </section>
 
         <section>
-            <h2>Interpretación de los términos</h2>
-            <p>En la ecuación \(f(x)=\sum_{n}^{k=0}a_{k}x^{k}\):</p>
-            <ul>
-                <li><strong>\(\sum\)</strong>: toma todos los términos generados por la expresión \(a_{k}x^{k}\) mientras \(k\) recorre su rango y sumarlos.</li>
-                <li><strong>\(k\)</strong>: Es el índice de iteración. Un contador que va tomando valores enteros desde 0 hasta \(n\). Controla el exponente de \(x\) y qué coeficiente se usa en cada paso.</li>
-                <li><strong>\(0\let k\let n\)</strong>: Define el rango de la suma.</li>
-                <ul>
-                    <li>Cuando \(k=0\): aparece el término independiente \(a_{0}\).</li>
-                    <li>Cuando \(k=1\): aparece el término lineal \(a_{1}x\).</li>
-                    <li>Y así sucesivamente hasta \(k=n\), que produce el coeficiente principal \(a_{k}x^{k}\).</li>
-                </ul>
-                <li><strong>\(a_{k}\)</strong>: Es el coeficiente asociado a la potencia \(x^{k}\). Determina cuánto “pesa” cada término en el comportamiento total del polinomio.</li>
-                <li><strong>\(x^{k}\)</strong>: Es la variable elevada a la potencia \(k\). Controla cómo crece o decrece el término según el valor de \(x\).</li>
-            </ul>
-            Desarrollando, la ecuación polinómica se ve así:
-            <p>$$f(x) = a_{n}x^{n}+\dotsc+a_{1}x+a_{0}$$</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Forma general</th>
+                        <th>Nomenclatura</th>
+                        <th>Métodos de resolución</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>\( y=k \)</td>
+                        <td>Constante</td>
+                        <td>❌</td>
+                    </tr>
+                    <tr>
+                        <td>\( y=mx+b \)</td>
+                        <td>Ecuación de primer grado</td>
+                        <td>Igualar a cero y despejar para \( x \).</td>
+                    </tr>
+                    <tr>
+                        <td>\( y=ax^2+bx+c \)</td>
+                        <td>Ecuación cuadrática</td>
+                        <td>
+                            <ul>
+                                <li>Aplicar fórmula general</li>
+                                <li>Resolver por Po-Shen-Loh</li>
+                                <li>Factorización</li>
+                                <li>Completar cuadrados (TCP)</li>
+                                <li>Teorema de la raíz racional</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\( y=ax^3+bx^2+cx+d \)</td>
+                        <td>Ecuación cúbica</td>
+                        <td>Idem resolución de cuadrática.</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
+        <section class="aplicaciones">
+            <h2>Aplicaciones</h2>
+            <p>Las ecuaciones polinómicas tienen numerosas aplicaciones en diversas áreas, tales como:</p>
+            <ul>
+                <li>Un polinomio de Lagrange que pase por puntos medidos en un experimento.</li>
+                <li>La ecuación característica de un sistema eléctrico o mecánico (autovalores).</li>
+                <li>Setpoint polinómico multivariable en un sistema electromecánico de alta precisión (según frecuencia de lectura y procesamiento).</li>
+                <li>Regresiones en experimentos de laboratorio.</li>
+            </ul>
+        </section>
+
+        <section class="aplicaciones">
+            <h2>Ejemplo práctico</h2>
+            <p>Sea una sucesión de números \( l_1={1,3,7,8} \) que deben corresponderle a otra \( l_2={-2,0,5,11} \) y necesitamos una expresión que englobe todo el sistema: Usaremos una interpolación de Lagrange para una ecuación polinómica.</p>
+            <p>Escrito de manera matemáticamente reducida, quedaría:</p>
+            <p class="math-block">$$ f(x)=\sum_{i=1}^ny_i\prod_{\substack{j=1 \\ j \neq i}}^{n} \frac{x - x_j}{x_i - x_j} $$</p>
+            <p>Por tanto, necesitamos que la función pase por \( (1,-2),(3,0),(7,5),(8,11) \). Calculamos el polinomio base:</p>
+            <p class="math-block">$$ \begin{array} \\
+                L_1(x)=\frac{(x-3)(x-7)(x-8)}{(1-3)(1-7)(1-8)}=\frac{(x-3)(x-7)(x-8)}{-84} \\
+                L_2(x)=\frac{(x-1)(x-7)(x-8)}{(3-1)(3-7)(3-8)}=\frac{(x-1)(x-7)(x-8)}{40} \\
+                L_3(x)=\frac{(x-1)(x-3)(x-8)}{(7-1)(7-3)(7-8)}=\frac{(x-1)(x-3)(x-8)}{-24} \\
+                L_4(x)=\frac{(x-1)(x-3)(x-7)}{(8-1)(8-3)(8-7)}=\frac{(x-1)(x-3)(x-7)}{35}
+                \end{array} $$</p>
+            <p>Finalmente, la función polinómica que interpola los puntos es:</p>
+            <p class="math-block">$$ f(x)=-2L_1(x)+0L_2(x)+5L_3(x)+11L_4(x) $$</p>
+            <p>Calculando y reduciendo, obtenemos el polinomio:</p>
+            <p class="math-block">$$ \boxed{f(x)=\frac{109}{840}x^3-\frac{97}{70}x^2+\frac{4079}{840}x-\frac{28}{5}} $$</p>
+        </section>
+
+        <section class="aplicaciones">
+            <h2>Notación</h2>
+            <ul>
+                <li>\( f(x) \) : \( f \) en función de \( x \).</li>
+                <li>\(\sum\): toma todos los términos generados por la expresión \(a_{k}x^{k}\) mientras \(k\) recorre su rango y los suma.</li>
+                <li>\(k\): Es el índice de iteración. Un contador que va tomando valores enteros desde \(n\) hasta 0. Controla el exponente de \(x\) y qué coeficiente se usa en cada paso.</li>
+                <li>\(0\le k\lt n\): Define el rango de la suma.</li>
+                <section class="aplicaciones" style="background-color: #494949;">
+                    <ul>
+                        <li>Cuando \(k=0\): aparece el término independiente \(a_{0}\).</li>
+                        <li>Cuando \(k=1\): aparece el término lineal \(a_{1}x\).</li>
+                        <li>Y así sucesivamente hasta \(k=n\), que produce el coeficiente principal \(a_{k}x^{k}\).</li>
+                    </ul>
+                </section>
+                <li>\(a_{k}\): Es el coeficiente asociado a la potencia \(x^{k}\). Determina cuánto “pesa” cada término en el comportamiento total del polinomio.</li>
+                <li>\(x^{k}\): Es la variable elevada a la potencia \(k\). Controla cómo crece o decrece el término según el valor de \(x\).</li>
+            </ul>
+        </section>
         <hr>
     </main>
-
     <footer>
         <p><i>Regresa al <a href="index.html">inicio</a> para explorar más herramientas matemáticas.</i></p>
     </footer>

@@ -11,69 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.0.0/math.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 
-    <style>
-        body {
-            background-color: #303030;
-            color: white;
-            font-family: "Microsoft JhengHei UI Light", sans-serif;
-            text-align: center;
-        }
-        main {
-            max-width: 800px;
-            margin: auto;
-            text-align: left;
-        }
-        a {
-            color: white;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            margin-top: 20px;
-            padding: 10px 0;
-            background-color: #303030;
-            text-align: center;
-        }
-        input {
-            width: 250px;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            outline: none;
-            background-color: #ffffff;
-            text-align: center;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        input::placeholder {
-            color: gray;
-            font-style: italic;
-            opacity: 0.7;
-        }
-
-        input:focus {
-            background-color: #e0e0e0;
-        }
-
-        #resultado {
-            margin-top: 20px;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .reference-list {
-            color: white;
-            font-size: 14px;
-            margin-top: 30px;
-            background-color: #444;
-            padding: 10px;
-            border-radius: 5px;
-        }
-    </style>
 </head>
 <body>
 
@@ -86,68 +25,40 @@
         <hr>
 
         <section>
-            <h2>Fórmula general</h2>
-            <h1>
-                $$ M = C \left(1 + \frac{i_p}{n} \right)^n $$
-            </h1>
+            <h2>Definición</h2>
+            <h1 class="math-block">$$ C(t)=C_0(1+i)^t $$</h1>
             <p>El interés compuesto es el interés que se calcula no solo sobre el capital inicial, sino también sobre los intereses que se han sumado en períodos anteriores. Esto significa que se obtiene "interés sobre el interés", lo que genera un crecimiento exponencial de la inversión o deuda.</p>
         </section>
-        <section class="reference-list">
-            <h2>Lista de Referencia de Variables</h2>
+
+        <section class="aplicaciones">
+            <h2>Aplicaciones</h2>
+            <p>El interés compuesto tiene numerosas aplicaciones en diversas áreas, tales como:</p>
             <ul>
-                <li><strong>M</strong>: Monto final después de aplicar el interés compuesto.</li>
-                <li><strong>C</strong>: Capital inicial (Capital inicial de la inversión o préstamo).</li>
-                <li><strong>iₚ</strong>: Tasa de interés por período (expresada como decimal, e.g., 5% = 0.05).</li>
-                <li><strong>n</strong>: Número de períodos (número total de veces que el interés se aplica).</li>
+                <li>Inversiones financieras a largo plazo.</li>
+                <li>Ahorros.</li>
+                <li>Préstamos hipotecarios y créditos personales.</li>
+                <li>Planificación financiera y presupuestaria.</li>
+            </ul>
+        </section>
+
+        <section class="aplicaciones">
+            <h2>Ejemplo práctico</h2>
+            <p>Supongamos que inviertes $150 mensuales (\( S(\tau)=150\tau \)) con una tasa del 3.57% mensual:</p>
+            <p>Integrando la fórmula del interés compuesto:</p>
+            <p class="math-block">$$ \boxed{C(t)=\int_0^tS(\tau)(1+i)^{t-\tau}\,d\tau} $$</p>
+            <p>Esto sirve para multiplicar los ingresos mensuales con la ayuda de una inversión fija y estable en interés compuesto.</p>
+        </section>
+
+        <section class="aplicaciones">
+            <h2>Notación</h2>
+            <ul>
+                <li>\( C(t) \): Monto final después de aplicar el interés compuesto.</li>
+                <li>\( C_0 \): Capital inicial (Capital inicial de la inversión o préstamo).</li>
+                <li>\( i \): Tasa de interés por período (expresada como decimal, e.g., 5% = 0.05).</li>
+                <li>\( t \): Número de períodos (número total de veces que el interés se aplica).</li>
             </ul>
         </section>
     </main>
-    <ul>
-        <input type="number" id="capital" placeholder="Capital C" step="any">
-        <input type="number" id="tasa" placeholder="Tasa ip (%)" step="any">
-        <input type="number" id="veces" placeholder="n (capitalizaciones/año)" step="any">
-        <input type="number" id="tiempo" placeholder="Tiempo t (años)" step="any">
-    </ul>
-    
-    <div id="resultado"></div>
-    
-    <script>
-    function calcularInteresCompuesto() {
-        let C = parseFloat(document.getElementById('capital').value);
-        let ip = parseFloat(document.getElementById('tasa').value);
-        let n = parseFloat(document.getElementById('veces').value);
-        let t = parseFloat(document.getElementById('tiempo').value);
-    
-        if (isNaN(C) || isNaN(ip) || isNaN(n) || isNaN(t)) {
-            document.getElementById('resultado').innerHTML = "Ingrese valores válidos.";
-            return;
-        }
-    
-        // Convertir porcentaje a decimal
-        let tasaDecimal = ip / 100;
-    
-        // Fórmula interés compuesto
-        let M = C * Math.pow(1 + (tasaDecimal / n), n * t);
-    
-        // Redondeo elegante
-        let Mredondeado = M.toFixed(2);
-    
-        let latexExpr = `
-        M = ${C} \\left(1 + \\frac{${tasaDecimal}}{${n}} \\right)^{${n} \\cdot ${t}} = ${Mredondeado}
-        `;
-    
-        console.log("LaTeX generado:", latexExpr);
-    
-        try {
-            katex.render(latexExpr, document.getElementById('resultado'));
-        } catch (error) {
-            console.error("Error en KaTeX:", error);
-            document.getElementById('resultado').innerHTML = "⚠️ Error al renderizar.";
-        }
-    }
-    
-    setInterval(calcularInteresCompuesto, 30);
-    </script>
 
     <footer>
         <p><i>Explora más herramientas matemáticas en el <a href="index.html">inicio</a>.</i></p>
