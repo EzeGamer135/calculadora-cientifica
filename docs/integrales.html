@@ -118,7 +118,7 @@
         <p>Donde:</p>
         <section class="aplicaciones" style="background-color: #494949;">
           <ul>
-            <li>\( C_P \) : Capital total luego de \( b-a \) es el intervalo de tiempo, por ejemplo, en días.</li>
+            <li>\( C_P \) : Capital total. \( b-a \) es el intervalo de tiempo, por ejemplo, en días.</li>
             <li>Los límites de integración, en este caso, representan:</li>
             <ul>
               <li>\( a \) : Período inferior de la caja de ahorro, por ejemplo, día 0: \( a=0 \).</li>
@@ -130,6 +130,28 @@
         <p>La integral quedaría como:</p>
         <p class="math-block">$$ \boxed{C_P=\int_0^{250} x\,dx=\left[\frac{1}{2}x^2\right]_0^{250}=\left(\frac{1}{2}250^2\right)-\left(\frac{1}{2}0^2\right)=31250} $$</p>
         <p>Es decir, depositando 1 dólar más que el día anterior durante 250 días, se habrían ahorrado 31250 dólares dentro de un plazo de 8 meses y 1 semana aproximadamente.</p>
+        <hr>
+        <p>En ingeniería, podemos calcular, por ejemplo, cuánto estrés acumula una cápsula al reentrar sabiendo el flujo térmico, la velocidad y la presión atmosférica. Se simuló que el estrés logra acumularse, en promedio, con la forma \( S(v)=\frac{Av}{h^2}-h+PA^v \) con \( h=-2A\sqrt{P^3} \) y disiparse por razón de \( -x\cdot S(v)+A^2 \), donde:</p>
+        <section class="aplicaciones" style="background-color: #494949;">
+          <ul>
+            <li>\( S(v) \) : Estrés (en \( Pa \)) en función de la velocidad (en \( \frac{m}{s} \)).</li>
+            <li>\( A \) : Área máxima del corte frontal (en \( m^2 \)).</li>
+            <li>\( P \) : Presión atmosférica (en \( Pa \)).</li>
+            <li>\( h \) : Flujo térmico neto (en \( \frac{K}{m} \)).</li>
+          </ul>
+        </section>
+        <p>Dicho esto, tenemos todas las herramientas para construir una expresión que represente la integral que defina cómo disminuye el estrés en función de la velocidad:</p>
+        <p class="math-block">$$ S_{T,(hPa)}(v_{(km/s)})=x\cdot\int_0^{v_{max}}S(v)\,dv+a $$</p>
+        <p>Calculamos y desarrollamos:</p>
+        <p class="math-block">$$ S_{T,(hPa)}(v_{(km/s)})=v\cdot\left.\left(\frac{v^2}{8AP^3}+2AP^{\frac{3}{2}}v+\frac{PA^v}{\ln{A}}\right)\right|_0^{v_{max}}+a $$</p>
+        <p>Donde:</p>
+        <section class="aplicaciones" style="background-color: #494949;">
+          <ul>
+            <li>\( v_{max} \) : Velocidad máxima alcanzada (en \( \frac{km}{s} \)).</li>
+            <li>\( a \) : Estrés inicial (en \( hPa \)).</li>
+          </ul>
+        </section>
+        <p class="math-block">$$ \boxed{S(P)=\frac{v_\text{max}^3}{8AP^3}+2AP^\frac{3}{2}v_\text{max}^2+\frac{Pv_\text{max}A^{v_\text{max}}}{\ln{A}}+a} $$</p>
       </section>
 
       <section class="aplicaciones">

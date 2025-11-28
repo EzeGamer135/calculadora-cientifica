@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Límites - Calculadora Científica</title>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.0.0/math.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <header>
+        <h3 style="text-align: left;"><a href="index.html">← Volver</a></h3>
+        <h1>Límites</h1>
+    </header>
+
+    <main>
+        <hr>
+        <section>
+            <h2>Definición</h2>
+            <h1 class="math-block">$$
+                \begin{array} \\
+                \lim\limits_{x\to c}f(x)=L \\
+                \forall\varepsilon\gt0,\exists\delta\gt0:0\lt|x-c|\lt\delta\Rightarrow|f(x)-L|\lt\varepsilon
+                \end{array}
+                $$</h1>
+            <p>Un límite es el valor al que tiende la imagen de una función cuando la variable independiente se aproxima a un punto determinado, independientemente de si la función está definida o no en dicho punto. En este artículo vamos a profundizar sobre cómo se resuelve un límite, tipos y cómo resolver indeterminaciones, discontinuidades, asíntotas y puntos singulares.</p>
+            <h2>Resolución de límites:</h2>
+            Reemplaza la variable de la función a estudiar por la tendencia del límite.
+            <p>Ejemplo: \( \lim\limits_{x\to2}\frac{3x^2-8x}{4-x}=\frac{2(3(2)-8)}{4-2}=\frac{-4}{2}=-2 \)</p>
+            <p>Sin embargo, puede pasar que el resultado te dé algo como:</p>
+            <ul>
+                <li>\( \frac{k}{0} \) con \( k\neq0 \): \( \begin{cases}+\infty, & k\gt0\\-\infty, & k\lt0\end{cases} \),</li>
+                <li>o \( \frac{0}{0}, \frac{\infty}{\infty}, \infty\cdot0, \infty-\infty, 1^{\infty}, 0^0\) (indeterminación)</li>
+            </ul>
+            <p>En este caso, debemos resolver la <strong>indeterminación</strong>:</p>
+            <ol>
+                <li>Si es una indeterminación de tipo:</li>
+                <ul>
+                    <li>\( \frac{0}{0} \) o \( \frac{\infty}{\infty} \), intenta simplificar la función factorizando, racionalizando o aplicando L'Hôpital.</li>
+                    <li>\( \infty\cdot0 \), reescribe el producto como un cociente para convertirlo en una indeterminación de tipo \( \frac{0}{0} \) o \( \frac{\infty}{\infty} \).</li>
+                    <li>\( \infty-\infty \), combina los términos para obtener un solo cociente que pueda ser simplificado.</li>
+                    <li>\( 1^{\infty} \) o \( 0^0 \), utiliza logaritmos para transformar la expresión y luego aplica las reglas anteriores.</li>
+                </ul>
+                <li>Después de simplificar, vuelve a evaluar el límite sustituyendo la variable por el valor al que tiende.</li>
+                <li>Si después de estos pasos aún tienes una indeterminación, repite el proceso hasta que puedas evaluar el límite directamente.</li>
+            </ol>
+
+            <table>
+                <caption>Cálculo de límites</caption>
+                <thead>
+                  <tr>
+                    <th>\( \lim\limits_{x\to a}f \)</th> <!-- a -->
+                    <th>\( \lim\limits_{x\to a}g \)</th> <!-- b -->
+                    <th>\( \lim\limits_{x\to a}(f+g) \)</th> <!-- a+b -->
+                    <th>\( \lim\limits_{x\to a}(f\cdot g) \)</th> <!-- a*b -->
+                    <th>\( \lim\limits_{x\to a}\frac{f}{g} \)</th> <!-- a/b -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>\( b \)</td>
+                    <td>\( c \)</td>
+                    <td>\( b+c \)</td>
+                    <td>\( b\cdot c \)</td>
+                    <td>\( \begin{cases}
+                        \frac{b}{c}, & c\neq0 \\
+                        0, & c\vee b=0 \\
+                        \text{ind.}, & c\wedge b=0
+                    \end{cases} \)</td>
+                  </tr>
+                  <tr>
+                    <td>\( b \)</td>
+                    <td>\( \infty \)</td>
+                    <td>\( \begin{cases}
+                        +\infty, & g\gt0 \\
+                        -\infty, & g\lt0
+                    \end{cases} \)</td>
+                    <td>\( \begin{cases}
+                        +\infty, & Sg(f)=Sg(g) \\
+                        \text{ind.}, & b=0 \\
+                        -\infty, & Sg(f)=-Sg(g)
+                    \end{cases} \)</td>
+                    <td>\( \begin{cases}
+                        +\infty, & f\cdot g\gt0 \\
+                        0, & b=0 \\
+                        \nexists, & \frac{g}{f},f=0 \\
+                        -\infty, & f\cdot g\lt0
+                    \end{cases} \)</td>
+                  </tr>
+                  <tr>
+                    <td>\( \infty \)</td>
+                    <td>\( \infty \)</td>
+                    <td>\( \begin{cases}
+                        +\infty, & f\cdot g\gt0 \\
+                        \text{ind.}, & f\cdot g\lt0 \\
+                        -\infty, & f\wedge g\lt0
+                    \end{cases} \)</td>
+                    <td>\( \begin{cases}
+                        +\infty, & f\cdot g\gt0 \\
+                        -\infty, & f\cdot g\lt0
+                    \end{cases} \)</td>
+                    <td>\( \begin{cases}
+                        +\infty, & f\cdot g\gt0 \\
+                        -\infty, & f\cdot g\lt0
+                    \end{cases} \)</td>
+                  </tr>
+                </tbody>
+            </table>
+            <h2>Tipos de límites</h2>
+            <p>Cabe destacar que un límite también tiene criterios de existencia o inexistencia:</p>
+            <ul>
+                <li>El límite \( \lim\limits_{x\to c}f(x) \) existe si y solo si los límites laterales son iguales: \( \lim\limits_{x\to c^-}f(x)=\lim\limits_{x\to c^+}f(x) \).</li>
+                <li>El límite \( \lim\limits_{x\to c}f(x) \) no existe si los límites laterales son diferentes o si al menos uno de ellos no existe o es infinito.</li>
+            </ul>
+            <h2>Discontinuidades</h2>
+            <p>Las discontinuidades son muy frecuentes en las funciones, sobre todo en aquellas que tengan combinaciones de raíces cuadradas y valores absolutos o que directamente tengan la forma: \( \begin{cases}x+8, & \text{si} & x\lt1 \\9x+1, & \text{si} & x\gt3\end{cases} \)</p>
+            <p>Como todo en límites, tienen su clasificación:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Discontinuidad</th>
+                        <th>Condición</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Evitable</td>
+                        <td>\( \lim\limits_{x\to c}f(x)=L \) y \( f(c)\neq L \)</td>
+                        <td>El límite existe pero no es igual al valor de la función en ese punto.</td>
+                    </tr>
+                    <tr>
+                        <td>Inevitable</td>
+                        <td>\( \lim\limits_{x\to c}f(x)=\nexists \)</td>
+                        <td>
+                            <ul>
+                                <li><strong>1ra especie:</strong> Al menos uno de los límites laterales de una función en un punto es infinito o diferente al otro.</li>
+                                <li><strong>2da especie:</strong> Al menos uno de los límites laterales de una función en un punto no existe.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>De salto</td>
+                        <td>\( \lim\limits_{x\to c^-}f(x)\neq\lim\limits_{x\to c^+}f(x) \)</td>
+                        <td>Los límites laterales existen pero son diferentes entre sí.</td>
+                    </tr>
+                    <tr>
+                        <td>Infinita</td>
+                        <td>\( \lim\limits_{x\to c^-}f(x)=\pm\infty \) o \( \lim\limits_{x\to c^+}f(x)=\pm\infty \)</td>
+                        <td>Al menos uno de los límites laterales es infinito.</td>
+                    </tr>
+                    <tr>
+                        <td>Esencial</td>
+                        <td>\( \lim\limits_{x\to c^-}f(x) \) o \( \lim\limits_{x\to c^+}f(x) \) no existe</td>
+                        <td>Al menos uno de los límites laterales no existe o es infinito.</td>
+                    </tr>
+            </table>
+            <p>Resolveremos un ejercicio de ejemplo para una discontinuidad evitable:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Paso</th>
+                        <th>Acción</th>
+                        <th>Notas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Calcular los límites laterales en ese punto.</td>
+                        <td>Si ambos límites son iguales, el límite existe. Si son diferentes, el límite no existe y hay una discontinuidad de salto.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Comparar el valor del límite con el valor de la función en ese punto.</td>
+                        <td>Si son iguales, la función es continua en ese punto. Si son diferentes, hay una discontinuidad evitable.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Si el límite no existe, identificar el tipo de discontinuidad según los límites laterales.</td>
+                        <td></td>
+                    </tr>
+            </table>
+            Ejemplo: \( f(x)=\frac{x^2-4}{x-2} \)
+            <p>Primero, tenemos que entender que al sustituir \( x=2 \) en la función original, nos da una indeterminación \( \frac{0}{0} \). Por tanto, tenemos que calcular los límites laterales:</p>
+            <p class="math-block">$$ \begin{array} \\
+                \lim\limits_{x\to2^-}f(x)=\lim\limits_{x\to2^-}\frac{(x-2)(x+2)}{x-2}=\lim\limits_{x\to2^-}(x+2)=4 \\
+                \lim\limits_{x\to2^+}f(x)=\lim\limits_{x\to2^+}\frac{(x-2)(x+2)}{x-2}=\lim\limits_{x\to2^+}(x+2)=4 \\
+            \end{array}$$</p>
+            <p>Ambos límites son iguales, por tanto, el límite existe y es igual a 4. Ahora, calculamos el valor de la función en ese punto: \( f(2)=\frac{(2)^2-4}{2-2}=\frac{0}{0} \) (indeterminación). Como el valor de la función no está definido en ese punto, hay una discontinuidad evitable en \( x=2 \).</p>
+            <h2>Puntos singulares</h2>
+            <p>Sin embargo, puede pasar que nos encontremos con comportamientos anómalos en la representación gráfica de una función. Estos "comportamientos anómalos" se llaman <strong>puntos singulares</strong>, y tienen algunas clasificaciones:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Punto singular</th>
+                        <th>Condición</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Punto de inflexión</td>
+                        <td>\( f''(c)=0 \) y cambia de signo</td>
+                        <td>El punto donde la concavidad de la función cambia de positiva a negativa o viceversa.</td>
+                    </tr>
+                    <tr>
+                        <td>Punto no derivable anguloso</td>
+                        <td>\( \lim\limits_{x\to c^-}f'(x)\neq\lim\limits_{x\to c^+}f'(x) \)</td>
+                        <td>El punto donde la función tiene una "esquina" o "ángulo", y la derivada no está definida debido a la diferencia en las pendientes laterales.</td>
+                    </tr>
+                    <tr>
+                        <td>Punto no derivable de retroceso</td>
+                        <td>\( \lim\limits_{x\to c^-}f'(x)=+\infty \) y \( \lim\limits_{x\to c^+}f'(x)=-\infty \) o viceversa</td>
+                        <td>El punto donde la función tiene una pendiente vertical que cambia de dirección abruptamente.</td>
+                    </tr>
+                    <tr>
+                        <td>Punto no derivable con tangente vertical</td>
+                        <td>\( \lim\limits_{x\to c^-}f'(x)=\pm\infty \) y \( \lim\limits_{x\to c^+}f'(x)=\pm\infty \)</td>
+                        <td>El punto donde la función tiene una pendiente vertical, pero ambas pendientes laterales tienden al mismo infinito.</td>
+                    </tr>
+            </table>
+            <p>Resolveremos un ejercicio de ejemplo para un punto no derivable anguloso:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Paso</th>
+                        <th>Acción</th>
+                        <th>Notas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Identificar el punto \( x=c \) donde no es derivable.</td>
+                        <td>Puede ser un punto donde la función cambia de dirección abruptamente o tiene una esquina.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Calcular los límites laterales de la función en \( x=c \) para confirmar que la función está definida en ese punto.</td>
+                        <td>
+                            <ul>
+                                <li>Si ambos límites son finitos pero diferentes, el punto es anguloso.</li>
+                                <li>Si al menos uno de los límites es infinito, el punto es de cuspide.</li>
+                                <li>Si ambos límites son iguales, el punto es regular.</li>
+                                <li>Si al menos uno de los límites no existe, el punto es de oscilación.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Calcular la derivada de la función \( f'(x) \).</td>
+                        <td>Usar la definición de la derivada o reglas de derivación según corresponda.</td>
+                    </tr>
+            </table>
+            <p>Ejemplo: \( f(x)=|x^3-x^2| \)</p>
+            <p>Primero, tenemos que entender que esta función no abarca nunca los negativos. Entonces, donde la función original cambia a negativa, es donde se reflejará hacia arriba. Por tanto, lo primero que hay que hacer es calcular sus raíces: \( x_1=0\,(\text{raíz doble}) \) y \( x_2=1 \). Por tanto, nos enfocaremos en el punto \( x=1 \):</p>
+            <p class="math-block">$$ \begin{array} \\
+                \lim\limits_{x\to1^-}f(x)=(1)^3-(1)^2=0 \\
+                \lim\limits_{x\to1^+}f(x)=-(1)^3+(1)^2=0 \\
+            \end{array}$$</p>
+            <p>Ambos límites son iguales, por tanto, la función es continua en \( x=1 \) y el punto es regular. Ahora, calculamos la derivada:</p>
+            <p class="math-block">$$ \begin{array} \\
+                f'(x)=\lim\limits_{c\to0}\frac{f(x+c)-f(x)}{c} \\
+                f'(x)=\lim\limits_{c\to0}\frac{|(x+c)^3-(x+c)^2|-|x^3-x^2|}{c} \\
+                |g(x)|=
+                \begin{cases}
+                -g(x), & x<1\\
+                \phantom{-}g(x), & x>1
+                \end{cases} \\
+                x\gt1:f'(x)=\lim\limits_{c\to 0}\frac{(x+c)^3-(x+c)^2 - (x^3-x^2)}{c}=3x^2-2x \\
+                x\lt1:f'(x)=\lim\limits_{c\to 0}\frac{-(x+c)^3+(x+c)^2 + x^3 - x^2}{c}=-3x^2+2x \\
+                \boxed{f'(x)=
+                \begin{cases}
+                -3x^2+2x, & x<1 \\
+                \nexists, & x=1 \\
+                3x^2-2x, & x>1
+                \end{cases}}
+            \end{array}$$</p>
+            <p>Calculamos los límites laterales de la derivada en el punto singular \( x=1 \):</p>
+            <p class="math-block">$$ \begin{array} \\
+                \lim\limits_{x\to1^-}f'(x)=-1 \\
+                \lim\limits_{x\to1^+}f'(x)=1
+            \end{array}$$</p>
+            <p>Como los límites son finitos pero diferentes, el punto es no derivable anguloso.</p>
+            <p>Empezamos por \( 1^- \): \( 1 \) unidad a la izquierda y subimos \( |-1| \) unidad (límite de la derivada por la izquierda). Esto nos da una semitangente desde \( (1,0) \) hasta \( (0,1) \), y, como dicho punto está detrás del punto singular, la concavidad se mantiene negativa.</p>
+            <p>Hacemos lo mismo para \( 1^+ \): \( 1 \) unidad a la derecha y subimos \( |1| \) unidad (límite de la derivada por la derecha). Esto nos da una semitangente desde \( (1,0) \) hasta \( (2,1) \), y, como dicho punto está delante del punto singular, se invierte a positiva.</p>
+            <p>En consecuencia, como la semitangente invirtió la concavidad, si invertimos el signo de la ordenada del punto de la semitangente de \( x=1^+ \) obtenemos una recta que también es un valor absoluto. Concretamente:</p>
+            <table>
+                <thead>
+                    <th>\( x \)</th>
+                    <th>\( y \)</th>
+                </thead>
+                <tbody>
+                    <td>\( 0 \)</td>
+                    <td>\( 1 \)</td>
+                </tbody>
+                <tbody>
+                    <td>\( 1 \)</td>
+                    <td>\( 0 \)</td>
+                </tbody>
+                <tbody>
+                    <td>\( 2 \)</td>
+                    <td>\( -(-1)=1 \)</td>
+                </tbody>
+            </table>
+            <p>... y usando la fórmula de regresión lineal: \( y=|-x+1| \)</p>
+            <h2>Asíntotas</h2>
+            <p>Además, también es posible calcular sus asíntotas que, por supuesto, tienen una clasificación igual de rigurosa:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Asíntota</th>
+                        <th>Condición</th>
+                        <th>Descripción</th>
+                        <th>Resolución</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Vertical</td>
+                        <td>\( \lim\limits_{x\to c^-}f(x)=\pm\infty \) o \( \lim\limits_{x\to c^+}f(x)=\pm\infty \)</td>
+                        <td>Una línea vertical \( x=c \) a la que la función se aproxima infinitamente cerca pero nunca toca.</td>
+                        <td>Calcular los límites laterales en \( x=c \). Si al menos uno de ellos es infinito, existe una asíntota vertical en \( x=c \).</td>
+                    </tr>
+                    <tr>
+                        <td>Horizontal</td>
+                        <td>\( \lim\limits_{x\to\pm\infty}f(x)=L \)</td>
+                        <td>Una línea horizontal \( y=L \) que la función se aproxima cuando \( x \) tiende a \( +\infty \) o \( -\infty \).</td>
+                        <td>Calcular los límites cuando \( x \) tiende a \( +\infty \) y \( -\infty \). Si alguno de ellos es un número finito \( L \), existe una asíntota horizontal en \( y=L \).</td>
+                    </tr>
+                    <tr>
+                        <td>Oblicua</td>
+                        <td>\( \lim\limits_{x\to\pm\infty}\left(f(x)- (mx+n)\right)=0 \)</td>
+                        <td>Una línea recta \( y=mx+n \) que la función se aproxima cuando \( x \) tiende a \( +\infty \) o \( -\infty \), donde \( m \) es la pendiente y \( n \) es la ordenada al origen.</td>
+                        <td>Calcular los límites cuando \( x \) tiende a \( +\infty \) y \( -\infty \). Si alguno de ellos es infinito y la función no tiene asíntotas horizontales, existe una asíntota oblicua. Para encontrar \( m \) y \( n \), usar las fórmulas: \( m=\lim\limits_{x\to\pm\infty}\frac{f(x)}{x} \) y \( n=\lim\limits_{x\to\pm\infty}(f(x)-mx) \).</td>
+                    </tr>
+            </table>
+            <p>Como en los apartados anteriores, aplicaremos un ejemplo con la función del ejercicio de resolución de límites.</p>
+            <p>Ejemplo: \( f(x)=\frac{3x^2-8x}{4-x} \)</p>
+            <p>Asíntotas verticales:</p>
+            <p class="math-block">$$ \begin{array} \\
+                \lim\limits_{x\to4^-}f(x)=\lim\limits_{x\to4^-}\frac{3(4)^2-8(4)}{4-4^-}=\frac{16}{0^-}=\boxed{-\infty} \\
+                \lim\limits_{x\to4^+}f(x)=\lim\limits_{x\to4^+}\frac{3(4)^2-8(4)}{4-4^+}=\frac{16}{0^+}=\boxed{+\infty}
+            \end{array} $$</p>
+            <p>Asíntotas horizontales:</p>
+            <p class="math-block">$$ \begin{array} \\
+                \lim\limits_{x\to-\infty}f(x)=\lim\limits_{x\to-\infty}\frac{3x^2-8x}{4-x}=\lim\limits_{x\to-\infty}\frac{x^2(3-\frac{8}{x})}{x(-1+\frac{4}{x})}=\lim\limits_{x\to-\infty}\frac{-x(3-\frac{8}{x})}{1-\frac{4}{x}}=+\infty\quad\nexists\text{A.H.} \\
+                \lim\limits_{x\to+\infty}f(x)=\lim\limits_{x\to+\infty}\frac{3x^2-8x}{4-x}=\lim\limits_{x\to+\infty}\frac{x^2(3-\frac{8}{x})}{x(-1+\frac{4}{x})}=\lim\limits_{x\to+\infty}\frac{-x(3-\frac{8}{x})}{1-\frac{4}{x}}=-\infty\quad\nexists\text{A.H.}
+            \end{array} $$</p>
+            <p>Asíntotas oblicuas:</p>
+            <p class="math-block">$$ \begin{array} \\
+                m=\lim\limits_{x\to+\infty}\frac{f(x)}{x}=\lim\limits_{x\to+\infty}\frac{\frac{3x^2-8x}{4-x}}{x}=\lim\limits_{x\to+\infty}\frac{3x^2-8x}{x(4-x)}=\lim\limits_{x\to+\infty}\frac{x(3-\frac{8}{x})}{4-x}=\lim\limits_{x\to+\infty}\frac{3-\frac{8}{x}}{\frac{4}{x}-1}=\boxed{-3} \\
+                n=\lim\limits_{x\to+\infty}(f(x)-mx)=\lim\limits_{x\to+\infty}\left(\frac{3x^2-8x}{4-x}+3x\right)=\lim\limits_{x\to+\infty}\left(\frac{3x^2-8x+3x(4-x)}{4-x}\right) \\
+                =\lim\limits_{x\to+\infty}\left(\frac{3x^2-8x+12x-3x^2}{4-x}\right)=\lim\limits_{x\to+\infty}\left(\frac{4x}{4-x}\right)=\lim\limits_{x\to+\infty}\left(\frac{4}{\frac{4}{x}-1}\right)=\boxed{-4} \\
+            \end{array} $$</p>
+            <p>La función tiene asíntota vertical en \( \lim\limits_{x\to4^\pm}f(x)=\pm\infty \) y asíntota oblícua en \( y=-3x-4 \).</p>
+        </section>
+
+        <section class="aplicaciones">
+            <h2>Aplicaciones</h2>
+            <p>Los límites tienes numerosas aplicaciones en diversas áreas, tales como:</p>
+            <ul>
+                <li>Velocidad instantánea en movimiento rectilíneo.</li>
+                <li>Optimización de recursos en ingeniería, economía y logística.</li>
+                <li>Comportamiento térmico y transferencia de calor.</li>
+                <li>Diseño y análisis de sistemas electrónicos.</li>
+            </ul>
+        </section>
+
+        <section class="aplicaciones">
+            <h2>Ejemplo práctico</h2>
+            <p>Queremos analizar una función de pies a cabeza y entender cada detalle para interpretarlo matemáticamente. La función es:</p>
+            <p class="math-block">$$ x^3 - 4x^2 - 7x + 10 $$</p>
+            <p>Primero, calculamos el dominio. Como la función no tiene cocientes, raíces ni logaritmos, entonces el dominio son todos los reales. Luego, calculamos las raíces de la función, es decir, los valores de \( x \) para los cuales \( h(x)=0 \). Si probamos con sus raíces evidentes, llegamos a la conclusión que \( x=1 \) es una de las raíces. Aplicando Ruffini y Bháskara, nos da dos soluciones más: \( x=-2 \) y \( x=5 \). Como el coeficiente principal es positivo, el signo de la función es:</p>
+            <p class="math-block">$$ D(h)=\mathbb{R},\quad h(x)=(x+2)(x-1)(x-5),\quad h(x)=\begin{cases}
+                h(x)\gt0, & \text{si} & x\gt5 \\
+                h(x)\lt0, & \text{si} & 1\lt x\lt5 \\
+                h(x)\gt0, & \text{si} & -2\lt x\lt1 \\
+                h(x)\lt0, & \text{si} & x\lt-2
+            \end{cases}$$</p>
+            <p>Calculamos su ordenada en el origen: \( h(0)=10 \).</p>
+            <p>A continuación, calculamos su derivada primera para estudiar su monotonía... Usando límites.</p>
+            <p class="math-block">$$ \begin{array} \\
+                h'(x)=\lim\limits_{c\to0}\frac{h(x+c)-h(x)}{c} \\
+                h'(x)=\lim\limits_{c\to0}\frac{(x+c)^3-4(x+c)^2-7(x+c)+10-x^3+4x^2+7x^2-10}{c} \\
+                h'(x)=\lim\limits_{c\to0}\frac{x^3+3x^2c+3xc^2+c^3-4x^2-8xc-4c^2-7x-7c+10-x^3+4x^2+7x^2-10}{c} \\
+                h'(x)=\lim\limits_{c\to0}\frac{c(3x^2-8x-5xc+c^2-4c-7)-7(x-x^2)}{c} \\
+                h'(x)=\lim\limits_{c\to0}\frac{c(3x^2-8x-5xc+c^2-4c-7)}{c}-\frac{7(x-x^2)}{c} \\
+                h'(x)=3x^2-8x-5xc+c^2-4c-7-\lim\limits_{c\to0}\frac{7(x-x^2)}{c} \\
+                \lim\limits_{c\to0}\frac{7(x-x^2)}{c}=0 \\
+                h'(x)=3x^2-8x-7 \\
+                \end{array}$$</p>
+            <p>Ahora, igualamos la derivada a cero para encontrar los puntos críticos: \( x=\frac{4\pm\sqrt{37}}{3} \)</p>
+            <p>A continuación, analizamos el signo de la derivada para determinar los intervalos de crecimiento y decrecimiento de la función. Sabemos que su ordenada es \( h''(0)=-7 \).</p>
+            <p class="math-block">$$ D(h')=\mathbb{R},\quad h'(x)=3x^2-8x-7,\quad h'(x)=\begin{cases}
+                h'(x)\gt0, & \text{si} & x\gt\frac{4+\sqrt{37}}{3} \\
+                h'(x)\lt0, & \text{si} & \frac{4-\sqrt{37}}{3}\lt x\lt\frac{4+\sqrt{37}}{3} \\
+                h'(x)\gt0, & \text{si} & x\lt\frac{4-\sqrt{37}}{3}
+            \end{cases}$$</p>
+            <p>Ahora conocemos sus puntos de inflexión y dónde crece o decrece. Ahora, calculamos la derivada segunda para estudiar sus concavidades y, si existen, puntos singulares:</p>
+            <p class="math-block">$$ \begin{array} \\
+                h''(x)=\lim\limits_{c\to0}\frac{h(x+c)-h(x)}{c} \\
+                h''(x)=\lim\limits_{c\to0}\frac{3(x+c)^2-8(x+c)-7-3x^2+8x+7}{c} \\
+                h''(x)=\lim\limits_{c\to0}\frac{3x^2+6xc+3c^2-8x-8c-7-3x^2+8x+7}{c} \\
+                h''(x)=\lim\limits_{c\to0}\frac{6xc+3c^2-8c}{c} \\
+                h''(x)=\lim\limits_{c\to0}\frac{c(6x+3c-8)}{c} \\
+                h''(x)=6x-8 \\
+            \end{array}$$</p>
+            <p>Nuevamente, estudiamos la función, y nos da:</p>
+            <p class="math-block">$$ D(h'')=\mathbb{R},\quad h''(x)=6x-8,\quad h''(x)=\begin{cases}
+                h''(x)\gt0, & \text{si} & x\gt\frac{4}{3} \\
+                h''(x)\lt0, & \text{si} & x\lt\frac{4}{3}
+            \end{cases}$$</p>
+            <p>Finalmente, podemos calcular hacia qué número tiende la función cuando \( x \) tiende a \( \pm\infty \). En este caso, como es polinómica, sus límites a infinito siempre serán infinito, concretamente: \( \lim\limits_{x\to+\infty}h(x)=+\infty \) y \( \lim\limits_{x\to-\infty}h(x)=+\infty \)</p>
+            <p>Por tanto, ahora conocemos varios datos de la función \( h(x) \):</p>
+            <ul>
+                <li>Su conjunto de imágenes abarca todos los reales.</li>
+                <li>Sus raíces son \( x=\{-2,1,5\} \).</li>
+                <li>Su ordenada en el origen es \( y=10 \).</li>
+                <li>Es creciente en \( \left(-\infty,\frac{4-\sqrt{37}}{3}\right) \) y \( \left(\frac{4+\sqrt{37}}{3},\infty\right) \).</li>
+                <li>Es decreciente en \( \left(\frac{4-\sqrt{37}}{3},\frac{4+\sqrt{37}}{3}\right) \).</li>
+                <li>Tiene máximo en \( \left(\frac{4-\sqrt{37}}{3},\sim12.6\right) \) y mínimo en \( \left(\frac{4+\sqrt{37}}{3},\sim-20.75\right) \)</li>
+                <li>Su concavidad cambia de negativa a positiva en \( x=\frac{4}{3} \).</li>
+                <li>Sus límites a infinito dan infinito positivo; por lo tanto, no tiene asíntotas.</li>
+            </ul>
+        </section>
+
+        <section class="aplicaciones">
+            <h2>Notación</h2>
+            <ul>
+                <li>\( \lim \) : Símbolo de límite.</li>
+                <li>\( f(x) \) : Función dependiente de \( x \).</li>
+                <li>\( x \) : Variable de la función.</li>
+                <li>\( c \) : Valor al que se acerca \( x \).</li>
+                <li>\( L \) : Valor al que se acerca \( f(x) \) cuando \( x \) se acerca a \( c \).</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+      <p><i>Regresa al <a href="index.html">inicio</a> para explorar más herramientas matemáticas.</i></p>
+    </footer>
+
+</body>
+</html>
