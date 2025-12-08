@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformadas de Fourier - Calculadora Científica</title>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.0.0/math.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.18/katex.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <header>
+        <h3 style="text-align: left;"><a href="index.html">← Volver</a></h3>
+        <h1>Transformadas de Fourier</h1>
+    </header>
+
+    <main>
+        <hr>
+        <section>
+            <h2>Definición</h2>
+            <h1 class="math-block">$$ c^2 = a^2 + b^2 $$</h1>
+            <p></p>
+        </section>
+
+        <section class="aplicaciones">
+            <h2>Aplicaciones</h2>
+            <p>Las transformadas de Fourier tiene numerosas aplicaciones en diversas áreas, tales como:</p>
+            <ul>
+                <li>Cálculo de distancias en geometría y trigonometría.</li>
+                <li>Determinación de longitudes en estructuras arquitectónicas.</li>
+                <li>Navegación y posicionamiento geográfico.</li>
+                <li>Resolución de problemas en física relacionados con vectores y fuerzas.</li>
+            </ul>
+        </section>
+
+        <section class="aplicaciones">
+            <h2>Ejemplo práctico</h2>
+            <p>Suponemos que una aeronave con velocidad \( \vec{v}=(v_x,v_y,v_z) \)</p>
+            <p>Su módulo (velocidad lineal) es:</p>
+            <p class="math-block">$$ ||\vec{v}||=\sqrt{v_x^2+v_y^2+v_z^2}. $$</p>
+            <p>Sea reescrito tal que</p>
+            <p class="math-block">$$ ||\vec{v}||=\sqrt{\sum_iv^2}, $$</p>
+            <p>considerando \( i\in\{x,y,z\} \). Asumamos un vector de velocidad en km/h: \( \vec{v}=(520,12,643) \).</p>
+            <p>Calculando, obtenemos:</p>
+            <p class="math-block">$$ \boxed{||\vec{v}||=\sqrt{520^2+12^2+643^2}\approx829.2\,\frac{\text{km}}{\text{h}}} $$</p>
+            <p>Sin considerar ninguna fuerza externa.</p>
+        </section>
+
+        <section class="aplicaciones">
+            <h2>Notación</h2>
+            <ul>
+                <li>\(c\) : El lado opuesto al ángulo recto en un triángulo rectángulo (hipotenusa).</li>
+                <li>\(a\) : Cateto adyacente al ángulo recto.</li>
+                <li>\(b\) : El otro cateto asyacente al ángulo recto.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+      <p><i>Regresa al <a href="index.html">inicio</a> para explorar más herramientas matemáticas.</i></p>
+    </footer>
+
+</body>
+</html>
