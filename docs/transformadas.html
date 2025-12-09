@@ -26,7 +26,7 @@
             <h2>Transformada de Fourier (FT)</h2>
             <h1 class="math-block">$$ \mathcal{F}\{f(t)\}=X(\omega)=\int_{-\infty}^{\infty}f(t) e^{-i \omega t} dt $$</h1>
             <p>Y su inversa:</p>
-            <h1 class="math-block">$$ f(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}F(\omega) e^{i \omega t} d\omega $$</h1>
+            <h1 class="math-block">$$ f^{-1}(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}F(\omega) e^{i \omega t} d\omega $$</h1>
             <p>La transformada de Fourier es un operador lineal que asigna a una función \( f(t) \) en el espacio \( L^1(\mathbb{R}) \) o \( L^2(\mathbb{R}) \) una representación equivalente en el dominio de las frecuencias mediante una descomposición en funciones base ortogonales \( e^{i \omega t} \). Esa representación es única, y la base es completa en su espacio funcional.</p>
         </section>
 
@@ -37,7 +37,7 @@
                     <h2>Transformada Discreta de Fourier (DFT)</h2>
                     <h1 class="math-block">$$ X_k=\sum_{n=0}^{N-1}x_ne^{\frac{-i2\pi kn}{N}},\quad k=0,\dots,N-1 $$</h1>
                     <p>Y su inversa:</p>
-                    <h1 class="math-block">$$ x_n=\frac{1}{N}\sum_{k=0}^{N-1}K_ke^{\frac{-i2\pi kn}{N}} $$</h1>
+                    <h1 class="math-block">$$ x_n^{-1}=\frac{1}{N}\sum_{k=0}^{N-1}K_ke^{\frac{-i2\pi kn}{N}} $$</h1>
                     <p>La DFT toma una secuencia finita de valores reales o complejos \( x_0,x_1,\dots,x_{N-1} \) y la expresa como una combinación discreta de exponenciales complejas periódicas.</p>
                     <p><strong>Ejemplo con \( N=4 \):</strong></p>
                     <p>Sea la señal:</p>
