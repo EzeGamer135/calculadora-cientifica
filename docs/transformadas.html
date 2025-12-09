@@ -23,43 +23,216 @@
     <main>
         <hr>
         <section>
-            <h2>Definición</h2>
-            <h1 class="math-block">$$ c^2 = a^2 + b^2 $$</h1>
-            <p></p>
+            <h2>Transformada de Fourier (FT)</h2>
+            <h1 class="math-block">$$ \mathcal{F}\{f(t)\}=X(\omega)=\int_{-\infty}^{\infty}f(t) e^{-i \omega t} dt $$</h1>
+            <p>Y su inversa:</p>
+            <h1 class="math-block">$$ f(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}F(\omega) e^{i \omega t} d\omega $$</h1>
+            <p>La transformada de Fourier es un operador lineal que asigna a una función \( f(t) \) en el espacio \( L^1(\mathbb{R}) \) o \( L^2(\mathbb{R}) \) una representación equivalente en el dominio de las frecuencias mediante una descomposición en funciones base ortogonales \( e^{i \omega t} \). Esa representación es única, y la base es completa en su espacio funcional.</p>
+        </section>
+
+        <section>
+        <h2>Otros tipos de transformadas</h2>
+            <ol>
+                <li>
+                    <h2>Transformada Discreta de Fourier (DFT)</h2>
+                    <h1 class="math-block">$$ X_k=\sum_{n=0}^{N-1}x_ne^{\frac{-i2\pi kn}{N}},\quad k=0,\dots,N-1 $$</h1>
+                    <p>Y su inversa:</p>
+                    <h1 class="math-block">$$ x_n=\frac{1}{N}\sum_{k=0}^{N-1}K_ke^{\frac{-i2\pi kn}{N}} $$</h1>
+                    <p>La DFT toma una secuencia finita de valores reales o complejos \( x_0,x_1,\dots,x_{N-1} \) y la expresa como una combinación discreta de exponenciales complejas periódicas.</p>
+                    <p><strong>Ejemplo con \( N=4 \):</strong></p>
+                    <p>Sea la señal:</p>
+                    <p class="math-block">$$ x=[1,0,-1,0] $$</p>
+                    <p>Cálculo de cada \( X_k \):</p>
+                    <section class="math-block">
+                        <ul>
+                            <li>\( X_0=1+0-1+0=0 \)</li>
+                            <li>\( X_1=1+0\cdot e^{-\frac{i\pi}{2}}+(-1)\cdot e^{-i\pi}+0=1-(-1)=2 \)</li>
+                            <li>\( X_2=1+0\cdot e^{-i\pi}+(-1)\cdot e^{-i2\pi}+0=1-1=0 \)</li>
+                            <li>\( X_3=1+0\cdot e^{-\frac{-i3\pi}{2}}+(-1)\cdot e^{-i3\pi}=1-(-1)=2 \)</li>
+                        </ul>
+                    </section>
+                    <p>Resultado:</p>
+                    <p class="math-block">$$ X=[0,2,0,2] $$</p>
+                </li>
+                <li>
+                    <h2>Transformada Rápida de Fourier (FFT)</h2>
+                    <p>Explicamos el algoritmo Cooley-Tukey cuando \( N \) es par:</p>
+                    <h1 class="math-block">$$ \begin{array} X_k=E_k+e^{\frac{-i2\pi k}{N}}O_k \\ X_{\frac{k+N}{2}}=E_k-e^{-\frac{-i2\pi k}{N}}O_k \end{array} $$</h1>
+                    <p>Con:</p>
+                    <section class="math-block">
+                        <ul>
+                            <li>\( E_k \) es la DFT de los índices pares,</li>
+                            <li>\( O_k \) es la DFT de los impares.</li>
+                        </ul>
+                    </section>
+                    <p><strong>Ejemplo con \( N=4 \):</strong></p>
+                    <p>Tomamos el mismo vector que en el ejemplo de la DFT:</p>
+                    <ol>
+                        <li>Separación:</li>
+                        <ul>
+                            <li>pares: \( x_e=[1,-1] \)</li>
+                            <li>impares: \( x_o=[0,0] \)</li>
+                        </ul>
+                        <li>DFT de cada mitad:</li>
+                        <ul>
+                            <li>\( E=[1-1,1-(-1)]=[0,2] \)</li>
+                            <li>\( O=[0,0] \)</li>
+                        </ul>
+                        <li>Combinación:</li>
+                        <ul>
+                            <li>\( X_0=E_0+O_0=0 \)</li>
+                            <li>\( X_1=E_1+e^{-\frac{i\pi}{2}}O_1=2 \)</li>
+                            <li>\( X_2=E_0=O \)</li>
+                            <li>\( X_3=E_1-e^{-\frac{i\pi}{2}}O_1=2 \)</li>
+                        </ul>
+                    </ol>
+                    <p>Resultado: \( X=[0,2,0,2] \). La diferencia es que en este método, la cantidad y complejidad de los cálculos es mucho menor.</p>
+                </li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Propiedades</h2>
+            <table>
+                <thead>
+                    <th>Propiedad</th>
+                    <th>Expresión</th>
+                    <th>Notas</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Linealidad</td>
+                        <td>\( a\cdot f(t)+b\cdot g(t)\mapsto a\cdot F(\omega)+b\cdot G(\omega) \)</td>
+                        <td>Si sumas señales, sus frecuencias también se suman: \( \mathcal{F}\{af+bg\}=aF+bG \)</td>
+                    </tr>
+                    <tr>
+                        <td>Desplazamiento en el tiempo</td>
+                        <td>\( f(t-t_0)\mapsto w^{-j\omega t_0}F(\omega) \)</td>
+                        <td>Multiplicar por una exponencial compleja desplaza todo el espectro..</td>
+                    </tr>
+                    <tr>
+                        <td>Desplazamiento en frecuencia</td>
+                        <td>\( e^{-j\omega t_0}f(t)\mapsto F(\omega-\omega_0) \)</td>
+                        <td>Mover una fase en el tiempo agrega una fase en el dominio frecuencial.</td>
+                    </tr>
+                    <tr>
+                        <td>Escalamiento</td>
+                        <td>\( f(at)\mapsto\frac{1}{|a|}F(\frac{\omega}{a}) \)</td>
+                        <td>Si estiras la señal en el tiempo, se comprimirá en frecuencia y viceversa.</td>
+                    </tr>
+                    <tr>
+                        <td>Convolución</td>
+                        <td>\( \begin{array}\\ \text{conv.}\rightarrow\text{mult.}\\ \text{mult.}\rightarrow\text{conv.} \end{array}\mapsto \begin{array}\\ F(\omega)\cdot G(\omega)\\ (F\cdot G)(\omega) \end{array}\)</td>
+                        <td>\( a \) en tiempo ↦ \( b \) en frecuencia.</td>
+                    </tr>
+                    <tr>
+                        <td>Derivadas</td>
+                        <td>\( \frac{d}{dt}f(t)\mapsto j\omega F(\omega) \)</td>
+                        <td>En cada derivada se agrega un factor \( j\omega \).</td>
+                    </tr>
+                    <tr>
+                        <td>Paridad</td>
+                        <td>\( F(-\omega)=F\cdot\omega \)</td>
+                        <td>Si \( f(t)\in\mathbb{R}\therefore F(\omega) \) tiene simetría Hermítica.</td>
+                    </tr>
+                    <tr>
+                        <td>Energía (Parseval/Plancderel)</td>
+                        <td>\( \int|f(t)|^2dt=\frac{1}{2\pi}\int|F(\omega)|^2d\omega \)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Dualidad</td>
+                        <td></td>
+                        <td>Aplicar transformada dos veces devuelve una aproximación de la señal original invertida.</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
         <section class="aplicaciones">
             <h2>Aplicaciones</h2>
-            <p>Las transformadas de Fourier tiene numerosas aplicaciones en diversas áreas, tales como:</p>
+            <p>Las Transformadas de Fourier tiene numerosas aplicaciones en diversas áreas, tales como:</p>
             <ul>
-                <li>Cálculo de distancias en geometría y trigonometría.</li>
-                <li>Determinación de longitudes en estructuras arquitectónicas.</li>
-                <li>Navegación y posicionamiento geográfico.</li>
-                <li>Resolución de problemas en física relacionados con vectores y fuerzas.</li>
+                <li>Telecomunicaciones generales.</li>
+                <li>Diagnóstico de vibraciones en maquinaria.</li>
+                <li>Procesamiento de señales.</li>
+                <li>Astronomía y radar.</li>
             </ul>
         </section>
 
         <section class="aplicaciones">
             <h2>Ejemplo práctico</h2>
-            <p>Suponemos que una aeronave con velocidad \( \vec{v}=(v_x,v_y,v_z) \)</p>
-            <p>Su módulo (velocidad lineal) es:</p>
-            <p class="math-block">$$ ||\vec{v}||=\sqrt{v_x^2+v_y^2+v_z^2}. $$</p>
-            <p>Sea reescrito tal que</p>
-            <p class="math-block">$$ ||\vec{v}||=\sqrt{\sum_iv^2}, $$</p>
-            <p>considerando \( i\in\{x,y,z\} \). Asumamos un vector de velocidad en km/h: \( \vec{v}=(520,12,643) \).</p>
-            <p>Calculando, obtenemos:</p>
-            <p class="math-block">$$ \boxed{||\vec{v}||=\sqrt{520^2+12^2+643^2}\approx829.2\,\frac{\text{km}}{\text{h}}} $$</p>
-            <p>Sin considerar ninguna fuerza externa.</p>
+            <p>Supongamos una turbobomba de oxígeno líquido con un sensor de aceleración que registra vibraciones en el tiempo:</p>
+            <p class="math-block">$$ f(t)=\frac{1}{10}\sin(120t)+\frac{3}{100}\sin(240t)+\text{ruido} $$</p>
+            <p>Al colocar la señal en una FFT, el espectro resultante muestra picos en:</p>
+            <ul>
+                <li>\( 120\frac{rad}{s} \)</li>
+                <li>\( 240\frac{rad}{s} \)</li>
+            </ul>
+            <p>Esto corresponde a:</p>
+            <ul>
+                <li>\( 1\times \) la frecuencia nominal del eje</li>
+                <li>\( 2\times \) la frecuencia nominal del eje (posible desbalance o holgura)</li>
+            </ul>
+            <p>Si el segundo pico crece con el tiempo, la turbobomba se tensará hasta el punto de quiebre. Sin la transformada de Fourier, esta vibración queda escondida dentro de la señal, y a simple vista parece ruido leve.</p>
         </section>
 
         <section class="aplicaciones">
             <h2>Notación</h2>
             <ul>
-                <li>\(c\) : El lado opuesto al ángulo recto en un triángulo rectángulo (hipotenusa).</li>
-                <li>\(a\) : Cateto adyacente al ángulo recto.</li>
-                <li>\(b\) : El otro cateto asyacente al ángulo recto.</li>
+                <li>\( \omega=2\pi f \) : Frecuencia angular de la señal. \( f \) es la frecuancia en hertz (Hz).</li>
+                <li>\( f(t) \) : Señal en el tiempo.</li>
+                <li>\( F(\omega) \) : Señal en frecuencia.</li>
+                <li>\( \omega \) : Frecuencia angular (rad/s).</li>
+                <li>\( \xi, \nu \) : Variables de frecuencia alternativas.</li>
+                <li>\( \mathcal{F}(\cdot) \) : Transformada de Fourier.</li>
+                <li>\( \mathcal{F}^{-1}(\cdot) \) : Transformada inversa.</li>
+                <li>\( e^{i\theta} \) : Rotación compleja (función base).</li>
+                <li>\( \int_{-\infty}^{\infty} \) : Integral sobre todo el dominio.</li>
             </ul>
         </section>
+
+        <section class="section">
+        <h2>Tablas</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Función \( f(t) \)</th>
+              <th>Transformada \( F(\omega) \)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\( 1 \)</td>
+              <td>\( 2\pi\delta(\omega) \)</td>
+            </tr>
+            <tr>
+              <td>\( \delta(t) \)</td>
+              <td>\( 1 \)</td>
+            </tr>
+            <tr>
+              <td>\( e^{-at}u(t) \)</td>
+              <td>\( \frac{1}{a+t\omega} \)</td>
+            </tr>
+            <tr>
+              <td>\( \cos(\omega_0t) \)</td>
+              <td>\( \pi[\delta(\omega-\omega_0)+\delta(\omega+\omega_0)] \)</td>
+            </tr>
+            <tr>
+              <td>\( \sin(\omega_0t) \)</td>
+              <td>\( \frac{\pi}{i}[\delta(\omega-\omega_0)-\delta(\omega+\omega_0)] \)</td>
+            </tr>
+            <tr>
+              <td>Rectangular \( \text{rect}(\frac{t}{T}) \)</td>
+              <td>\( T\text{ sinc}(\frac{\omega T}{2}) \)</td>
+            </tr>
+            <tr>
+              <td>Gaussiana \( e^{-\frac{t^2}{2\sigma^2}} \)</td>
+              <td>\( \sigma\sqrt{2\pi}e^{-\frac{\omega^2\sigma^2}{2}} \)</td>
+            </tr>
+          </tbody>
+        </table>           
+      </section>
 
     </main>
 
