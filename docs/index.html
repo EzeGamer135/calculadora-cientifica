@@ -8,54 +8,79 @@
 <body>
     <header>
         <h1>Calculadora Científica</h1>
-        <p>Accede a herramientas científicas y mejora tu comprensión de conceptos clave en matemática, física y química.</p>
+        <p>Accede al repositorio científico y mejora tu comprensión de conceptos clave en matemática, física, química, biología y más.</p>
     </header>
 
     <main>
         <hr>
-
-        <section>
-            <h2>Matemática</h2>
-            <h3><a href="log.html">Logaritmación</a></h3>
-            <p>Operación matemática inversa de la potenciación, utilizada para resolver ecuaciones exponenciales.</p>
-
-            <h3><a href="derivadas.html">Derivadas</a></h3>
-            <p>Operación fundamental del cálculo diferencial que mide la tasa de cambio de una función respecto a una variable.</p>
-
-            <h3><a href="integrales.html">Integrales</a></h3>
-            <p>Operación matemática que permite calcular áreas bajo curvas, volúmenes y acumulación de cantidades a lo largo de un intervalo.</p>
-
-            <h3><a href="polinomicas.html">Ecuaciones polinómicas</a></h3>
-            <p>Función polinómica con una o múltiples variables. En esta sección, sólo se profundiza sobre una variable.</p>
-
-            <h3><a href="3x3.html">Sistemas de Ecuaciones Lineales</a></h3>
-            <p>Sistema de ecuaciones con múltiples incógnitas cuya solución es el punto de intersección entre ellas, resolubles por sustitución, igualación o método de Gauss.</p>
-
-            <h3><a href="pitagoras.html">Teorema de Pitágoras</a></h3>
-            <p>Relación fundamental en triángulos rectángulos que establece que la suma de los cuadrados de los catetos es igual al cuadrado de la hipotenusa.</p>
-
-            <h3><a href="limites.html">Límites</a></h3>
-            <p>Operación que retorna un valor al que tiende la imagen de una función cuando la variable independiente se aproxima a un punto determinado, independientemente de si la función está definida o no en dicho punto.</p>
-
-            <h3><a href="ldc.html">Ley del Coseno</a></h3>
-            <p>Extensión del Teorema de Pitágoras aplicable a triángulos no rectángulos, útil para calcular lados y ángulos desconocidos.</p>
-
-            <h3><a href="int_comp.html">Interés Compuesto</a></h3>
-            <p>Método de capitalización en el que los intereses generados en cada período se suman al capital inicial, aumentando el crecimiento del monto final.</p>
-
-            <h3><a href="transformadas.html">Transformadas de Fourier</a></h3>
-            <p>Herramienta matemática que descompone funciones en sus frecuencias componentes, utilizada en análisis de señales y procesamiento de imágenes.</p>
-
-            <h3><a href="index.html">Series de Taylor (en progreso)</a></h3>
-            <p>Representación de una función como una suma infinita de términos calculados a partir de las derivadas de la función en un punto específico, útil para aproximaciones y análisis.</p>
+        <section class="carousel-snap">
+            <div class="carousel-track-snap">
+                <a href="math.html" class="card-snap">
+                    <h3 style="bottom: 10%; right: 10%;">Matemática</h3>
+                </a>
+                <a href="advmath.html" class="card-snap">
+                    <h3 style="top: 10%; left: 10%;">Matemática avanzada</h3>
+                </a>
+                <a href="ph.html" class="card-snap">
+                    <h3 style="top: 10%; right: 10%;">Física</h3>
+                </a>
+                <a href="ch.html" class="card-snap">
+                    <h3 style="bottom: 10%; right: 10%;">Química</h3>
+                </a>
+                <a class="card-snap">
+                    <h3 style="top: 10%; right: 10%;">Biología (próximamente)</h3>
+                </a>
+                <a class="card-snap">
+                    <h3 style="top: 10%; left: 10%;">Bioquímica (próximamente)</h3>
+                </a>
+                <a class="card-snap">
+                    <h3 style="bottom: 10%; left: 10%;">Biotecnología (próximamente)</h3>
+                </a>
+                <a class="card-snap">
+                    <h3 style="bottom: 10%; right: 10%;">Física moderna (próximamente)</h3>
+                </a>
+                <a class="card-snap">
+                    <h3 style="top: 10%; left: 10%;">Ciencias del espacio (próximamente)</h3>
+                </a>
+            </div>
         </section>
-
-        <hr>
     </main>
 
     <footer>
         <p><i>Consulta las actualizaciones y mejoras de la calculadora en el <a href="https://www.github.com/EzeGamer135/calculadora-cientifica">Repositorio de GitHub</a></i>.</p>
     </footer>
+    <script>
+        const track = document.querySelector('.carousel-track-snap');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        track.addEventListener('mousedown', (e) => {
+            isDown = true;
+            track.classList.add('dragging'); // opcional: para estilos de arrastre
+            startX = e.pageX - track.offsetLeft;
+            scrollLeft = track.scrollLeft;
+        });
+
+        track.addEventListener('mouseleave', () => {
+            isDown = false;
+            track.classList.remove('dragging');
+        });
+
+        track.addEventListener('mouseup', () => {
+            isDown = false;
+            track.classList.remove('dragging');
+        });
+
+        track.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - track.offsetLeft;
+            const walk = (x - startX) * 2; // velocidad del arrastre
+            track.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+
 
 </body>
 </html>

@@ -3,10 +3,74 @@
    Diseño sobrio, legible y funcional
    =============================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@900&family=Outfit:wght@100..900&display=swap');
+
+.carousel-snap {
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.carousel-snap h2 {
+    color: #a5b4fc;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+}
+
+/* Contenedor desplazable */
+.carousel-track-snap {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+/* Tarjetas */
+.card-snap {
+    flex: 0 0 100%; /* Cada tarjeta ocupa todo el contenedor */
+    aspect-ratio: 16 / 9; /* Proporción 16:9 */
+    scroll-snap-align: start;
+    background: #111827;
+    border-radius: 0; /* Esquinas rectas */
+    margin: auto;
+    padding: auto;
+    position: relative;
+    color: #e0e7ff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+    transition: transform 0.3s;
+}
+
+.card-snap h3 {
+    position: absolute;
+}
+
+/* Hover sutil */
+.card-snap:hover {
+    transform: translateY(-3px);
+}
+
+/* Scroll visible solo si quieres, opcional */
+.carousel-track-snap::-webkit-scrollbar {
+    height: 3px;
+}
+
+.carousel-track-snap::-webkit-scrollbar-thumb {
+    background: #989fff;
+    border-radius: 4px;
+}
+
+.carousel-track-snap::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+
+
 body {
     background-color: #303030;
     color: #ffffff;
-    font-family: "Microsoft JhengHei UI Light", sans-serif;
+    font-family: 'Outfit', sans-serif;
     text-align: center;
     margin: 0;
     padding: 0;
@@ -28,9 +92,18 @@ a {
     text-decoration: underline;
 }
 
+p {
+    font-weight: 400;
+}
+
 a:hover {
     text-underline-position: under;
     color: #989fff;
+}
+
+section h2 {
+    color: #e0e7ff;
+    text-align: center;
 }
 
 footer {
