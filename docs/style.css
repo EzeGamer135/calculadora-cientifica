@@ -5,6 +5,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@900&family=Outfit:wght@100..900&display=swap');
 
+/* ===============================
+   CARRUSEL
+   =============================== */
+
 .carousel-snap {
     max-width: 900px;
     margin: 40px auto;
@@ -17,53 +21,118 @@
     font-size: 1.6rem;
 }
 
-/* Contenedor desplazable */
+/* Contenedor visible que debe tener el scroll */
+.carousel-container {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Track interno: NO debe tener overflow */
 .carousel-track-snap {
     display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+    gap: 0;
 }
 
 /* Tarjetas */
 .card-snap {
-    flex: 0 0 100%; /* Cada tarjeta ocupa todo el contenedor */
-    aspect-ratio: 16 / 9; /* Proporción 16:9 */
+    flex: 0 0 100%;
+    aspect-ratio: 16 / 9;
     scroll-snap-align: start;
     background: #111827;
-    border-radius: 0; /* Esquinas rectas */
-    margin: auto;
-    padding: auto;
+    border-radius: 0;
     position: relative;
     color: #e0e7ff;
     display: flex;
     flex-direction: column;
     box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+    cursor: grab;
+    text-decoration: none;
+}
+
+.card-snap:active {
+    cursor: grabbing;
+}
+
+/* Evitar selección de texto */
+.card-snap,
+.card-snap *,
+.carousel-track-snap,
+.carousel-snap {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Títulos dentro de las tarjetas */
+.card-snap h3 {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+}
+
+/* Hover */
+.card-snap:hover {
+    transform: translateY(-3px);
     transition: transform 0.3s;
 }
 
-.card-snap h3 {
-    position: absolute;
-}
-
-/* Hover sutil */
-.card-snap:hover {
-    transform: translateY(-3px);
-}
-
-/* Scroll visible solo si quieres, opcional */
-.carousel-track-snap::-webkit-scrollbar {
+/* Scrollbar (del contenedor real) */
+.carousel-container::-webkit-scrollbar {
     height: 3px;
 }
 
-.carousel-track-snap::-webkit-scrollbar-thumb {
+.carousel-container::-webkit-scrollbar-thumb {
     background: #989fff;
-    border-radius: 4px;
 }
 
-.carousel-track-snap::-webkit-scrollbar-track {
+.carousel-container::-webkit-scrollbar-track {
     background: #1e293b;
 }
+
+/* Bloqueo de clicks durante arrastre */
+.carousel-track-snap.dragging a {
+    pointer-events: none;
+}
+
+/* Envoltura del carrusel */
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+/* Botones */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #1f2937;
+    border: none;
+    color: white;
+    font-size: 28px;
+    padding: 8px 14px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    user-select: none;
+}
+
+.carousel-btn:hover {
+    opacity: 1;
+}
+
+.carousel-btn.left {
+    left: -45px;
+}
+
+.carousel-btn.right {
+    right: -45px;
+}
+
 
 
 
@@ -92,8 +161,17 @@ a {
     text-decoration: underline;
 }
 
+h2 {
+    font-size: 160%;
+}
+
+h3 {
+    font-size: 200%;
+}
+
 p {
     font-weight: 400;
+    font-size: 130%;
 }
 
 a:hover {
@@ -104,6 +182,7 @@ a:hover {
 section h2 {
     color: #e0e7ff;
     text-align: center;
+    font-size: 160%;
 }
 
 footer {
@@ -131,14 +210,11 @@ thead {
 th {
     text-align: left;
     padding: 12px 16px;
-    font-weight: 600;
-    font-size: 0.95rem;
     letter-spacing: 0.03em;
 }
 
 td {
     padding: 12px 16px;
-    font-size: 0.95rem;
     color: #ffffff;
     border-bottom: 1px solid #e5e7eb;
 }
@@ -150,8 +226,6 @@ tbody tr:last-child td {
 caption {
     caption-side: top;
     text-align: left;
-    font-weight: 600;
-    font-size: 1.1rem;
     padding-bottom: 1rem;
     color: #e2e8f0;
 }
@@ -209,7 +283,6 @@ h3 {
 }
 
 .aplicaciones h2 {
-    font-size: 1.2rem;
     margin-bottom: 10px;
     color: #ffffff;
 }
@@ -217,8 +290,8 @@ h3 {
 .aplicaciones ul {
     list-style: square;
     padding-left: 20px;
-    font-size: 0.95rem;
     line-height: 1.6;
+    font-size: 110%;
 }
 
 .aplicaciones li {

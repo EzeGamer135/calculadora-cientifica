@@ -5,6 +5,7 @@
     <title>Calculadora Científica</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <h1>Calculadora Científica</h1>
@@ -13,74 +14,95 @@
 
     <main>
         <hr>
-        <section class="carousel-snap">
-            <div class="carousel-track-snap">
-                <a href="math.html" class="card-snap">
-                    <h3 style="bottom: 10%; right: 10%;">Matemática</h3>
-                </a>
-                <a href="advmath.html" class="card-snap">
-                    <h3 style="top: 10%; left: 10%;">Matemática avanzada</h3>
-                </a>
-                <a href="ph.html" class="card-snap">
-                    <h3 style="top: 10%; right: 10%;">Física</h3>
-                </a>
-                <a href="ch.html" class="card-snap">
-                    <h3 style="bottom: 10%; right: 10%;">Química</h3>
-                </a>
-                <a class="card-snap">
-                    <h3 style="top: 10%; right: 10%;">Biología (próximamente)</h3>
-                </a>
-                <a class="card-snap">
-                    <h3 style="top: 10%; left: 10%;">Bioquímica (próximamente)</h3>
-                </a>
-                <a class="card-snap">
-                    <h3 style="bottom: 10%; left: 10%;">Biotecnología (próximamente)</h3>
-                </a>
-                <a class="card-snap">
-                    <h3 style="bottom: 10%; right: 10%;">Física moderna (próximamente)</h3>
-                </a>
-                <a class="card-snap">
-                    <h3 style="top: 10%; left: 10%;">Ciencias del espacio (próximamente)</h3>
-                </a>
+
+        <!-- CONTENEDOR COMPLETO DEL CARRUSEL -->
+        <div class="carousel-wrapper">
+
+            <!-- Botón izquierdo -->
+            <button class="carousel-btn left">&#10094;</button>
+
+            <!-- Ventana del carrusel -->
+            <div class="carousel-container">
+                <div class="carousel-track-snap">
+
+                    <a href="math.html" class="card-snap">
+                        <h3 style="bottom: 10%; right: 10%;">Matemática</h3>
+                    </a>
+
+                    <a href="advmath.html" class="card-snap">
+                        <h3 style="top: 10%; left: 10%;">Matemática avanzada</h3>
+                    </a>
+
+                    <a href="ph.html" class="card-snap">
+                        <h3 style="top: 10%; right: 10%;">Física</h3>
+                    </a>
+
+                    <a href="ch.html" class="card-snap">
+                        <h3 style="bottom: 10%; right: 10%;">Química</h3>
+                    </a>
+
+                    <a class="card-snap">
+                        <h3 style="top: 10%; right: 10%;">Biología (próximamente)</h3>
+                    </a>
+
+                    <a class="card-snap">
+                        <h3 style="top: 10%; left: 10%;">Bioquímica (próximamente)</h3>
+                    </a>
+
+                    <a class="card-snap">
+                        <h3 style="bottom: 10%; left: 10%;">Biotecnología (próximamente)</h3>
+                    </a>
+
+                    <a class="card-snap">
+                        <h3 style="bottom: 10%; right: 10%;">Física moderna (próximamente)</h3>
+                    </a>
+
+                    <a class="card-snap">
+                        <h3 style="top: 10%; left: 10%;">Ciencias del espacio (próximamente)</h3>
+                    </a>
+
+                </div>
             </div>
-        </section>
+
+            <!-- Botón derecho -->
+            <button class="carousel-btn right">&#10095;</button>
+        </div>
+
     </main>
 
     <footer>
-        <p><i>Consulta las actualizaciones y mejoras de la calculadora en el <a href="https://www.github.com/EzeGamer135/calculadora-cientifica">Repositorio de GitHub</a></i>.</p>
+        <p><i>Consulta las actualizaciones y mejoras de la calculadora en el 
+            <a href="https://www.github.com/EzeGamer135/calculadora-cientifica">Repositorio de GitHub</a></i>.
+        </p>
     </footer>
+
+    <!-- SCRIPT DEL CARRUSEL -->
     <script>
-        const track = document.querySelector('.carousel-track-snap');
-        let isDown = false;
-        let startX;
-        let scrollLeft;
+    const track = document.querySelector(".carousel-track-snap");
+    const cards = document.querySelectorAll(".card-snap");
+    const btnLeft = document.querySelector(".carousel-btn.left");
+    const btnRight = document.querySelector(".carousel-btn.right");
 
-        track.addEventListener('mousedown', (e) => {
-            isDown = true;
-            track.classList.add('dragging'); // opcional: para estilos de arrastre
-            startX = e.pageX - track.offsetLeft;
-            scrollLeft = track.scrollLeft;
-        });
+    let index = 0;
 
-        track.addEventListener('mouseleave', () => {
-            isDown = false;
-            track.classList.remove('dragging');
+    function updateScroll() {
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        track.parentElement.scrollTo({
+            left: cardWidth * index,
+            behavior: "smooth"
         });
+    }
 
-        track.addEventListener('mouseup', () => {
-            isDown = false;
-            track.classList.remove('dragging');
-        });
+    btnRight.onclick = () => {
+        if (index < cards.length - 1) index++;
+        updateScroll();
+    };
 
-        track.addEventListener('mousemove', (e) => {
-            if(!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - track.offsetLeft;
-            const walk = (x - startX) * 2; // velocidad del arrastre
-            track.scrollLeft = scrollLeft - walk;
-        });
+    btnLeft.onclick = () => {
+        if (index > 0) index--;
+        updateScroll();
+    };
     </script>
-
 
 </body>
 </html>
