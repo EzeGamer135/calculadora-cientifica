@@ -1,4 +1,3 @@
-# Calculadora Científica
 > [!TIP]
 > 
 > Se aceptan [Solicitudes de revisión](https://github.com/EzeGamer135/calculadora-cientifica/pulls).
